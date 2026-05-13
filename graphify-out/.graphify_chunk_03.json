@@ -1,0 +1,502 @@
+{
+  "nodes": [
+    {
+      "id": "menubar_icon_mazookie_mb",
+      "label": "Mazookie Menu Bar Icon (Default Black)",
+      "file_type": "image",
+      "source_file": "NextEvent/Assets.xcassets/mazookie_mb.imageset",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "xcode",
+      "contributor": null
+    },
+    {
+      "id": "menubar_icon_mazookie_mb_orange",
+      "label": "Mazookie Menu Bar Icon (Orange Variant)",
+      "file_type": "image",
+      "source_file": "NextEvent/Assets.xcassets/mazookie_mb_orange.imageset",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "xcode",
+      "contributor": null
+    },
+    {
+      "id": "menubar_icon_mazookie_mb_blue",
+      "label": "Mazookie Menu Bar Icon (Blue Variant)",
+      "file_type": "image",
+      "source_file": "NextEvent/Assets.xcassets/mazookie_mb_blue.imageset",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "xcode",
+      "contributor": null
+    },
+    {
+      "id": "menubar_icon_nextevent_mb",
+      "label": "NextEvent Menu Bar Icon (Default)",
+      "file_type": "image",
+      "source_file": "NextEvent/Assets.xcassets/next_event_mb.imageset",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "xcode",
+      "contributor": null
+    },
+    {
+      "id": "menubar_icon_nextevent_mb_orange",
+      "label": "NextEvent Menu Bar Icon (Orange Glow Variant)",
+      "file_type": "image",
+      "source_file": "NextEvent/Assets.xcassets/next_event_mb_orange.imageset",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "xcode",
+      "contributor": null
+    },
+    {
+      "id": "menubar_icon_nextevent_mb_blue",
+      "label": "NextEvent Menu Bar Icon (Blue Glow Variant)",
+      "file_type": "image",
+      "source_file": "NextEvent/Assets.xcassets/next_event_mb_blue.imageset",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "xcode",
+      "contributor": null
+    },
+    {
+      "id": "menubar_icon_mazookie_mb_black40",
+      "label": "Mazookie MB Icon Black @2x (40\u00d740)",
+      "file_type": "image",
+      "source_file": "NextEvent/Assets.xcassets/mazookie_mb.imageset/mazookie_mb_black40.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "menubar_icon_mazookie_mb_black20",
+      "label": "Mazookie MB Icon Black @1x (20\u00d720)",
+      "file_type": "image",
+      "source_file": "NextEvent/Assets.xcassets/mazookie_mb.imageset/mazookie_mb_black20.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "menubar_icon_mazookie_orange_black40",
+      "label": "Mazookie Orange Icon Black @2x (40\u00d740)",
+      "file_type": "image",
+      "source_file": "NextEvent/Assets.xcassets/mazookie_mb_orange.imageset/mazookie_mb_black_orange40.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "menubar_icon_mazookie_orange_black20",
+      "label": "Mazookie Orange Icon Black @1x (20\u00d720)",
+      "file_type": "image",
+      "source_file": "NextEvent/Assets.xcassets/mazookie_mb_orange.imageset/mazookie_mb_black_orange20.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "menubar_icon_mazookie_orange_white40",
+      "label": "Mazookie Orange Icon White @2x (40\u00d740)",
+      "file_type": "image",
+      "source_file": "NextEvent/Assets.xcassets/mazookie_mb_orange.imageset/mazookie_mb_white_orange40.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "menubar_icon_mazookie_orange_white20",
+      "label": "Mazookie Orange Icon White @1x (20\u00d720)",
+      "file_type": "image",
+      "source_file": "NextEvent/Assets.xcassets/mazookie_mb_orange.imageset/mazookie_mb_white_orange20.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "menubar_icon_mazookie_blue_black40",
+      "label": "Mazookie Blue Icon Black @2x (40\u00d740)",
+      "file_type": "image",
+      "source_file": "NextEvent/Assets.xcassets/mazookie_mb_blue.imageset/mazookie_mb_black_blue40.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "menubar_icon_mazookie_blue_black20",
+      "label": "Mazookie Blue Icon Black @1x (20\u00d720)",
+      "file_type": "image",
+      "source_file": "NextEvent/Assets.xcassets/mazookie_mb_blue.imageset/mazookie_mb_black_blue20.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "menubar_icon_mazookie_blue_white40",
+      "label": "Mazookie Blue Icon White @2x (40\u00d740)",
+      "file_type": "image",
+      "source_file": "NextEvent/Assets.xcassets/mazookie_mb_blue.imageset/mazookie_mb_white_blue40.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "menubar_icon_mazookie_blue_white20",
+      "label": "Mazookie Blue Icon White @1x (20\u00d720)",
+      "file_type": "image",
+      "source_file": "NextEvent/Assets.xcassets/mazookie_mb_blue.imageset/mazookie_mb_white_blue20.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "menubar_icon_nextevent_mb_glow",
+      "label": "NextEvent MB Glow Effect @1x",
+      "file_type": "image",
+      "source_file": "NextEvent/Assets.xcassets/next_event_mb.imageset/nexteventmb.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "menubar_icon_nextevent_mb_glow2x",
+      "label": "NextEvent MB Glow Effect @2x",
+      "file_type": "image",
+      "source_file": "NextEvent/Assets.xcassets/next_event_mb.imageset/nexteventmb-1.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "menubar_icon_nextevent_orange_glow",
+      "label": "NextEvent MB Orange Glow @1x",
+      "file_type": "image",
+      "source_file": "NextEvent/Assets.xcassets/next_event_mb_orange.imageset/nexteventmb_glow.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "menubar_icon_nextevent_orange_glow2x",
+      "label": "NextEvent MB Orange Glow @2x",
+      "file_type": "image",
+      "source_file": "NextEvent/Assets.xcassets/next_event_mb_orange.imageset/nexteventmb_glow-1.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "menubar_icon_nextevent_blue_glow",
+      "label": "NextEvent MB Blue Glow @1x",
+      "file_type": "image",
+      "source_file": "NextEvent/Assets.xcassets/next_event_mb_blue.imageset/nexteventmb_glow_blue.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "menubar_icon_nextevent_blue_glow2x",
+      "label": "NextEvent MB Blue Glow @2x",
+      "file_type": "image",
+      "source_file": "NextEvent/Assets.xcassets/next_event_mb_blue.imageset/nexteventmb_glow_blue-1.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "menubar_icon_mazookie_mb",
+      "target": "menubar_icon_mazookie_mb_black40",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/Assets.xcassets/mazookie_mb.imageset",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "menubar_icon_mazookie_mb",
+      "target": "menubar_icon_mazookie_mb_black20",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/Assets.xcassets/mazookie_mb.imageset",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "menubar_icon_mazookie_mb_orange",
+      "target": "menubar_icon_mazookie_orange_black40",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/Assets.xcassets/mazookie_mb_orange.imageset",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "menubar_icon_mazookie_mb_orange",
+      "target": "menubar_icon_mazookie_orange_black20",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/Assets.xcassets/mazookie_mb_orange.imageset",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "menubar_icon_mazookie_mb_orange",
+      "target": "menubar_icon_mazookie_orange_white40",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/Assets.xcassets/mazookie_mb_orange.imageset",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "menubar_icon_mazookie_mb_orange",
+      "target": "menubar_icon_mazookie_orange_white20",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/Assets.xcassets/mazookie_mb_orange.imageset",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "menubar_icon_mazookie_mb_blue",
+      "target": "menubar_icon_mazookie_blue_black40",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/Assets.xcassets/mazookie_mb_blue.imageset",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "menubar_icon_mazookie_mb_blue",
+      "target": "menubar_icon_mazookie_blue_black20",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/Assets.xcassets/mazookie_mb_blue.imageset",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "menubar_icon_mazookie_mb_blue",
+      "target": "menubar_icon_mazookie_blue_white40",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/Assets.xcassets/mazookie_mb_blue.imageset",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "menubar_icon_mazookie_mb_blue",
+      "target": "menubar_icon_mazookie_blue_white20",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/Assets.xcassets/mazookie_mb_blue.imageset",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "menubar_icon_nextevent_mb",
+      "target": "menubar_icon_nextevent_mb_glow",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/Assets.xcassets/next_event_mb.imageset",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "menubar_icon_nextevent_mb",
+      "target": "menubar_icon_nextevent_mb_glow2x",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/Assets.xcassets/next_event_mb.imageset",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "menubar_icon_nextevent_mb_orange",
+      "target": "menubar_icon_nextevent_orange_glow",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/Assets.xcassets/next_event_mb_orange.imageset",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "menubar_icon_nextevent_mb_orange",
+      "target": "menubar_icon_nextevent_orange_glow2x",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/Assets.xcassets/next_event_mb_orange.imageset",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "menubar_icon_nextevent_mb_blue",
+      "target": "menubar_icon_nextevent_blue_glow",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/Assets.xcassets/next_event_mb_blue.imageset",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "menubar_icon_nextevent_mb_blue",
+      "target": "menubar_icon_nextevent_blue_glow2x",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/Assets.xcassets/next_event_mb_blue.imageset",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "menubar_icon_mazookie_mb",
+      "target": "appdelegate_statusitem",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": null,
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "menubar_icon_nextevent_mb",
+      "target": "appdelegate_statusitem",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": null,
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "menubar_icon_nextevent_mb_orange",
+      "target": "appdelegate_glow",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": null,
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "menubar_icon_nextevent_mb_blue",
+      "target": "appdelegate_glow",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": null,
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "menubar_icon_mazookie_mb_orange",
+      "target": "appdelegate_glow",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": null,
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "menubar_icon_mazookie_mb_blue",
+      "target": "appdelegate_glow",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": null,
+      "source_location": null,
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "menubar_icon_style_variants",
+      "label": "Menu Bar Icon Style Variants (Default + Orange + Blue)",
+      "nodes": [
+        "menubar_icon_nextevent_mb",
+        "menubar_icon_nextevent_mb_orange",
+        "menubar_icon_nextevent_mb_blue",
+        "menubar_icon_mazookie_mb",
+        "menubar_icon_mazookie_mb_orange",
+        "menubar_icon_mazookie_mb_blue"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": null
+    },
+    {
+      "id": "glow_icon_set",
+      "label": "Glow Effect Icons (Orange & Blue Variants)",
+      "nodes": [
+        "menubar_icon_nextevent_orange_glow",
+        "menubar_icon_nextevent_orange_glow2x",
+        "menubar_icon_nextevent_blue_glow",
+        "menubar_icon_nextevent_blue_glow2x"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": null
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

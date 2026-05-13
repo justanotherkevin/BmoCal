@@ -1,0 +1,434 @@
+{
+  "communities": {
+    "0": [
+      "aboutboxvc_help",
+      "aboutboxvc_main",
+      "acknowledgments",
+      "alertboxvc_countdown",
+      "alertboxvc_main",
+      "appdelegate_main",
+      "appdelegate_popover",
+      "appdelegate_timer",
+      "bridging_header",
+      "calendartools_calendarlookup",
+      "calendartools_main",
+      "calendartools_queries",
+      "concept_blocking_alert",
+      "concept_eventkit_integration",
+      "concept_flash_alert",
+      "concept_menubar_widget",
+      "concept_next_event_app",
+      "concept_workday_timer",
+      "nexteventviewcontroller_main",
+      "nexteventviewcontroller_notification",
+      "nexteventviewcontroller_statusbar",
+      "nexteventviewcontroller_table",
+      "preferencesvc_calendar_selector",
+      "preferencesvc_main",
+      "rationale_opensource",
+      "readme_documentation",
+      "readme_features",
+      "readme_mazookie",
+      "readme_versions",
+      "settings_persistence",
+      "settings_struct",
+      "timestringtools_fuzzy",
+      "timestringtools_main",
+      "timestringtools_workday"
+    ],
+    "1": [
+      "nextevent_nexteventviewcontroller_swift",
+      "nexteventviewcontroller_date",
+      "nexteventviewcontroller_date_toglobaltime",
+      "nexteventviewcontroller_date_tolocaltime",
+      "nexteventviewcontroller_date_tostring",
+      "nexteventviewcontroller_kstablecellview",
+      "nexteventviewcontroller_nexteventviewcontroller",
+      "nexteventviewcontroller_nexteventviewcontroller_alert",
+      "nexteventviewcontroller_nexteventviewcontroller_freshcontroller",
+      "nexteventviewcontroller_nexteventviewcontroller_getdatefromeventitem",
+      "nexteventviewcontroller_nexteventviewcontroller_getleadtimestrings",
+      "nexteventviewcontroller_nexteventviewcontroller_getlocationfromeventitem",
+      "nexteventviewcontroller_nexteventviewcontroller_getnextevent",
+      "nexteventviewcontroller_nexteventviewcontroller_getnexteventstatus",
+      "nexteventviewcontroller_nexteventviewcontroller_gettimestring",
+      "nexteventviewcontroller_nexteventviewcontroller_gettraveltimefromeventitem",
+      "nexteventviewcontroller_nexteventviewcontroller_isallday",
+      "nexteventviewcontroller_nexteventviewcontroller_launchcalendar",
+      "nexteventviewcontroller_nexteventviewcontroller_launchreminders",
+      "nexteventviewcontroller_nexteventviewcontroller_notify",
+      "nexteventviewcontroller_nexteventviewcontroller_numberofrows",
+      "nexteventviewcontroller_nexteventviewcontroller_openhelp",
+      "nexteventviewcontroller_nexteventviewcontroller_opennexteventpreferencepanel",
+      "nexteventviewcontroller_nexteventviewcontroller_refreshall",
+      "nexteventviewcontroller_nexteventviewcontroller_setcontrollerviewsize",
+      "nexteventviewcontroller_nexteventviewcontroller_tableview",
+      "nexteventviewcontroller_nexteventviewcontroller_update",
+      "nexteventviewcontroller_nexteventviewcontroller_viewdidload",
+      "nstablecellview"
+    ],
+    "2": [
+      "appdelegate_appdelegate",
+      "appdelegate_appdelegate_accesserrordialog",
+      "appdelegate_appdelegate_applicationdidfinishlaunching",
+      "appdelegate_appdelegate_applicationwillterminate",
+      "appdelegate_appdelegate_closepopover",
+      "appdelegate_appdelegate_combineimages",
+      "appdelegate_appdelegate_firetimer",
+      "appdelegate_appdelegate_getmidnight",
+      "appdelegate_appdelegate_glow",
+      "appdelegate_appdelegate_itemschanged",
+      "appdelegate_appdelegate_onclickstatusitem",
+      "appdelegate_appdelegate_openabout",
+      "appdelegate_appdelegate_openhelp",
+      "appdelegate_appdelegate_opennexteventpreferencepanel",
+      "appdelegate_appdelegate_processcommandline",
+      "appdelegate_appdelegate_refreshall",
+      "appdelegate_appdelegate_registernotification",
+      "appdelegate_appdelegate_seticons",
+      "appdelegate_appdelegate_showpopover",
+      "appdelegate_appdelegate_startglow",
+      "appdelegate_appdelegate_stopglow",
+      "appdelegate_appdelegate_togglepopover",
+      "appdelegate_appdelegate_update",
+      "nextevent_appdelegate_swift",
+      "nsapplicationdelegate"
+    ],
+    "3": [
+      "calendartools_calendartools",
+      "calendartools_calendartools_get24hours",
+      "calendartools_calendartools_getallcalendars",
+      "calendartools_calendartools_getallreminderlists",
+      "calendartools_calendartools_getcalendarbyidentifier",
+      "calendartools_calendartools_getcalendarbynames",
+      "calendartools_calendartools_getcalendarcolorbyname",
+      "calendartools_calendartools_getcalendarnames",
+      "calendartools_calendartools_getevents",
+      "calendartools_calendartools_geteventsandreminderonday",
+      "calendartools_calendartools_getreminderlistbyidentifier",
+      "calendartools_calendartools_getreminderlistbynames",
+      "calendartools_calendartools_getreminderlistcolorbyname",
+      "calendartools_calendartools_getreminderlistnames",
+      "calendartools_calendartools_getreminders",
+      "calendartools_calendartools_gettodayall",
+      "calendartools_calendartools_gettopn",
+      "calendartools_calendartools_haseventsonday",
+      "calendartools_calendartools_hasremindersonday",
+      "calendartools_calendartools_registernotification",
+      "calendartools_calendartools_requestaccess",
+      "calendartools_date",
+      "nextevent_calendartools_swift"
+    ],
+    "4": [
+      "appdelegate_glow",
+      "menubar_icon_mazookie_blue_black20",
+      "menubar_icon_mazookie_blue_black40",
+      "menubar_icon_mazookie_blue_white20",
+      "menubar_icon_mazookie_blue_white40",
+      "menubar_icon_mazookie_mb_blue",
+      "menubar_icon_mazookie_mb_orange",
+      "menubar_icon_mazookie_orange_black20",
+      "menubar_icon_mazookie_orange_black40",
+      "menubar_icon_mazookie_orange_white20",
+      "menubar_icon_mazookie_orange_white40",
+      "menubar_icon_nextevent_blue_glow",
+      "menubar_icon_nextevent_blue_glow2x",
+      "menubar_icon_nextevent_mb_blue",
+      "menubar_icon_nextevent_mb_orange",
+      "menubar_icon_nextevent_orange_glow",
+      "menubar_icon_nextevent_orange_glow2x"
+    ],
+    "5": [
+      "nextevent_timestringtools_swift",
+      "nsobject",
+      "timestringtools_timestringtools",
+      "timestringtools_timestringtools_getextrabits",
+      "timestringtools_timestringtools_getfulltimestring",
+      "timestringtools_timestringtools_getfuzzystatusstring",
+      "timestringtools_timestringtools_getfuzzytimestring",
+      "timestringtools_timestringtools_getleadtime",
+      "timestringtools_timestringtools_getshorttimestring",
+      "timestringtools_timestringtools_getstatusstring",
+      "timestringtools_timestringtools_gettimestring",
+      "timestringtools_timestringtools_gettimestringfromseconds",
+      "timestringtools_timestringtools_workdayprogressbar",
+      "timestringtools_timestringtools_workdayremainingstring"
+    ],
+    "6": [
+      "mzalertboxviewcontroller_mzalertboxviewcontroller",
+      "mzalertboxviewcontroller_mzalertboxviewcontroller_eventlocationbuttonpress",
+      "mzalertboxviewcontroller_mzalertboxviewcontroller_firetimer",
+      "mzalertboxviewcontroller_mzalertboxviewcontroller_freshcontroller",
+      "mzalertboxviewcontroller_mzalertboxviewcontroller_okaypress",
+      "mzalertboxviewcontroller_mzalertboxviewcontroller_resizewindow",
+      "mzalertboxviewcontroller_mzalertboxviewcontroller_updatetitle",
+      "mzalertboxviewcontroller_mzalertboxviewcontroller_viewdidappear",
+      "mzalertboxviewcontroller_mzalertboxviewcontroller_viewwillappear",
+      "mzalertboxviewcontroller_mzalertboxwindowcontroller",
+      "mzalertboxviewcontroller_mzalertboxwindowcontroller_windowdidload",
+      "nextevent_mzalertboxviewcontroller_swift",
+      "nsviewcontroller",
+      "nswindowcontroller"
+    ],
+    "7": [
+      "nextevent_nexteventpreferencesviewcontroller_swift",
+      "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller",
+      "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_buttonclicked",
+      "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_enablebuttons",
+      "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_getstate",
+      "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_numberofrows",
+      "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_refresh",
+      "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_tableview",
+      "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_updatesettings",
+      "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_viewdidappear",
+      "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_viewdidload",
+      "nstableviewdatasource",
+      "nstableviewdelegate"
+    ],
+    "8": [
+      "mzaboutboxviewcontroller_mzaboutboxviewcontroller",
+      "mzaboutboxviewcontroller_mzaboutboxviewcontroller_forcehelp",
+      "mzaboutboxviewcontroller_mzaboutboxviewcontroller_freshcontroller",
+      "mzaboutboxviewcontroller_mzaboutboxviewcontroller_resizewindow",
+      "mzaboutboxviewcontroller_mzaboutboxviewcontroller_reviewapp",
+      "mzaboutboxviewcontroller_mzaboutboxviewcontroller_setmacid",
+      "mzaboutboxviewcontroller_mzaboutboxviewcontroller_togglehelp",
+      "mzaboutboxviewcontroller_mzaboutboxviewcontroller_viewdidload",
+      "mzaboutboxviewcontroller_mzaboutboxviewcontroller_viewwillappear",
+      "mzaboutboxviewcontroller_mzaboutboxviewcontroller_visitwebsite",
+      "nextevent_mzaboutboxviewcontroller_swift"
+    ],
+    "9": [
+      "appicon_1024",
+      "appicon_128",
+      "appicon_16",
+      "appicon_256",
+      "appicon_256_base",
+      "appicon_32",
+      "appicon_32_base",
+      "appicon_512",
+      "appicon_512_base",
+      "appicon_64",
+      "appicon_imageset"
+    ],
+    "10": [
+      "codable",
+      "nextevent_settings_swift",
+      "settings_settings",
+      "settings_settings_archive",
+      "settings_settings_archivepath",
+      "settings_settings_init",
+      "settings_settings_reset",
+      "settings_settings_unarchive"
+    ],
+    "11": [
+      "appdelegate_statusitem",
+      "menubar_icon_mazookie_mb",
+      "menubar_icon_mazookie_mb_black20",
+      "menubar_icon_mazookie_mb_black40",
+      "menubar_icon_nextevent_mb",
+      "menubar_icon_nextevent_mb_glow",
+      "menubar_icon_nextevent_mb_glow2x"
+    ],
+    "12": [
+      "mazookie_full_logo_small",
+      "mazookie_name_logo_sticker"
+    ],
+    "13": [
+      "reminders_16_png",
+      "reminders_32_png"
+    ],
+    "14": [
+      "calendar_16_png",
+      "calendar_32_png"
+    ],
+    "15": [
+      "gear16_png",
+      "gear32_png"
+    ],
+    "16": [
+      "nextevent_nextevent_bridging_header_h"
+    ],
+    "17": [
+      "appdelegate_calendar_access"
+    ],
+    "18": [
+      "screenshot1_app_screenshot"
+    ],
+    "19": [
+      "help_image1_menubar_widget"
+    ],
+    "20": [
+      "help_image2_preferences"
+    ]
+  },
+  "cohesion": {
+    "0": 0.08,
+    "1": 0.13,
+    "2": 0.14,
+    "3": 0.14,
+    "4": 0.12,
+    "5": 0.16,
+    "6": 0.18,
+    "7": 0.23,
+    "8": 0.24,
+    "9": 0.18,
+    "10": 0.43,
+    "11": 0.29,
+    "12": 1.0,
+    "13": 1.0,
+    "14": 1.0,
+    "15": 1.0,
+    "16": 1.0,
+    "17": 1.0,
+    "18": 1.0,
+    "19": 1.0,
+    "20": 1.0
+  },
+  "gods": [
+    {
+      "id": "nexteventviewcontroller_nexteventviewcontroller",
+      "label": "NextEventViewController",
+      "edges": 25
+    },
+    {
+      "id": "appdelegate_appdelegate",
+      "label": "AppDelegate",
+      "edges": 25
+    },
+    {
+      "id": "calendartools_calendartools",
+      "label": "CalendarTools",
+      "edges": 22
+    },
+    {
+      "id": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller",
+      "label": "NextEventPreferencesViewController",
+      "edges": 13
+    },
+    {
+      "id": "timestringtools_timestringtools",
+      "label": "TimeStringTools",
+      "edges": 13
+    },
+    {
+      "id": "appdelegate_main",
+      "label": "AppDelegate - Application Entry Point & Coordinator",
+      "edges": 13
+    },
+    {
+      "id": "nexteventviewcontroller_date",
+      "label": "Date",
+      "edges": 11
+    },
+    {
+      "id": "mzaboutboxviewcontroller_mzaboutboxviewcontroller",
+      "label": "MZAboutBoxViewController",
+      "edges": 11
+    },
+    {
+      "id": "appicon_imageset",
+      "label": "NextEvent Application Icon Set",
+      "edges": 11
+    },
+    {
+      "id": "mzalertboxviewcontroller_mzalertboxviewcontroller",
+      "label": "MZAlertBoxViewController",
+      "edges": 10
+    }
+  ],
+  "surprises": [
+    {
+      "source": "AppDelegate - Application Entry Point & Coordinator",
+      "target": "macOS Menu Bar Widget Pattern",
+      "source_files": [
+        "NextEvent/AppDelegate.swift",
+        "README.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "conceptually_related_to",
+      "why": "inferred connection - not explicitly stated in source; crosses file types (code \u2194 doc); connects across different repos/directories; peripheral node `macOS Menu Bar Widget Pattern` unexpectedly reaches hub `AppDelegate - Application Entry Point & Coordinator`"
+    },
+    {
+      "source": "Menu Bar Icon Glow Effect",
+      "target": "15-Minute Flash Warning for Upcoming Events",
+      "source_files": [
+        "NextEvent/AppDelegate.swift",
+        "README.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "conceptually_related_to",
+      "why": "inferred connection - not explicitly stated in source; crosses file types (code \u2194 doc); connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "AppDelegate - Application Entry Point & Coordinator",
+      "target": "15-Minute Flash Warning for Upcoming Events",
+      "source_files": [
+        "NextEvent/AppDelegate.swift",
+        "README.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "conceptually_related_to",
+      "why": "inferred connection - not explicitly stated in source; crosses file types (code \u2194 doc); connects across different repos/directories"
+    },
+    {
+      "source": "AppDelegate - Application Entry Point & Coordinator",
+      "target": "NextEvent Application (macOS Menu Bar Countdown Widget)",
+      "source_files": [
+        "NextEvent/AppDelegate.swift",
+        "README.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "conceptually_related_to",
+      "why": "inferred connection - not explicitly stated in source; crosses file types (code \u2194 doc); connects across different repos/directories"
+    },
+    {
+      "source": "Event Notification System (Blocking + System Alerts)",
+      "target": "Blocking Alert on Event Start",
+      "source_files": [
+        "NextEvent/NextEventViewController.swift",
+        "README.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "conceptually_related_to",
+      "why": "inferred connection - not explicitly stated in source; crosses file types (code \u2194 doc); connects across different repos/directories"
+    }
+  ],
+  "questions": [
+    {
+      "type": "ambiguous_edge",
+      "question": "What is the exact relationship between `AppDelegate - Application Entry Point & Coordinator` and `Bridging Header (CommonCrypto import)`?",
+      "why": "Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `AppDelegate - Application Entry Point & Coordinator` connect `Community 0` to `Community 11`, `Community 4`?",
+      "why": "High betweenness centrality (0.070) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `NextEventViewController` connect `Community 1` to `Community 6`, `Community 7`?",
+      "why": "High betweenness centrality (0.057) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `AppDelegate` connect `Community 2` to `Community 5`?",
+      "why": "High betweenness centrality (0.056) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `NSPopover (Event List Popup)`, `Calendar/Reminder Access Request`, `Event Table View (KSTableCellView)` to the rest of the system?",
+      "why": "48 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 0` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.08 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 1` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.13 - nodes in this community are weakly interconnected."
+    }
+  ]
+}

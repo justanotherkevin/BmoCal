@@ -1,0 +1,261 @@
+{
+  "nodes": [
+    {
+      "id": "appicon_imageset",
+      "label": "NextEvent Application Icon Set",
+      "file_type": "image",
+      "source_file": "NextEvent/Assets.xcassets/AppIcon.appiconset",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "xcode",
+      "contributor": null
+    },
+    {
+      "id": "appicon_16",
+      "label": "App Icon @1x (16\u00d716)",
+      "file_type": "image",
+      "source_file": "NextEvent/Assets.xcassets/AppIcon.appiconset/icon_16x16.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "appicon_32",
+      "label": "App Icon @2x (32\u00d732)",
+      "file_type": "image",
+      "source_file": "NextEvent/Assets.xcassets/AppIcon.appiconset/icon_16x16@2x.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "appicon_32_base",
+      "label": "App Icon @1x (32\u00d732)",
+      "file_type": "image",
+      "source_file": "NextEvent/Assets.xcassets/AppIcon.appiconset/icon_32x32.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "appicon_64",
+      "label": "App Icon @2x (64\u00d764)",
+      "file_type": "image",
+      "source_file": "NextEvent/Assets.xcassets/AppIcon.appiconset/icon_32x32@2x.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "appicon_128",
+      "label": "App Icon @1x (128\u00d7128)",
+      "file_type": "image",
+      "source_file": "NextEvent/Assets.xcassets/AppIcon.appiconset/icon_128x128.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "appicon_256",
+      "label": "App Icon @2x (256\u00d7256)",
+      "file_type": "image",
+      "source_file": "NextEvent/Assets.xcassets/AppIcon.appiconset/icon_128x128@2x.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "appicon_256_base",
+      "label": "App Icon @1x (256\u00d7256)",
+      "file_type": "image",
+      "source_file": "NextEvent/Assets.xcassets/AppIcon.appiconset/icon_256x256.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "appicon_512",
+      "label": "App Icon @2x (512\u00d7512)",
+      "file_type": "image",
+      "source_file": "NextEvent/Assets.xcassets/AppIcon.appiconset/icon_256x256@2x.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "appicon_512_base",
+      "label": "App Icon @1x (512\u00d7512)",
+      "file_type": "image",
+      "source_file": "NextEvent/Assets.xcassets/AppIcon.appiconset/icon_512x512.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "appicon_1024",
+      "label": "App Icon @2x (1024\u00d71024)",
+      "file_type": "image",
+      "source_file": "NextEvent/Assets.xcassets/AppIcon.appiconset/icon_512x512@2x.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "appicon_imageset",
+      "target": "appicon_16",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/Assets.xcassets/AppIcon.appiconset",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "appicon_imageset",
+      "target": "appicon_32",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/Assets.xcassets/AppIcon.appiconset",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "appicon_imageset",
+      "target": "appicon_32_base",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/Assets.xcassets/AppIcon.appiconset",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "appicon_imageset",
+      "target": "appicon_64",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/Assets.xcassets/AppIcon.appiconset",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "appicon_imageset",
+      "target": "appicon_128",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/Assets.xcassets/AppIcon.appiconset",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "appicon_imageset",
+      "target": "appicon_256",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/Assets.xcassets/AppIcon.appiconset",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "appicon_imageset",
+      "target": "appicon_256_base",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/Assets.xcassets/AppIcon.appiconset",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "appicon_imageset",
+      "target": "appicon_512",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/Assets.xcassets/AppIcon.appiconset",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "appicon_imageset",
+      "target": "appicon_512_base",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/Assets.xcassets/AppIcon.appiconset",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "appicon_imageset",
+      "target": "appicon_1024",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/Assets.xcassets/AppIcon.appiconset",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "appicon_imageset",
+      "target": "concept_next_event_app",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": null,
+      "source_location": null,
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "app_icon_resolution_set",
+      "label": "macOS App Icon Resolution Set (1x, 2x)",
+      "nodes": [
+        "appicon_16",
+        "appicon_32",
+        "appicon_32_base",
+        "appicon_64",
+        "appicon_128",
+        "appicon_256",
+        "appicon_256_base",
+        "appicon_512",
+        "appicon_512_base",
+        "appicon_1024"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/Assets.xcassets/AppIcon.appiconset"
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

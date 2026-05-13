@@ -3,6 +3,7 @@
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
 ## Build generated
+builds/
 build/
 DerivedData
 
@@ -24,3 +25,6 @@ xcuserdata
 
 # Graphify
 graphify-out/cache/
+
+# AI agent
+.deepseek

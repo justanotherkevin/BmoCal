@@ -1,0 +1,3172 @@
+{
+  "nodes": [
+    {
+      "id": "nextevent_nexteventpreferencesviewcontroller_swift",
+      "label": "NextEventPreferencesViewController.swift",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": "L1"
+    },
+    {
+      "id": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller",
+      "label": "NextEventPreferencesViewController",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": "L13"
+    },
+    {
+      "id": "nsviewcontroller",
+      "label": "NSViewController",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_viewdidload",
+      "label": ".viewDidLoad()",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": "L38"
+    },
+    {
+      "id": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_viewdidappear",
+      "label": ".viewDidAppear()",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": "L48"
+    },
+    {
+      "id": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_refresh",
+      "label": ".refresh()",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": "L52"
+    },
+    {
+      "id": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_enablebuttons",
+      "label": ".enableButtons()",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": "L83"
+    },
+    {
+      "id": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_getstate",
+      "label": ".getState()",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": "L95"
+    },
+    {
+      "id": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_updatesettings",
+      "label": ".updateSettings()",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": "L109"
+    },
+    {
+      "id": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_buttonclicked",
+      "label": ".buttonClicked()",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": "L139"
+    },
+    {
+      "id": "nstableviewdatasource",
+      "label": "NSTableViewDataSource",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "nstableviewdelegate",
+      "label": "NSTableViewDelegate",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_numberofrows",
+      "label": ".numberOfRows()",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": "L155"
+    },
+    {
+      "id": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_tableview",
+      "label": ".tableView()",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": "L159"
+    },
+    {
+      "id": "nextevent_nexteventviewcontroller_swift",
+      "label": "NextEventViewController.swift",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L1"
+    },
+    {
+      "id": "nexteventviewcontroller_date",
+      "label": "Date",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L13"
+    },
+    {
+      "id": "nexteventviewcontroller_date_tolocaltime",
+      "label": ".toLocalTime()",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L16"
+    },
+    {
+      "id": "nexteventviewcontroller_date_toglobaltime",
+      "label": ".toGlobalTime()",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L23"
+    },
+    {
+      "id": "nexteventviewcontroller_date_tostring",
+      "label": ".toString()",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L28"
+    },
+    {
+      "id": "nexteventviewcontroller_kstablecellview",
+      "label": "KSTableCellView",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L35"
+    },
+    {
+      "id": "nstablecellview",
+      "label": "NSTableCellView",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "nexteventviewcontroller_nexteventviewcontroller",
+      "label": "NextEventViewController",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L46"
+    },
+    {
+      "id": "nsviewcontroller",
+      "label": "NSViewController",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "nexteventviewcontroller_nexteventviewcontroller_viewdidload",
+      "label": ".viewDidLoad()",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L55"
+    },
+    {
+      "id": "nexteventviewcontroller_nexteventviewcontroller_setcontrollerviewsize",
+      "label": ".setControllerViewSize()",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L72"
+    },
+    {
+      "id": "nexteventviewcontroller_nexteventviewcontroller_getdatefromeventitem",
+      "label": ".getDateFromEventItem()",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L89"
+    },
+    {
+      "id": "nexteventviewcontroller_nexteventviewcontroller_getlocationfromeventitem",
+      "label": ".getLocationFromEventItem()",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L101"
+    },
+    {
+      "id": "nexteventviewcontroller_nexteventviewcontroller_gettraveltimefromeventitem",
+      "label": ".getTravelTimeFromEventItem()",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L124"
+    },
+    {
+      "id": "nexteventviewcontroller_nexteventviewcontroller_isallday",
+      "label": ".isAllDay()",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L134"
+    },
+    {
+      "id": "nexteventviewcontroller_nexteventviewcontroller_gettimestring",
+      "label": ".getTimeString()",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L145"
+    },
+    {
+      "id": "nexteventviewcontroller_nexteventviewcontroller_getleadtimestrings",
+      "label": ".getLeadTimeStrings()",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L161"
+    },
+    {
+      "id": "nexteventviewcontroller_nexteventviewcontroller_getnextevent",
+      "label": ".getNextEvent()",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L193"
+    },
+    {
+      "id": "nexteventviewcontroller_nexteventviewcontroller_getnexteventstatus",
+      "label": ".getNextEventStatus()",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L204"
+    },
+    {
+      "id": "nexteventviewcontroller_nexteventviewcontroller_openhelp",
+      "label": ".openHelp()",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L272"
+    },
+    {
+      "id": "nexteventviewcontroller_nexteventviewcontroller_opennexteventpreferencepanel",
+      "label": ".openNextEventPreferencePanel()",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L277"
+    },
+    {
+      "id": "nexteventviewcontroller_nexteventviewcontroller_update",
+      "label": ".update()",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L282"
+    },
+    {
+      "id": "nexteventviewcontroller_nexteventviewcontroller_alert",
+      "label": ".alert()",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L308"
+    },
+    {
+      "id": "nexteventviewcontroller_nexteventviewcontroller_notify",
+      "label": ".notify()",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L354"
+    },
+    {
+      "id": "nexteventviewcontroller_nexteventviewcontroller_refreshall",
+      "label": ".refreshAll()",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L447"
+    },
+    {
+      "id": "nexteventviewcontroller_nexteventviewcontroller_launchcalendar",
+      "label": ".launchCalendar()",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L480"
+    },
+    {
+      "id": "nexteventviewcontroller_nexteventviewcontroller_launchreminders",
+      "label": ".launchReminders()",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L484"
+    },
+    {
+      "id": "nexteventviewcontroller_nexteventviewcontroller_freshcontroller",
+      "label": ".freshController()",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L490"
+    },
+    {
+      "id": "nstableviewdatasource",
+      "label": "NSTableViewDataSource",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "nstableviewdelegate",
+      "label": "NSTableViewDelegate",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "nexteventviewcontroller_nexteventviewcontroller_numberofrows",
+      "label": ".numberOfRows()",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L503"
+    },
+    {
+      "id": "nexteventviewcontroller_nexteventviewcontroller_tableview",
+      "label": ".tableView()",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L507"
+    },
+    {
+      "id": "nextevent_timestringtools_swift",
+      "label": "TimeStringTools.swift",
+      "file_type": "code",
+      "source_file": "NextEvent/TimeStringTools.swift",
+      "source_location": "L1"
+    },
+    {
+      "id": "timestringtools_timestringtools",
+      "label": "TimeStringTools",
+      "file_type": "code",
+      "source_file": "NextEvent/TimeStringTools.swift",
+      "source_location": "L12"
+    },
+    {
+      "id": "nsobject",
+      "label": "NSObject",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "timestringtools_timestringtools_getextrabits",
+      "label": ".getExtraBits()",
+      "file_type": "code",
+      "source_file": "NextEvent/TimeStringTools.swift",
+      "source_location": "L28"
+    },
+    {
+      "id": "timestringtools_timestringtools_getstatusstring",
+      "label": ".getStatusString()",
+      "file_type": "code",
+      "source_file": "NextEvent/TimeStringTools.swift",
+      "source_location": "L49"
+    },
+    {
+      "id": "timestringtools_timestringtools_getleadtime",
+      "label": ".getLeadTime()",
+      "file_type": "code",
+      "source_file": "NextEvent/TimeStringTools.swift",
+      "source_location": "L64"
+    },
+    {
+      "id": "timestringtools_timestringtools_gettimestring",
+      "label": ".getTimeString()",
+      "file_type": "code",
+      "source_file": "NextEvent/TimeStringTools.swift",
+      "source_location": "L121"
+    },
+    {
+      "id": "timestringtools_timestringtools_gettimestringfromseconds",
+      "label": ".getTimeStringFromSeconds()",
+      "file_type": "code",
+      "source_file": "NextEvent/TimeStringTools.swift",
+      "source_location": "L173"
+    },
+    {
+      "id": "timestringtools_timestringtools_getfuzzytimestring",
+      "label": ".getFuzzyTimeString()",
+      "file_type": "code",
+      "source_file": "NextEvent/TimeStringTools.swift",
+      "source_location": "L226"
+    },
+    {
+      "id": "timestringtools_timestringtools_getfuzzystatusstring",
+      "label": ".getFuzzyStatusString()",
+      "file_type": "code",
+      "source_file": "NextEvent/TimeStringTools.swift",
+      "source_location": "L287"
+    },
+    {
+      "id": "timestringtools_timestringtools_workdayprogressbar",
+      "label": ".workdayProgressBar()",
+      "file_type": "code",
+      "source_file": "NextEvent/TimeStringTools.swift",
+      "source_location": "L347"
+    },
+    {
+      "id": "timestringtools_timestringtools_workdayremainingstring",
+      "label": ".workdayRemainingString()",
+      "file_type": "code",
+      "source_file": "NextEvent/TimeStringTools.swift",
+      "source_location": "L361"
+    },
+    {
+      "id": "timestringtools_timestringtools_getshorttimestring",
+      "label": ".getShortTimeString()",
+      "file_type": "code",
+      "source_file": "NextEvent/TimeStringTools.swift",
+      "source_location": "L372"
+    },
+    {
+      "id": "timestringtools_timestringtools_getfulltimestring",
+      "label": ".getFullTimeString()",
+      "file_type": "code",
+      "source_file": "NextEvent/TimeStringTools.swift",
+      "source_location": "L399"
+    },
+    {
+      "id": "nextevent_settings_swift",
+      "label": "Settings.swift",
+      "file_type": "code",
+      "source_file": "NextEvent/Settings.swift",
+      "source_location": "L1"
+    },
+    {
+      "id": "settings_settings",
+      "label": "Settings",
+      "file_type": "code",
+      "source_file": "NextEvent/Settings.swift",
+      "source_location": "L12"
+    },
+    {
+      "id": "nsobject",
+      "label": "NSObject",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "codable",
+      "label": "Codable",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "settings_settings_init",
+      "label": ".init()",
+      "file_type": "code",
+      "source_file": "NextEvent/Settings.swift",
+      "source_location": "L40"
+    },
+    {
+      "id": "settings_settings_unarchive",
+      "label": ".unarchive()",
+      "file_type": "code",
+      "source_file": "NextEvent/Settings.swift",
+      "source_location": "L45"
+    },
+    {
+      "id": "settings_settings_archive",
+      "label": ".archive()",
+      "file_type": "code",
+      "source_file": "NextEvent/Settings.swift",
+      "source_location": "L54"
+    },
+    {
+      "id": "settings_settings_archivepath",
+      "label": ".archivePath()",
+      "file_type": "code",
+      "source_file": "NextEvent/Settings.swift",
+      "source_location": "L59"
+    },
+    {
+      "id": "settings_settings_reset",
+      "label": ".reset()",
+      "file_type": "code",
+      "source_file": "NextEvent/Settings.swift",
+      "source_location": "L64"
+    },
+    {
+      "id": "nextevent_mzalertboxviewcontroller_swift",
+      "label": "MZAlertBoxViewController.swift",
+      "file_type": "code",
+      "source_file": "NextEvent/MZAlertBoxViewController.swift",
+      "source_location": "L1"
+    },
+    {
+      "id": "mzalertboxviewcontroller_mzalertboxwindowcontroller",
+      "label": "MZAlertBoxWindowController",
+      "file_type": "code",
+      "source_file": "NextEvent/MZAlertBoxViewController.swift",
+      "source_location": "L12"
+    },
+    {
+      "id": "nswindowcontroller",
+      "label": "NSWindowController",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "mzalertboxviewcontroller_mzalertboxwindowcontroller_windowdidload",
+      "label": ".windowDidLoad()",
+      "file_type": "code",
+      "source_file": "NextEvent/MZAlertBoxViewController.swift",
+      "source_location": "L13"
+    },
+    {
+      "id": "mzalertboxviewcontroller_mzalertboxviewcontroller",
+      "label": "MZAlertBoxViewController",
+      "file_type": "code",
+      "source_file": "NextEvent/MZAlertBoxViewController.swift",
+      "source_location": "L20"
+    },
+    {
+      "id": "nsviewcontroller",
+      "label": "NSViewController",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "mzalertboxviewcontroller_mzalertboxviewcontroller_okaypress",
+      "label": ".okayPress()",
+      "file_type": "code",
+      "source_file": "NextEvent/MZAlertBoxViewController.swift",
+      "source_location": "L34"
+    },
+    {
+      "id": "mzalertboxviewcontroller_mzalertboxviewcontroller_eventlocationbuttonpress",
+      "label": ".eventLocationButtonPress()",
+      "file_type": "code",
+      "source_file": "NextEvent/MZAlertBoxViewController.swift",
+      "source_location": "L43"
+    },
+    {
+      "id": "mzalertboxviewcontroller_mzalertboxviewcontroller_resizewindow",
+      "label": ".resizeWindow()",
+      "file_type": "code",
+      "source_file": "NextEvent/MZAlertBoxViewController.swift",
+      "source_location": "L56"
+    },
+    {
+      "id": "mzalertboxviewcontroller_mzalertboxviewcontroller_viewwillappear",
+      "label": ".viewWillAppear()",
+      "file_type": "code",
+      "source_file": "NextEvent/MZAlertBoxViewController.swift",
+      "source_location": "L63"
+    },
+    {
+      "id": "mzalertboxviewcontroller_mzalertboxviewcontroller_viewdidappear",
+      "label": ".viewDidAppear()",
+      "file_type": "code",
+      "source_file": "NextEvent/MZAlertBoxViewController.swift",
+      "source_location": "L71"
+    },
+    {
+      "id": "mzalertboxviewcontroller_mzalertboxviewcontroller_firetimer",
+      "label": ".fireTimer()",
+      "file_type": "code",
+      "source_file": "NextEvent/MZAlertBoxViewController.swift",
+      "source_location": "L89"
+    },
+    {
+      "id": "mzalertboxviewcontroller_mzalertboxviewcontroller_updatetitle",
+      "label": ".updateTitle()",
+      "file_type": "code",
+      "source_file": "NextEvent/MZAlertBoxViewController.swift",
+      "source_location": "L93"
+    },
+    {
+      "id": "mzalertboxviewcontroller_mzalertboxviewcontroller_freshcontroller",
+      "label": ".freshController()",
+      "file_type": "code",
+      "source_file": "NextEvent/MZAlertBoxViewController.swift",
+      "source_location": "L114"
+    },
+    {
+      "id": "nextevent_appdelegate_swift",
+      "label": "AppDelegate.swift",
+      "file_type": "code",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L1"
+    },
+    {
+      "id": "appdelegate_appdelegate",
+      "label": "AppDelegate",
+      "file_type": "code",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L13"
+    },
+    {
+      "id": "nsobject",
+      "label": "NSObject",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "nsapplicationdelegate",
+      "label": "NSApplicationDelegate",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "appdelegate_appdelegate_applicationdidfinishlaunching",
+      "label": ".applicationDidFinishLaunching()",
+      "file_type": "code",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L41"
+    },
+    {
+      "id": "appdelegate_appdelegate_applicationwillterminate",
+      "label": ".applicationWillTerminate()",
+      "file_type": "code",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L80"
+    },
+    {
+      "id": "appdelegate_appdelegate_firetimer",
+      "label": ".fireTimer()",
+      "file_type": "code",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L84"
+    },
+    {
+      "id": "appdelegate_appdelegate_seticons",
+      "label": ".setIcons()",
+      "file_type": "code",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L88"
+    },
+    {
+      "id": "appdelegate_appdelegate_getmidnight",
+      "label": ".getMidnight()",
+      "file_type": "code",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L107"
+    },
+    {
+      "id": "appdelegate_appdelegate_update",
+      "label": ".update()",
+      "file_type": "code",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L114"
+    },
+    {
+      "id": "appdelegate_appdelegate_onclickstatusitem",
+      "label": ".onClickStatusItem()",
+      "file_type": "code",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L139"
+    },
+    {
+      "id": "appdelegate_appdelegate_refreshall",
+      "label": ".refreshAll()",
+      "file_type": "code",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L151"
+    },
+    {
+      "id": "appdelegate_appdelegate_itemschanged",
+      "label": ".itemsChanged()",
+      "file_type": "code",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L155"
+    },
+    {
+      "id": "appdelegate_appdelegate_openabout",
+      "label": ".openAbout()",
+      "file_type": "code",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L159"
+    },
+    {
+      "id": "appdelegate_appdelegate_openhelp",
+      "label": ".openHelp()",
+      "file_type": "code",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L176"
+    },
+    {
+      "id": "appdelegate_appdelegate_opennexteventpreferencepanel",
+      "label": ".openNextEventPreferencePanel()",
+      "file_type": "code",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L193"
+    },
+    {
+      "id": "appdelegate_appdelegate_togglepopover",
+      "label": ".togglePopover()",
+      "file_type": "code",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L203"
+    },
+    {
+      "id": "appdelegate_appdelegate_showpopover",
+      "label": ".showPopover()",
+      "file_type": "code",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L211"
+    },
+    {
+      "id": "appdelegate_appdelegate_closepopover",
+      "label": ".closePopover()",
+      "file_type": "code",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L218"
+    },
+    {
+      "id": "appdelegate_appdelegate_registernotification",
+      "label": ".registerNotification()",
+      "file_type": "code",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L222"
+    },
+    {
+      "id": "appdelegate_appdelegate_accesserrordialog",
+      "label": ".accessErrorDialog()",
+      "file_type": "code",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L248"
+    },
+    {
+      "id": "appdelegate_appdelegate_processcommandline",
+      "label": ".processCommandLine()",
+      "file_type": "code",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L257"
+    },
+    {
+      "id": "appdelegate_appdelegate_combineimages",
+      "label": ".combineImages()",
+      "file_type": "code",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L276"
+    },
+    {
+      "id": "appdelegate_appdelegate_startglow",
+      "label": ".startGlow()",
+      "file_type": "code",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L293"
+    },
+    {
+      "id": "appdelegate_appdelegate_stopglow",
+      "label": ".stopGlow()",
+      "file_type": "code",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L310"
+    },
+    {
+      "id": "appdelegate_appdelegate_glow",
+      "label": ".glow()",
+      "file_type": "code",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L320"
+    },
+    {
+      "id": "nextevent_nextevent_bridging_header_h",
+      "label": "NextEvent-Bridging-Header.h",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEvent-Bridging-Header.h",
+      "source_location": "L1"
+    },
+    {
+      "id": "nextevent_mzaboutboxviewcontroller_swift",
+      "label": "MZAboutBoxViewController.swift",
+      "file_type": "code",
+      "source_file": "NextEvent/MZAboutBoxViewController.swift",
+      "source_location": "L1"
+    },
+    {
+      "id": "mzaboutboxviewcontroller_mzaboutboxviewcontroller",
+      "label": "MZAboutBoxViewController",
+      "file_type": "code",
+      "source_file": "NextEvent/MZAboutBoxViewController.swift",
+      "source_location": "L12"
+    },
+    {
+      "id": "nsviewcontroller",
+      "label": "NSViewController",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "mzaboutboxviewcontroller_mzaboutboxviewcontroller_viewdidload",
+      "label": ".viewDidLoad()",
+      "file_type": "code",
+      "source_file": "NextEvent/MZAboutBoxViewController.swift",
+      "source_location": "L30"
+    },
+    {
+      "id": "mzaboutboxviewcontroller_mzaboutboxviewcontroller_viewwillappear",
+      "label": ".viewWillAppear()",
+      "file_type": "code",
+      "source_file": "NextEvent/MZAboutBoxViewController.swift",
+      "source_location": "L59"
+    },
+    {
+      "id": "mzaboutboxviewcontroller_mzaboutboxviewcontroller_resizewindow",
+      "label": ".resizeWindow()",
+      "file_type": "code",
+      "source_file": "NextEvent/MZAboutBoxViewController.swift",
+      "source_location": "L65"
+    },
+    {
+      "id": "mzaboutboxviewcontroller_mzaboutboxviewcontroller_togglehelp",
+      "label": ".toggleHelp()",
+      "file_type": "code",
+      "source_file": "NextEvent/MZAboutBoxViewController.swift",
+      "source_location": "L69"
+    },
+    {
+      "id": "mzaboutboxviewcontroller_mzaboutboxviewcontroller_reviewapp",
+      "label": ".reviewApp()",
+      "file_type": "code",
+      "source_file": "NextEvent/MZAboutBoxViewController.swift",
+      "source_location": "L92"
+    },
+    {
+      "id": "mzaboutboxviewcontroller_mzaboutboxviewcontroller_visitwebsite",
+      "label": ".visitWebsite()",
+      "file_type": "code",
+      "source_file": "NextEvent/MZAboutBoxViewController.swift",
+      "source_location": "L97"
+    },
+    {
+      "id": "mzaboutboxviewcontroller_mzaboutboxviewcontroller_forcehelp",
+      "label": ".forceHelp()",
+      "file_type": "code",
+      "source_file": "NextEvent/MZAboutBoxViewController.swift",
+      "source_location": "L101"
+    },
+    {
+      "id": "mzaboutboxviewcontroller_mzaboutboxviewcontroller_setmacid",
+      "label": ".setMacId()",
+      "file_type": "code",
+      "source_file": "NextEvent/MZAboutBoxViewController.swift",
+      "source_location": "L111"
+    },
+    {
+      "id": "mzaboutboxviewcontroller_mzaboutboxviewcontroller_freshcontroller",
+      "label": ".freshController()",
+      "file_type": "code",
+      "source_file": "NextEvent/MZAboutBoxViewController.swift",
+      "source_location": "L118"
+    },
+    {
+      "id": "nextevent_calendartools_swift",
+      "label": "CalendarTools.swift",
+      "file_type": "code",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L1"
+    },
+    {
+      "id": "calendartools_date",
+      "label": "Date",
+      "file_type": "code",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L14"
+    },
+    {
+      "id": "calendartools_calendartools",
+      "label": "CalendarTools",
+      "file_type": "code",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L33"
+    },
+    {
+      "id": "nsobject",
+      "label": "NSObject",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "calendartools_calendartools_geteventsandreminderonday",
+      "label": ".getEventsAndReminderOnDay()",
+      "file_type": "code",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L37"
+    },
+    {
+      "id": "calendartools_calendartools_gettopn",
+      "label": ".getTopN()",
+      "file_type": "code",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L59"
+    },
+    {
+      "id": "calendartools_calendartools_gettodayall",
+      "label": ".getTodayAll()",
+      "file_type": "code",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L106"
+    },
+    {
+      "id": "calendartools_calendartools_get24hours",
+      "label": ".get24Hours()",
+      "file_type": "code",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L148"
+    },
+    {
+      "id": "calendartools_calendartools_getreminders",
+      "label": ".getReminders()",
+      "file_type": "code",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L185"
+    },
+    {
+      "id": "calendartools_calendartools_getevents",
+      "label": ".getEvents()",
+      "file_type": "code",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L206"
+    },
+    {
+      "id": "calendartools_calendartools_hasremindersonday",
+      "label": ".hasRemindersOnDay()",
+      "file_type": "code",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L219"
+    },
+    {
+      "id": "calendartools_calendartools_haseventsonday",
+      "label": ".hasEventsOnDay()",
+      "file_type": "code",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L245"
+    },
+    {
+      "id": "calendartools_calendartools_getallcalendars",
+      "label": ".getAllCalendars()",
+      "file_type": "code",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L263"
+    },
+    {
+      "id": "calendartools_calendartools_getallreminderlists",
+      "label": ".getAllReminderLists()",
+      "file_type": "code",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L268"
+    },
+    {
+      "id": "calendartools_calendartools_getcalendarbynames",
+      "label": ".getCalendarByNames()",
+      "file_type": "code",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L273"
+    },
+    {
+      "id": "calendartools_calendartools_getreminderlistbynames",
+      "label": ".getReminderListByNames()",
+      "file_type": "code",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L284"
+    },
+    {
+      "id": "calendartools_calendartools_getcalendarbyidentifier",
+      "label": ".getCalendarByIdentifier()",
+      "file_type": "code",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L295"
+    },
+    {
+      "id": "calendartools_calendartools_getreminderlistbyidentifier",
+      "label": ".getReminderListByIdentifier()",
+      "file_type": "code",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L306"
+    },
+    {
+      "id": "calendartools_calendartools_getcalendarnames",
+      "label": ".getCalendarNames()",
+      "file_type": "code",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L317"
+    },
+    {
+      "id": "calendartools_calendartools_getreminderlistnames",
+      "label": ".getReminderListNames()",
+      "file_type": "code",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L328"
+    },
+    {
+      "id": "calendartools_calendartools_getcalendarcolorbyname",
+      "label": ".getCalendarColorByName()",
+      "file_type": "code",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L339"
+    },
+    {
+      "id": "calendartools_calendartools_getreminderlistcolorbyname",
+      "label": ".getReminderListColorByName()",
+      "file_type": "code",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L349"
+    },
+    {
+      "id": "calendartools_calendartools_registernotification",
+      "label": ".registerNotification()",
+      "file_type": "code",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L360"
+    },
+    {
+      "id": "calendartools_calendartools_requestaccess",
+      "label": ".requestAccess()",
+      "file_type": "code",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L385"
+    }
+  ],
+  "edges": [
+    {
+      "source": "nextevent_nexteventpreferencesviewcontroller_swift",
+      "target": "cocoa",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "nextevent_nexteventpreferencesviewcontroller_swift",
+      "target": "eventkit",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "nextevent_nexteventpreferencesviewcontroller_swift",
+      "target": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller",
+      "target": "nsviewcontroller",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller",
+      "target": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_viewdidload",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller",
+      "target": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_viewdidappear",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller",
+      "target": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_refresh",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller",
+      "target": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_enablebuttons",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": "L83",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller",
+      "target": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_getstate",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": "L95",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller",
+      "target": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_getstate",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": "L102",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller",
+      "target": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_updatesettings",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": "L109",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller",
+      "target": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_buttonclicked",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": "L139",
+      "weight": 1.0
+    },
+    {
+      "source": "nextevent_nexteventpreferencesviewcontroller_swift",
+      "target": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": "L153",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller",
+      "target": "nstableviewdatasource",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": "L153",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller",
+      "target": "nstableviewdelegate",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": "L153",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller",
+      "target": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_numberofrows",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": "L155",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller",
+      "target": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_tableview",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": "L159",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_viewdidappear",
+      "target": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_refresh",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_refresh",
+      "target": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_getstate",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_refresh",
+      "target": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_enablebuttons",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": "L80",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_updatesettings",
+      "target": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_getstate",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": "L110",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_updatesettings",
+      "target": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_enablebuttons",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": "L133",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_buttonclicked",
+      "target": "nexteventpreferencesviewcontroller_nexteventpreferencesviewcontroller_updatesettings",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": "L149",
+      "weight": 1.0
+    },
+    {
+      "source": "nextevent_nexteventviewcontroller_swift",
+      "target": "cocoa",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "nextevent_nexteventviewcontroller_swift",
+      "target": "eventkit",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "nextevent_nexteventviewcontroller_swift",
+      "target": "nexteventviewcontroller_date",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_date",
+      "target": "nexteventviewcontroller_date_tolocaltime",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_date",
+      "target": "nexteventviewcontroller_date_toglobaltime",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_date",
+      "target": "nexteventviewcontroller_date_tostring",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "nextevent_nexteventviewcontroller_swift",
+      "target": "nexteventviewcontroller_kstablecellview",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_kstablecellview",
+      "target": "nstablecellview",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "nextevent_nexteventviewcontroller_swift",
+      "target": "nexteventviewcontroller_nexteventviewcontroller",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller",
+      "target": "nsviewcontroller",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_viewdidload",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_setcontrollerviewsize",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L72",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_getdatefromeventitem",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L89",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_getlocationfromeventitem",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L101",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_gettraveltimefromeventitem",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L124",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_isallday",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L134",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_gettimestring",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L145",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_getleadtimestrings",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L161",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_gettimestring",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L176",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_getnextevent",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L193",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_getnexteventstatus",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L204",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_openhelp",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L272",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_opennexteventpreferencepanel",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L277",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_update",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L282",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_alert",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L308",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_notify",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L354",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_refreshall",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L447",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_launchcalendar",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L480",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_launchreminders",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L484",
+      "weight": 1.0
+    },
+    {
+      "source": "nextevent_nexteventviewcontroller_swift",
+      "target": "nexteventviewcontroller_nexteventviewcontroller",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L489",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_freshcontroller",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L490",
+      "weight": 1.0
+    },
+    {
+      "source": "nextevent_nexteventviewcontroller_swift",
+      "target": "nexteventviewcontroller_nexteventviewcontroller",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L501",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller",
+      "target": "nstableviewdatasource",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L501",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller",
+      "target": "nstableviewdelegate",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L501",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_numberofrows",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L503",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_tableview",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L507",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_date_tolocaltime",
+      "target": "nexteventviewcontroller_date",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_date_toglobaltime",
+      "target": "nexteventviewcontroller_date",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller_viewdidload",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_refreshall",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L64",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller_getdatefromeventitem",
+      "target": "nexteventviewcontroller_date",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L96",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller_gettimestring",
+      "target": "nexteventviewcontroller_date",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L148",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller_getleadtimestrings",
+      "target": "nexteventviewcontroller_date",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L165",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller_gettimestring",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_getdatefromeventitem",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L178",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller_getnextevent",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_getdatefromeventitem",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L195",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller_getnextevent",
+      "target": "nexteventviewcontroller_date",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L197",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller_getnexteventstatus",
+      "target": "nexteventviewcontroller_date",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L207",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller_getnexteventstatus",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_getnextevent",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L225",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller_getnexteventstatus",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_getdatefromeventitem",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L228",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller_update",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_refreshall",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L288",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller_update",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_notify",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L304",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller_notify",
+      "target": "nexteventviewcontroller_date",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L361",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller_notify",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_getdatefromeventitem",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L362",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller_notify",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_getlocationfromeventitem",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L363",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller_notify",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_gettraveltimefromeventitem",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L376",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller_notify",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_alert",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L399",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller_notify",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_refreshall",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L433",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller_refreshall",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_setcontrollerviewsize",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L474",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller_tableview",
+      "target": "nexteventviewcontroller_date",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L518",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller_tableview",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_getdatefromeventitem",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L519",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller_tableview",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_gettraveltimefromeventitem",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L520",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller_tableview",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_getlocationfromeventitem",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L521",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller_tableview",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_isallday",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L522",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller_tableview",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_gettimestring",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L547",
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_nexteventviewcontroller_tableview",
+      "target": "nexteventviewcontroller_nexteventviewcontroller_getleadtimestrings",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": "L571",
+      "weight": 1.0
+    },
+    {
+      "source": "nextevent_timestringtools_swift",
+      "target": "foundation",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/TimeStringTools.swift",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "nextevent_timestringtools_swift",
+      "target": "timestringtools_timestringtools",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/TimeStringTools.swift",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "timestringtools_timestringtools",
+      "target": "nsobject",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/TimeStringTools.swift",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "timestringtools_timestringtools",
+      "target": "timestringtools_timestringtools_getextrabits",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/TimeStringTools.swift",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "timestringtools_timestringtools",
+      "target": "timestringtools_timestringtools_getstatusstring",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/TimeStringTools.swift",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "timestringtools_timestringtools",
+      "target": "timestringtools_timestringtools_getleadtime",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/TimeStringTools.swift",
+      "source_location": "L64",
+      "weight": 1.0
+    },
+    {
+      "source": "timestringtools_timestringtools",
+      "target": "timestringtools_timestringtools_gettimestring",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/TimeStringTools.swift",
+      "source_location": "L121",
+      "weight": 1.0
+    },
+    {
+      "source": "timestringtools_timestringtools",
+      "target": "timestringtools_timestringtools_gettimestringfromseconds",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/TimeStringTools.swift",
+      "source_location": "L173",
+      "weight": 1.0
+    },
+    {
+      "source": "timestringtools_timestringtools",
+      "target": "timestringtools_timestringtools_getfuzzytimestring",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/TimeStringTools.swift",
+      "source_location": "L226",
+      "weight": 1.0
+    },
+    {
+      "source": "timestringtools_timestringtools",
+      "target": "timestringtools_timestringtools_getfuzzystatusstring",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/TimeStringTools.swift",
+      "source_location": "L287",
+      "weight": 1.0
+    },
+    {
+      "source": "timestringtools_timestringtools",
+      "target": "timestringtools_timestringtools_workdayprogressbar",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/TimeStringTools.swift",
+      "source_location": "L347",
+      "weight": 1.0
+    },
+    {
+      "source": "timestringtools_timestringtools",
+      "target": "timestringtools_timestringtools_workdayremainingstring",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/TimeStringTools.swift",
+      "source_location": "L361",
+      "weight": 1.0
+    },
+    {
+      "source": "timestringtools_timestringtools",
+      "target": "timestringtools_timestringtools_getshorttimestring",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/TimeStringTools.swift",
+      "source_location": "L372",
+      "weight": 1.0
+    },
+    {
+      "source": "timestringtools_timestringtools",
+      "target": "timestringtools_timestringtools_getfulltimestring",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/TimeStringTools.swift",
+      "source_location": "L399",
+      "weight": 1.0
+    },
+    {
+      "source": "timestringtools_timestringtools_getfuzzytimestring",
+      "target": "timestringtools_timestringtools_getextrabits",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/TimeStringTools.swift",
+      "source_location": "L234",
+      "weight": 1.0
+    },
+    {
+      "source": "timestringtools_timestringtools_getfulltimestring",
+      "target": "timestringtools_timestringtools_gettimestringfromseconds",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/TimeStringTools.swift",
+      "source_location": "L403",
+      "weight": 1.0
+    },
+    {
+      "source": "timestringtools_timestringtools_getfulltimestring",
+      "target": "timestringtools_timestringtools",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/TimeStringTools.swift",
+      "source_location": "L403",
+      "weight": 1.0
+    },
+    {
+      "source": "nextevent_settings_swift",
+      "target": "foundation",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/Settings.swift",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "nextevent_settings_swift",
+      "target": "settings_settings",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/Settings.swift",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "settings_settings",
+      "target": "nsobject",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/Settings.swift",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "nextevent_settings_swift",
+      "target": "settings_settings",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/Settings.swift",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "settings_settings",
+      "target": "codable",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/Settings.swift",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "settings_settings",
+      "target": "settings_settings_init",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/Settings.swift",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "settings_settings",
+      "target": "settings_settings_unarchive",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/Settings.swift",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "settings_settings",
+      "target": "settings_settings_archive",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/Settings.swift",
+      "source_location": "L54",
+      "weight": 1.0
+    },
+    {
+      "source": "settings_settings",
+      "target": "settings_settings_archivepath",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/Settings.swift",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "settings_settings",
+      "target": "settings_settings_reset",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/Settings.swift",
+      "source_location": "L64",
+      "weight": 1.0
+    },
+    {
+      "source": "settings_settings_init",
+      "target": "settings_settings_unarchive",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/Settings.swift",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "settings_settings_unarchive",
+      "target": "settings_settings_archivepath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/Settings.swift",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "settings_settings_unarchive",
+      "target": "settings_settings_reset",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/Settings.swift",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "settings_settings_archive",
+      "target": "settings_settings_archivepath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/Settings.swift",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "settings_settings_reset",
+      "target": "settings_settings_archive",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/Settings.swift",
+      "source_location": "L84",
+      "weight": 1.0
+    },
+    {
+      "source": "nextevent_mzalertboxviewcontroller_swift",
+      "target": "cocoa",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/MZAlertBoxViewController.swift",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "nextevent_mzalertboxviewcontroller_swift",
+      "target": "mzalertboxviewcontroller_mzalertboxwindowcontroller",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/MZAlertBoxViewController.swift",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "mzalertboxviewcontroller_mzalertboxwindowcontroller",
+      "target": "nswindowcontroller",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/MZAlertBoxViewController.swift",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "mzalertboxviewcontroller_mzalertboxwindowcontroller",
+      "target": "mzalertboxviewcontroller_mzalertboxwindowcontroller_windowdidload",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/MZAlertBoxViewController.swift",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "nextevent_mzalertboxviewcontroller_swift",
+      "target": "mzalertboxviewcontroller_mzalertboxviewcontroller",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/MZAlertBoxViewController.swift",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "mzalertboxviewcontroller_mzalertboxviewcontroller",
+      "target": "nsviewcontroller",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/MZAlertBoxViewController.swift",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "mzalertboxviewcontroller_mzalertboxviewcontroller",
+      "target": "mzalertboxviewcontroller_mzalertboxviewcontroller_okaypress",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/MZAlertBoxViewController.swift",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "mzalertboxviewcontroller_mzalertboxviewcontroller",
+      "target": "mzalertboxviewcontroller_mzalertboxviewcontroller_eventlocationbuttonpress",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/MZAlertBoxViewController.swift",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "mzalertboxviewcontroller_mzalertboxviewcontroller",
+      "target": "mzalertboxviewcontroller_mzalertboxviewcontroller_resizewindow",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/MZAlertBoxViewController.swift",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "mzalertboxviewcontroller_mzalertboxviewcontroller",
+      "target": "mzalertboxviewcontroller_mzalertboxviewcontroller_viewwillappear",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/MZAlertBoxViewController.swift",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "mzalertboxviewcontroller_mzalertboxviewcontroller",
+      "target": "mzalertboxviewcontroller_mzalertboxviewcontroller_viewdidappear",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/MZAlertBoxViewController.swift",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "mzalertboxviewcontroller_mzalertboxviewcontroller",
+      "target": "mzalertboxviewcontroller_mzalertboxviewcontroller_firetimer",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/MZAlertBoxViewController.swift",
+      "source_location": "L89",
+      "weight": 1.0
+    },
+    {
+      "source": "mzalertboxviewcontroller_mzalertboxviewcontroller",
+      "target": "mzalertboxviewcontroller_mzalertboxviewcontroller_updatetitle",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/MZAlertBoxViewController.swift",
+      "source_location": "L93",
+      "weight": 1.0
+    },
+    {
+      "source": "nextevent_mzalertboxviewcontroller_swift",
+      "target": "mzalertboxviewcontroller_mzalertboxviewcontroller",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/MZAlertBoxViewController.swift",
+      "source_location": "L113",
+      "weight": 1.0
+    },
+    {
+      "source": "mzalertboxviewcontroller_mzalertboxviewcontroller",
+      "target": "mzalertboxviewcontroller_mzalertboxviewcontroller_freshcontroller",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/MZAlertBoxViewController.swift",
+      "source_location": "L114",
+      "weight": 1.0
+    },
+    {
+      "source": "mzalertboxviewcontroller_mzalertboxviewcontroller_viewwillappear",
+      "target": "mzalertboxviewcontroller_mzalertboxviewcontroller_resizewindow",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/MZAlertBoxViewController.swift",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "mzalertboxviewcontroller_mzalertboxviewcontroller_viewdidappear",
+      "target": "mzalertboxviewcontroller_mzalertboxviewcontroller_firetimer",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/MZAlertBoxViewController.swift",
+      "source_location": "L81",
+      "weight": 1.0
+    },
+    {
+      "source": "mzalertboxviewcontroller_mzalertboxviewcontroller_firetimer",
+      "target": "mzalertboxviewcontroller_mzalertboxviewcontroller_updatetitle",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/MZAlertBoxViewController.swift",
+      "source_location": "L90",
+      "weight": 1.0
+    },
+    {
+      "source": "nextevent_appdelegate_swift",
+      "target": "cocoa",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "nextevent_appdelegate_swift",
+      "target": "eventkit",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "nextevent_appdelegate_swift",
+      "target": "appdelegate_appdelegate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate",
+      "target": "nsobject",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate",
+      "target": "nsapplicationdelegate",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate",
+      "target": "appdelegate_appdelegate_applicationdidfinishlaunching",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate",
+      "target": "appdelegate_appdelegate_applicationwillterminate",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L80",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate",
+      "target": "appdelegate_appdelegate_firetimer",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L84",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate",
+      "target": "appdelegate_appdelegate_seticons",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L88",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate",
+      "target": "appdelegate_appdelegate_getmidnight",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L107",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate",
+      "target": "appdelegate_appdelegate_update",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L114",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate",
+      "target": "appdelegate_appdelegate_onclickstatusitem",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L139",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate",
+      "target": "appdelegate_appdelegate_refreshall",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L151",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate",
+      "target": "appdelegate_appdelegate_itemschanged",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L155",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate",
+      "target": "appdelegate_appdelegate_openabout",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L159",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate",
+      "target": "appdelegate_appdelegate_openhelp",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L176",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate",
+      "target": "appdelegate_appdelegate_opennexteventpreferencepanel",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L193",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate",
+      "target": "appdelegate_appdelegate_togglepopover",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L203",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate",
+      "target": "appdelegate_appdelegate_showpopover",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L211",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate",
+      "target": "appdelegate_appdelegate_closepopover",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L218",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate",
+      "target": "appdelegate_appdelegate_registernotification",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L222",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate",
+      "target": "appdelegate_appdelegate_accesserrordialog",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L248",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate",
+      "target": "appdelegate_appdelegate_processcommandline",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L257",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate",
+      "target": "appdelegate_appdelegate_combineimages",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L276",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate",
+      "target": "appdelegate_appdelegate_startglow",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L293",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate",
+      "target": "appdelegate_appdelegate_stopglow",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L310",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate",
+      "target": "appdelegate_appdelegate_glow",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L320",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate_applicationdidfinishlaunching",
+      "target": "appdelegate_appdelegate_processcommandline",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate_applicationdidfinishlaunching",
+      "target": "appdelegate_appdelegate_seticons",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate_applicationdidfinishlaunching",
+      "target": "appdelegate_appdelegate_getmidnight",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate_applicationdidfinishlaunching",
+      "target": "appdelegate_appdelegate_accesserrordialog",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate_applicationdidfinishlaunching",
+      "target": "appdelegate_appdelegate_registernotification",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L66",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate_applicationdidfinishlaunching",
+      "target": "appdelegate_appdelegate_firetimer",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate_firetimer",
+      "target": "appdelegate_appdelegate_update",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L85",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate_update",
+      "target": "appdelegate_appdelegate_getmidnight",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L116",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate_update",
+      "target": "appdelegate_appdelegate_refreshall",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L119",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate_update",
+      "target": "appdelegate_appdelegate_seticons",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L123",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate_update",
+      "target": "appdelegate_appdelegate_startglow",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L132",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate_update",
+      "target": "appdelegate_appdelegate_stopglow",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L135",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate_onclickstatusitem",
+      "target": "appdelegate_appdelegate_togglepopover",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L144",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate_itemschanged",
+      "target": "appdelegate_appdelegate_refreshall",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L156",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate_togglepopover",
+      "target": "appdelegate_appdelegate_closepopover",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L205",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate_togglepopover",
+      "target": "appdelegate_appdelegate_showpopover",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L207",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate_registernotification",
+      "target": "appdelegate_appdelegate_itemschanged",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L229",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate_startglow",
+      "target": "appdelegate_appdelegate_glow",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L300",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate_glow",
+      "target": "appdelegate_appdelegate_combineimages",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": "L334",
+      "weight": 1.0
+    },
+    {
+      "source": "nextevent_mzaboutboxviewcontroller_swift",
+      "target": "cocoa",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/MZAboutBoxViewController.swift",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "nextevent_mzaboutboxviewcontroller_swift",
+      "target": "mzaboutboxviewcontroller_mzaboutboxviewcontroller",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/MZAboutBoxViewController.swift",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "mzaboutboxviewcontroller_mzaboutboxviewcontroller",
+      "target": "nsviewcontroller",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/MZAboutBoxViewController.swift",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "mzaboutboxviewcontroller_mzaboutboxviewcontroller",
+      "target": "mzaboutboxviewcontroller_mzaboutboxviewcontroller_viewdidload",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/MZAboutBoxViewController.swift",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "mzaboutboxviewcontroller_mzaboutboxviewcontroller",
+      "target": "mzaboutboxviewcontroller_mzaboutboxviewcontroller_viewwillappear",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/MZAboutBoxViewController.swift",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "mzaboutboxviewcontroller_mzaboutboxviewcontroller",
+      "target": "mzaboutboxviewcontroller_mzaboutboxviewcontroller_resizewindow",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/MZAboutBoxViewController.swift",
+      "source_location": "L65",
+      "weight": 1.0
+    },
+    {
+      "source": "mzaboutboxviewcontroller_mzaboutboxviewcontroller",
+      "target": "mzaboutboxviewcontroller_mzaboutboxviewcontroller_togglehelp",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/MZAboutBoxViewController.swift",
+      "source_location": "L69",
+      "weight": 1.0
+    },
+    {
+      "source": "mzaboutboxviewcontroller_mzaboutboxviewcontroller",
+      "target": "mzaboutboxviewcontroller_mzaboutboxviewcontroller_reviewapp",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/MZAboutBoxViewController.swift",
+      "source_location": "L92",
+      "weight": 1.0
+    },
+    {
+      "source": "mzaboutboxviewcontroller_mzaboutboxviewcontroller",
+      "target": "mzaboutboxviewcontroller_mzaboutboxviewcontroller_visitwebsite",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/MZAboutBoxViewController.swift",
+      "source_location": "L97",
+      "weight": 1.0
+    },
+    {
+      "source": "mzaboutboxviewcontroller_mzaboutboxviewcontroller",
+      "target": "mzaboutboxviewcontroller_mzaboutboxviewcontroller_forcehelp",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/MZAboutBoxViewController.swift",
+      "source_location": "L101",
+      "weight": 1.0
+    },
+    {
+      "source": "mzaboutboxviewcontroller_mzaboutboxviewcontroller",
+      "target": "mzaboutboxviewcontroller_mzaboutboxviewcontroller_setmacid",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/MZAboutBoxViewController.swift",
+      "source_location": "L111",
+      "weight": 1.0
+    },
+    {
+      "source": "nextevent_mzaboutboxviewcontroller_swift",
+      "target": "mzaboutboxviewcontroller_mzaboutboxviewcontroller",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/MZAboutBoxViewController.swift",
+      "source_location": "L117",
+      "weight": 1.0
+    },
+    {
+      "source": "mzaboutboxviewcontroller_mzaboutboxviewcontroller",
+      "target": "mzaboutboxviewcontroller_mzaboutboxviewcontroller_freshcontroller",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/MZAboutBoxViewController.swift",
+      "source_location": "L118",
+      "weight": 1.0
+    },
+    {
+      "source": "mzaboutboxviewcontroller_mzaboutboxviewcontroller_viewdidload",
+      "target": "mzaboutboxviewcontroller_mzaboutboxviewcontroller_forcehelp",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/MZAboutBoxViewController.swift",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "mzaboutboxviewcontroller_mzaboutboxviewcontroller_togglehelp",
+      "target": "mzaboutboxviewcontroller_mzaboutboxviewcontroller_resizewindow",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/MZAboutBoxViewController.swift",
+      "source_location": "L72",
+      "weight": 1.0
+    },
+    {
+      "source": "mzaboutboxviewcontroller_mzaboutboxviewcontroller_forcehelp",
+      "target": "mzaboutboxviewcontroller_mzaboutboxviewcontroller_togglehelp",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/MZAboutBoxViewController.swift",
+      "source_location": "L108",
+      "weight": 1.0
+    },
+    {
+      "source": "nextevent_calendartools_swift",
+      "target": "foundation",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "nextevent_calendartools_swift",
+      "target": "eventkit",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "nextevent_calendartools_swift",
+      "target": "cocoa",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "nextevent_calendartools_swift",
+      "target": "calendartools_date",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "nextevent_calendartools_swift",
+      "target": "calendartools_calendartools",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_calendartools",
+      "target": "nsobject",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_calendartools",
+      "target": "calendartools_calendartools_geteventsandreminderonday",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_calendartools",
+      "target": "calendartools_calendartools_gettopn",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_calendartools",
+      "target": "calendartools_calendartools_gettodayall",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L106",
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_calendartools",
+      "target": "calendartools_calendartools_get24hours",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L148",
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_calendartools",
+      "target": "calendartools_calendartools_getreminders",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L185",
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_calendartools",
+      "target": "calendartools_calendartools_getevents",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L206",
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_calendartools",
+      "target": "calendartools_calendartools_hasremindersonday",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L219",
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_calendartools",
+      "target": "calendartools_calendartools_haseventsonday",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L245",
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_calendartools",
+      "target": "calendartools_calendartools_getallcalendars",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L263",
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_calendartools",
+      "target": "calendartools_calendartools_getallreminderlists",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L268",
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_calendartools",
+      "target": "calendartools_calendartools_getcalendarbynames",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L273",
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_calendartools",
+      "target": "calendartools_calendartools_getreminderlistbynames",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L284",
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_calendartools",
+      "target": "calendartools_calendartools_getcalendarbyidentifier",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L295",
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_calendartools",
+      "target": "calendartools_calendartools_getreminderlistbyidentifier",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L306",
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_calendartools",
+      "target": "calendartools_calendartools_getcalendarnames",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L317",
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_calendartools",
+      "target": "calendartools_calendartools_getreminderlistnames",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L328",
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_calendartools",
+      "target": "calendartools_calendartools_getcalendarcolorbyname",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L339",
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_calendartools",
+      "target": "calendartools_calendartools_getreminderlistcolorbyname",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L349",
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_calendartools",
+      "target": "calendartools_calendartools_registernotification",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L360",
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_calendartools",
+      "target": "calendartools_calendartools_requestaccess",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L385",
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_calendartools_geteventsandreminderonday",
+      "target": "calendartools_calendartools_getreminders",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_calendartools_geteventsandreminderonday",
+      "target": "calendartools_date",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_calendartools_geteventsandreminderonday",
+      "target": "calendartools_calendartools_getevents",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_calendartools_gettopn",
+      "target": "calendartools_date",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L62",
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_calendartools_gettopn",
+      "target": "calendartools_calendartools_getreminders",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L65",
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_calendartools_gettopn",
+      "target": "calendartools_calendartools_getevents",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_calendartools_gettodayall",
+      "target": "calendartools_date",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L109",
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_calendartools_gettodayall",
+      "target": "calendartools_calendartools_getreminders",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L117",
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_calendartools_gettodayall",
+      "target": "calendartools_calendartools_getevents",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L125",
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_calendartools_get24hours",
+      "target": "calendartools_date",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L151",
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_calendartools_get24hours",
+      "target": "calendartools_calendartools_getreminders",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L154",
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_calendartools_get24hours",
+      "target": "calendartools_calendartools_getevents",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L162",
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_calendartools_registernotification",
+      "target": "calendartools_calendartools_requestaccess",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": "L361",
+      "weight": 1.0
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

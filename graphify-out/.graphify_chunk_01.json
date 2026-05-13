@@ -1,0 +1,931 @@
+{
+  "nodes": [
+    {
+      "id": "appdelegate_main",
+      "label": "AppDelegate - Application Entry Point & Coordinator",
+      "file_type": "code",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Paul Wong",
+      "contributor": null
+    },
+    {
+      "id": "appdelegate_statusitem",
+      "label": "Status Item (Menu Bar Icon)",
+      "file_type": "code",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Paul Wong",
+      "contributor": null
+    },
+    {
+      "id": "appdelegate_popover",
+      "label": "NSPopover (Event List Popup)",
+      "file_type": "code",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Paul Wong",
+      "contributor": null
+    },
+    {
+      "id": "appdelegate_glow",
+      "label": "Menu Bar Icon Glow Effect",
+      "file_type": "code",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Paul Wong",
+      "contributor": null
+    },
+    {
+      "id": "appdelegate_timer",
+      "label": "1-Second Timer Loop for UI Updates",
+      "file_type": "code",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Paul Wong",
+      "contributor": null
+    },
+    {
+      "id": "appdelegate_calendar_access",
+      "label": "Calendar/Reminder Access Request",
+      "file_type": "code",
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Paul Wong",
+      "contributor": null
+    },
+    {
+      "id": "nexteventviewcontroller_main",
+      "label": "NextEventViewController - Popover List UI",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Paul Wong",
+      "contributor": null
+    },
+    {
+      "id": "nexteventviewcontroller_table",
+      "label": "Event Table View (KSTableCellView)",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Paul Wong",
+      "contributor": null
+    },
+    {
+      "id": "nexteventviewcontroller_notification",
+      "label": "Event Notification System (Blocking + System Alerts)",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Paul Wong",
+      "contributor": null
+    },
+    {
+      "id": "nexteventviewcontroller_statusbar",
+      "label": "Menu Bar Status String Formatter",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Paul Wong",
+      "contributor": null
+    },
+    {
+      "id": "calendartools_main",
+      "label": "CalendarTools - EventKit Data Access Layer",
+      "file_type": "code",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Paul Wong",
+      "contributor": null
+    },
+    {
+      "id": "calendartools_queries",
+      "label": "Calendar/Reminder Query Methods (TopN, Today, 24H)",
+      "file_type": "code",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Paul Wong",
+      "contributor": null
+    },
+    {
+      "id": "calendartools_calendarlookup",
+      "label": "Calendar & Reminder List Lookup by Name/ID",
+      "file_type": "code",
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Paul Wong",
+      "contributor": null
+    },
+    {
+      "id": "settings_persistence",
+      "label": "Settings - JSON Persistence (Codable)",
+      "file_type": "code",
+      "source_file": "NextEvent/Settings.swift",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Paul Wong",
+      "contributor": null
+    },
+    {
+      "id": "settings_struct",
+      "label": "Settings Struct (All Config Flags)",
+      "file_type": "code",
+      "source_file": "NextEvent/Settings.swift",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Paul Wong",
+      "contributor": null
+    },
+    {
+      "id": "timestringtools_main",
+      "label": "TimeStringTools - Time Formatting Utilities",
+      "file_type": "code",
+      "source_file": "NextEvent/TimeStringTools.swift",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Paul Wong",
+      "contributor": null
+    },
+    {
+      "id": "timestringtools_fuzzy",
+      "label": "Fuzzy Time Formatting (tomorrow, next week, etc)",
+      "file_type": "code",
+      "source_file": "NextEvent/TimeStringTools.swift",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Paul Wong",
+      "contributor": null
+    },
+    {
+      "id": "timestringtools_workday",
+      "label": "Workday Progress Bar & Remaining Time",
+      "file_type": "code",
+      "source_file": "NextEvent/TimeStringTools.swift",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Paul Wong",
+      "contributor": null
+    },
+    {
+      "id": "preferencesvc_main",
+      "label": "NextEventPreferencesViewController - Settings Panel",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Paul Wong",
+      "contributor": null
+    },
+    {
+      "id": "preferencesvc_calendar_selector",
+      "label": "Calendar Selection Table in Preferences",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Paul Wong",
+      "contributor": null
+    },
+    {
+      "id": "aboutboxvc_main",
+      "label": "MZAboutBoxViewController - About/Help Dialog",
+      "file_type": "code",
+      "source_file": "NextEvent/MZAboutBoxViewController.swift",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Paul Wong",
+      "contributor": null
+    },
+    {
+      "id": "aboutboxvc_help",
+      "label": "Help Document Viewer (RTFD)",
+      "file_type": "code",
+      "source_file": "NextEvent/MZAboutBoxViewController.swift",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Paul Wong",
+      "contributor": null
+    },
+    {
+      "id": "alertboxvc_main",
+      "label": "MZAlertBoxViewController - Blocking Event Alert",
+      "file_type": "code",
+      "source_file": "NextEvent/MZAlertBoxViewController.swift",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Paul Wong",
+      "contributor": null
+    },
+    {
+      "id": "alertboxvc_countdown",
+      "label": "In-Alert Countdown Timer Display",
+      "file_type": "code",
+      "source_file": "NextEvent/MZAlertBoxViewController.swift",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Paul Wong",
+      "contributor": null
+    },
+    {
+      "id": "bridging_header",
+      "label": "Bridging Header (CommonCrypto import)",
+      "file_type": "code",
+      "source_file": "NextEvent/NextEvent-Bridging-Header.h",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Paul Wong",
+      "contributor": null
+    },
+    {
+      "id": "readme_documentation",
+      "label": "README - Project Documentation",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "pawong",
+      "contributor": null
+    },
+    {
+      "id": "readme_features",
+      "label": "NextEvent Feature List (countdown, flash, alerts)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "pawong",
+      "contributor": null
+    },
+    {
+      "id": "readme_mazookie",
+      "label": "Mazookie Brand Identity & Open Source Rationale",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "pawong",
+      "contributor": null
+    },
+    {
+      "id": "readme_versions",
+      "label": "Version History (2.2.1, 2.2.3, 2.2.4)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "pawong",
+      "contributor": null
+    },
+    {
+      "id": "acknowledgments",
+      "label": "Acknowledgments (MIT License)",
+      "file_type": "document",
+      "source_file": "NextEvent/acknowledgments.txt",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Paul Wong",
+      "contributor": null
+    },
+    {
+      "id": "concept_next_event_app",
+      "label": "NextEvent Application (macOS Menu Bar Countdown Widget)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_menubar_widget",
+      "label": "macOS Menu Bar Widget Pattern",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_eventkit_integration",
+      "label": "Apple EventKit Integration (Calendar + Reminders)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_flash_alert",
+      "label": "15-Minute Flash Warning for Upcoming Events",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_blocking_alert",
+      "label": "Blocking Alert on Event Start",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_workday_timer",
+      "label": "Workday Progress Indicator (before/during/after work logic)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "rationale_opensource",
+      "label": "Rationale: Open-sourced because Apple developer fees > app revenue",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "pawong",
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "appdelegate_main",
+      "target": "appdelegate_statusitem",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_main",
+      "target": "appdelegate_popover",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_main",
+      "target": "appdelegate_glow",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_main",
+      "target": "appdelegate_timer",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_main",
+      "target": "nexteventviewcontroller_main",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_main",
+      "target": "settings_persistence",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_main",
+      "target": "calendartools_main",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_main",
+      "target": "concept_flash_alert",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_main",
+      "target": "preferencesvc_main",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_main",
+      "target": "aboutboxvc_main",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_glow",
+      "target": "concept_flash_alert",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_timer",
+      "target": "nexteventviewcontroller_main",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_main",
+      "target": "nexteventviewcontroller_table",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_main",
+      "target": "nexteventviewcontroller_notification",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_main",
+      "target": "nexteventviewcontroller_statusbar",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_main",
+      "target": "calendartools_main",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_main",
+      "target": "timestringtools_main",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_main",
+      "target": "settings_persistence",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_notification",
+      "target": "alertboxvc_main",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_notification",
+      "target": "concept_blocking_alert",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "alertboxvc_main",
+      "target": "alertboxvc_countdown",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/MZAlertBoxViewController.swift",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "alertboxvc_countdown",
+      "target": "timestringtools_main",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/MZAlertBoxViewController.swift",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_main",
+      "target": "calendartools_queries",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_main",
+      "target": "calendartools_calendarlookup",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "calendartools_queries",
+      "target": "concept_eventkit_integration",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/CalendarTools.swift",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "settings_persistence",
+      "target": "settings_struct",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/Settings.swift",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "preferencesvc_main",
+      "target": "settings_persistence",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "preferencesvc_main",
+      "target": "calendartools_calendarlookup",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "preferencesvc_main",
+      "target": "preferencesvc_calendar_selector",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/NextEventPreferencesViewController.swift",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "timestringtools_main",
+      "target": "timestringtools_fuzzy",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/TimeStringTools.swift",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "timestringtools_main",
+      "target": "timestringtools_workday",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/TimeStringTools.swift",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "nexteventviewcontroller_statusbar",
+      "target": "timestringtools_workday",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/NextEventViewController.swift",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "aboutboxvc_main",
+      "target": "aboutboxvc_help",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/MZAboutBoxViewController.swift",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "aboutboxvc_main",
+      "target": "acknowledgments",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "NextEvent/MZAboutBoxViewController.swift",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "bridging_header",
+      "target": "appdelegate_main",
+      "relation": "conceptually_related_to",
+      "confidence": "AMBIGUOUS",
+      "confidence_score": 0.2,
+      "source_file": "NextEvent/NextEvent-Bridging-Header.h",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_documentation",
+      "target": "readme_features",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_documentation",
+      "target": "readme_mazookie",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_documentation",
+      "target": "readme_versions",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_features",
+      "target": "concept_flash_alert",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_features",
+      "target": "concept_blocking_alert",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_features",
+      "target": "concept_workday_timer",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_mazookie",
+      "target": "rationale_opensource",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "rationale_opensource",
+      "target": "concept_next_event_app",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_main",
+      "target": "concept_next_event_app",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_main",
+      "target": "concept_menubar_widget",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "NextEvent/AppDelegate.swift",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "concept_next_event_app",
+      "target": "concept_menubar_widget",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "concept_next_event_app",
+      "target": "concept_eventkit_integration",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "event_notification_pipeline",
+      "label": "Event Notification Pipeline",
+      "nodes": [
+        "appdelegate_main",
+        "nexteventviewcontroller_notification",
+        "alertboxvc_main",
+        "concept_blocking_alert",
+        "concept_flash_alert"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": null
+    },
+    {
+      "id": "settings_configuration_flow",
+      "label": "Settings & Configuration Flow",
+      "nodes": [
+        "settings_persistence",
+        "settings_struct",
+        "preferencesvc_main",
+        "preferencesvc_calendar_selector"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": null
+    },
+    {
+      "id": "core_app_architecture",
+      "label": "Core App Architecture (MVC + Coordinator)",
+      "nodes": [
+        "appdelegate_main",
+        "nexteventviewcontroller_main",
+        "calendartools_main",
+        "timestringtools_main",
+        "settings_persistence"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": null
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}
