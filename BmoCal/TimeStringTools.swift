@@ -1,11 +1,3 @@
-//
-//  TimeStringTools.swift
-//  BmoCal
-//
-//  Created by Paul Wong on 2/20/18.
-//  Copyright © 2018 Paul Wong. All rights reserved.
-//
-
 import Foundation
 
 
@@ -64,7 +56,7 @@ class TimeStringTools: NSObject {
     func getLeadTime(_ breakdownInfo: DateComponents) -> (leadTime: String, leadTimeUnit: String) {
         var leadTime = ""
         var leadTimeUnit = ""
-        
+
         // days
         if let days = breakdownInfo.day {
             if days != 0 {
@@ -114,10 +106,10 @@ class TimeStringTools: NSObject {
             }
             return (leadTime, leadTimeUnit)
         }
-        
+
         return (leadTime, leadTimeUnit)
     }
-    
+
     func getTimeString(_ breakdownInfo: DateComponents, showSeconds: Bool, leadingZeros: Bool = true) -> String {
         var retval = ""
         var prior = false
@@ -222,7 +214,7 @@ class TimeStringTools: NSObject {
         }
         return retval
     }
-    
+
     func getFuzzyTimeString(_ seconds: TimeInterval) -> String {
         var theWhole: Double
         var theFuzzyBits: String
@@ -343,7 +335,7 @@ class TimeStringTools: NSObject {
 
         return retval
     }
-    
+
     func workdayProgressBar(startHour: Int, endHour: Int) -> String {
         let now = Date()
         let cal = Calendar.current
@@ -395,16 +387,16 @@ class TimeStringTools: NSObject {
 
         return retval
     }
-    
+
     func getFullTimeString(startDate: Date, endDate: Date, showSeconds: Bool = false, leadingZeros: Bool = true) -> String {
-        
+
         let seconds = endDate.timeIntervalSince(startDate)
-        
+
         return TimeStringTools().getTimeStringFromSeconds(
             seconds,
             showSeconds: showSeconds,
             leadingZeros: leadingZeros
         )
     }
-    
+
 }

@@ -1,11 +1,3 @@
-//
-//  MZNESettings.swift
-//  BmoCal
-//
-//  Created by Paul Wong on 2/4/18.
-//  Copyright © 2018 Paul Wong. All rights reserved.
-//
-
 import Foundation
 
 
@@ -32,6 +24,10 @@ class Settings: NSObject {
         var calendarNames: [String] = []
         var workdayStartHour: Int = 9
         var workdayEndHour: Int = 18
+        var showWidget: Bool = false
+        var widgetFloatsOnTop: Bool = true
+        var widgetX: Double = -1
+        var widgetY: Double = -1
     }
 
     var settings: Settings = Settings()
@@ -81,6 +77,10 @@ class Settings: NSObject {
         settings.calendarNames = []
         settings.workdayStartHour = 9
         settings.workdayEndHour = 18
+        settings.showWidget = false
+        settings.widgetFloatsOnTop = true
+        settings.widgetX = -1
+        settings.widgetY = -1
         self.archive()
     }
 }

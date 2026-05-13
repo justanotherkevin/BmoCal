@@ -1,11 +1,3 @@
-//
-//  MZAboutBoxViewController.swift
-//  BmoCal
-//
-//  Created by Paul Wong on 2/10/18.
-//  Copyright © 2018 Paul Wong. All rights reserved.
-//
-
 import Cocoa
 
 
@@ -55,17 +47,17 @@ class MZAboutBoxViewController: NSViewController {
             try! appAcknowledgments.string = String(contentsOfFile: ackURL, encoding: String.Encoding.utf8)
         }
     }
-    
+
     override func viewWillAppear() {
         super.viewWillAppear()
         self.view.window?.center()
         self.view.window?.level = .floating
     }
-    
+
     func resizeWindow(size:(CGFloat,CGFloat)){
         self.view.window?.setFrame(NSRect(x:0,y:0,width:size.0,height:size.1), display: true)
     }
-    
+
     @IBAction func toggleHelp(_ sender: Any?) {
         if self.isHelpVisible == true {
         // show about

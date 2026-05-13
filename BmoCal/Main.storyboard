@@ -719,7 +719,7 @@
         <!--Next Event View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController storyboardIdentifier="NextEventViewController" showSeguePresentationStyle="single" id="XfG-lQ-9wD" customClass="NextEventViewController" customModule="NextEvent" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NextEventViewController" showSeguePresentationStyle="single" id="XfG-lQ-9wD" customClass="NextEventViewController" customModule="BmoCal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="386" height="362"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>

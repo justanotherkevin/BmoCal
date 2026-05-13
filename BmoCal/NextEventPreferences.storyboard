@@ -31,7 +31,7 @@
         <scene sceneID="jmT-K0-KYp">
             <objects>
                 <customObject id="dxi-Nl-V1V" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <viewController id="wA8-j3-h1G" customClass="NextEventPreferencesViewController" customModule="NextEvent" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wA8-j3-h1G" customClass="NextEventPreferencesViewController" customModule="BmoCal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="iiq-tx-XAl">
                         <rect key="frame" x="0.0" y="0.0" width="293" height="610"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>

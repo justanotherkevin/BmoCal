@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  BmoCal
-//
-//  Created by Paul Wong on 1/28/18.
-//  Copyright © 2018 Paul Wong. All rights reserved.
-//
-
 import Cocoa
 import EventKit
 
@@ -37,6 +29,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var glowSpeed: CGFloat = 0.05
     var fadeOut: Bool = false
 
+    var widgetController: WorkdayWidgetWindowController?
+
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
@@ -65,6 +59,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         self.registerNotification()
         //CalendarTools().registerNotification(#selector(itemsChanged(_:)))
+
+        // Widget menu item — inserted at top of the status-item menu
+        let widgetItem = NSMenuItem(title: "Show Workday Widget",
+                                    action: #selector(toggleWidget(_:)),
+                                    keyEquivalent: "")
+        widgetItem.target = self
+        mainMenu.insertItem(widgetItem, at: 0)
+        mainMenu.insertItem(.separator(), at: 1)
+
+        if settings.settings.showWidget {
+            showWidget()
+        }
 
         // Last things to do
         timer = Timer.scheduledTimer(
@@ -134,8 +140,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         } else if isGlowing {
             self.stopGlow()
         }
+
+        widgetController?.tick()
     }
-    
+
     @objc func onClickStatusItem(sender: NSButton) {
         let event = NSApp.currentEvent!
 
@@ -150,10 +158,59 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBAction func refreshAll(_ sender: Any?) {
         viewController.refreshAll(self)
+        refreshWidgetEvents()
     }
 
     @objc func itemsChanged(_ notification: Notification) {
         viewController.refreshAll(self)
+        refreshWidgetEvents()
+    }
+
+    // MARK: - Workday Widget
+
+    @objc func toggleWidget(_ sender: Any?) {
+        if widgetController != nil {
+            hideWidget()
+        } else {
+            showWidget()
+        }
+    }
+
+    func showWidget() {
+        if widgetController == nil {
+            let s = settings.settings
+            let savedOrigin: CGPoint? = (s.widgetX >= 0 && s.widgetY >= 0)
+                ? CGPoint(x: s.widgetX, y: s.widgetY) : nil
+            widgetController = WorkdayWidgetWindowController(
+                floatOnTop: s.widgetFloatsOnTop,
+                savedOrigin: savedOrigin
+            )
+        }
+        widgetController?.showWindow(self)
+        settings.settings.showWidget = true
+        settings.archive()
+        refreshWidgetEvents()
+    }
+
+    func hideWidget() {
+        widgetController?.close()
+        widgetController = nil
+        settings.settings.showWidget = false
+        settings.archive()
+    }
+
+    func refreshWidgetEvents() {
+        guard let wc = widgetController else { return }
+        let calNames = settings.settings.calendarNames
+        let tools = CalendarTools()
+        let calendars = calNames.isEmpty
+            ? tools.getAllCalendars()
+            : tools.getCalendarByNames(names: calNames)
+        wc.refreshEvents(
+            events: tools.getTodayEvents(calendars: calendars),
+            workStart: settings.settings.workdayStartHour,
+            workEnd: settings.settings.workdayEndHour
+        )
     }
 
     @IBAction func openAbout(_ sender: Any?) {

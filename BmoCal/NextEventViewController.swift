@@ -1,14 +1,5 @@
-//
-//  NextEventViewController.swift
-//  BmoCal
-//
-//  Created by Paul Wong on 1/28/18.
-//  Copyright © 2018 Paul Wong. All rights reserved.
-//
-
 import Cocoa
 import EventKit
-
 
 extension Date {
 
@@ -68,7 +59,7 @@ class NextEventViewController: NSViewController {
     //    super.viewWillAppear()
     //    self.refreshAll(self)
     //}
-    
+
     func setControllerViewSize(_ count: Int) {
         var final_count = count
 
@@ -97,7 +88,7 @@ class NextEventViewController: NSViewController {
         }
         return itemDate
     }
-    
+
     func getLocationFromEventItem(_ item: EKCalendarItem) -> String {
         var location: String = "   "
         let type_name = String(describing: type(of: item))
@@ -116,11 +107,11 @@ class NextEventViewController: NSViewController {
             } else {
                 location = reminder.location ?? "   "
             }
-            
+
         }
         return location
     }
-    
+
     func getTravelTimeFromEventItem(_ item: EKCalendarItem) -> TimeInterval {
         var travelTime: TimeInterval = 0
         let type_name = String(describing: type(of: item))
@@ -157,7 +148,7 @@ class NextEventViewController: NSViewController {
         }
         return fullTime
     }
-    
+
     func getLeadTimeStrings(_ itemDate: Date?) -> (leadTime: String, leadTimeUnit: String) {
         var leadTime: String = ""
         var leadTimeUnit: String = ""
@@ -307,20 +298,20 @@ class NextEventViewController: NSViewController {
 
     func alert(title: String, date: Date, location: String, color: NSColor, playSound: Bool = false) {
         DispatchQueue.main.async {
-            
+
             var alertBoxWindow: MZAlertBoxWindowController!
             var alertBoxView: MZAlertBoxViewController!
 
             let mainStoryboard = NSStoryboard.init(name: "MZAlertBox", bundle: nil)
-            
+
             alertBoxWindow = mainStoryboard.instantiateController(
                 withIdentifier: "MZ Alert Box Window Controller"
             ) as? MZAlertBoxWindowController
-            
+
             alertBoxView = mainStoryboard.instantiateController(
                 withIdentifier: "MZ Alert Box Controller"
             ) as? MZAlertBoxViewController
-            
+
             alertBoxWindow!.contentViewController = alertBoxView
 
             alertBoxView!.eventTitleString = title
@@ -345,10 +336,10 @@ class NextEventViewController: NSViewController {
             alertBoxWindow!.window?.makeKeyAndOrderFront(self)
             alertBoxWindow!.window?.collectionBehavior = .canJoinAllSpaces
             alertBoxWindow!.showWindow(self)
-                      
+
             NSApp.activate(ignoringOtherApps: true)
         }
-        
+
     }
 
     func notify() {
@@ -357,7 +348,7 @@ class NextEventViewController: NSViewController {
         if settings.settings.useSystemAlert || settings.settings.useBlockingAlert {
 
             for item in calendarItems {
-                
+
                 let now: Date = Date()
                 let itemDate:Date? = getDateFromEventItem(item)
                 let itemLocation: String = getLocationFromEventItem(item)
@@ -370,7 +361,7 @@ class NextEventViewController: NSViewController {
                     shouldGlow = false
                     continue
                 }
-                
+
                 // notify travel
                 if settings.settings.notifyTravelTime {
                     let travelTime = getTravelTimeFromEventItem(item)
@@ -394,11 +385,11 @@ class NextEventViewController: NSViewController {
                             } else if settings.settings.useSound {
                                 NSSound.beep()
                             }
-                            
+
                             if settings.settings.useBlockingAlert {
                                 self.alert(title: "Time to leave for \(item.title ?? "Next Event")", date: itemDate!, location: itemLocation, color: color)
                             }
-                            
+
                             shouldGlow = true
                         }
                     }
@@ -407,7 +398,7 @@ class NextEventViewController: NSViewController {
                 // notify event
                 //print("\(ceil(now.timeIntervalSinceReferenceDate)) == \(ceil(itemDate.timeIntervalSinceReferenceDate)), \(item.title ?? "No title")")
                 if ceil(now.timeIntervalSinceReferenceDate) == ceil(itemDate!.timeIntervalSinceReferenceDate) {
-                    
+
                     if settings.settings.useSystemAlert {
                         notification = NSUserNotification()
                         notification?.title = item.title
@@ -424,15 +415,15 @@ class NextEventViewController: NSViewController {
                     } else if settings.settings.useSound {
                         NSSound.beep()
                     }
-                    
+
                     if settings.settings.useBlockingAlert && settings.settings.earlyWarning == 0 {
                         self.alert(title: item.title, date: itemDate!, location: itemLocation, color: color)
                     }
-                    
+
                     shouldGlow = false
                     self.refreshAll(self)
                 }
-                
+
                 // notify early warning
                 if settings.settings.earlyWarning > 0 && settings.settings.useBlockingAlert {
                     let tt = ceil((itemDate!.addingTimeInterval(0-TimeInterval(settings.settings.earlyWarning*60) )).timeIntervalSinceReferenceDate)
@@ -470,7 +461,7 @@ class NextEventViewController: NSViewController {
                 reminders: reminderLists
             )
         }
-        
+
         self.setControllerViewSize(calendarItems.count)
         DispatchQueue.main.async { [weak self] in
             self?.tableView.reloadData()
@@ -572,7 +563,7 @@ extension NextEventViewController: NSTableViewDataSource, NSTableViewDelegate {
         }
 
         //print(copyCalendarItems[row])
-        
+
         if copyCalendarItems[row].calendar != nil {
             result.calendarColor.backgroundColor = copyCalendarItems[row].calendar.color
         } else {

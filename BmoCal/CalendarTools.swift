@@ -1,11 +1,3 @@
-//
-//  CalendarTools.swift
-//  BmoCal
-//
-//  Created by Paul Wong on 2/7/18.
-//  Copyright © 2018 Paul Wong. All rights reserved.
-//
-
 import Foundation
 import EventKit
 import Cocoa
@@ -69,7 +61,7 @@ class CalendarTools: NSObject {
                 all[reminder] = date
             }
         }
-        
+
         for event in getEvents(start: now, end: oneYearFromNow!, calendars: calendars) {
             //print(((event) as! EKEvent).title, event.value(forKey: "travelTime")!)
             let date = ((event) as! EKEvent).startDate
@@ -99,7 +91,7 @@ class CalendarTools: NSObject {
             newItem.title = "N/A"
             results.append(newItem)
         }
-        
+
         return results
     }
 
@@ -121,7 +113,7 @@ class CalendarTools: NSObject {
                 all[reminder] = date
             }
         }
-        
+
         for event in getEvents(start: startDate, end: endDate, calendars: calendars) {
             let date = ((event) as! EKEvent).startDate
             if (date != nil && date! > startDate) {
@@ -134,14 +126,14 @@ class CalendarTools: NSObject {
         for item in sortedKeys {
             results.append(item)
         }
-        
+
         if results.count <= 0 {
             let store = EKEventStore()
             let newItem = EKEvent(eventStore: store)
             newItem.title = "N/A"
             results.append(newItem)
         }
-        
+
         return results
     }
 
@@ -158,7 +150,7 @@ class CalendarTools: NSObject {
                 all[reminder] = date
             }
         }
-        
+
         for event in getEvents(start: startDate, end: endDate, calendars: calendars) {
             let date = ((event) as! EKEvent).startDate
             if (date != nil && date! > startDate) {
@@ -257,14 +249,14 @@ class CalendarTools: NSObject {
 
         return results
     }
-    
+
     // calendars and reminder lists
 
     func getAllCalendars() -> [EKCalendar] {
         let calendars = eventStore.calendars(for: EKEntityType.event)
         return calendars
     }
-    
+
     func getAllReminderLists() -> [EKCalendar] {
         let list = eventStore.calendars(for: EKEntityType.reminder)
         return list
@@ -291,7 +283,7 @@ class CalendarTools: NSObject {
         }
         return results
     }
-    
+
     func getCalendarByIdentifier(identifiers: [String]) -> [EKCalendar] {
         var results: [EKCalendar] = []
         let calendars = eventStore.calendars(for: EKEntityType.event)
@@ -313,7 +305,7 @@ class CalendarTools: NSObject {
         }
         return results
     }
-    
+
     func getCalendarNames() -> [String] {
         var results: [String] = []
         let calendars = eventStore.calendars(for: EKEntityType.event)
@@ -324,7 +316,7 @@ class CalendarTools: NSObject {
         }
         return results
     }
-    
+
     func getReminderListNames() -> [String] {
         var results: [String] = []
         let calendars = eventStore.calendars(for: EKEntityType.event)
@@ -334,6 +326,15 @@ class CalendarTools: NSObject {
             }
         }
         return results
+    }
+
+    func getTodayEvents(calendars: [EKCalendar]) -> [EKEvent] {
+        let today = Date()
+        guard let endOfDay = today.endOfDay else { return [] }
+        let items = getEvents(start: today.startOfDay, end: endOfDay, calendars: calendars)
+        return items.compactMap { $0 as? EKEvent }
+            .filter { $0.startDate != nil }
+            .sorted { $0.startDate! < $1.startDate! }
     }
 
     func getCalendarColorByName(name: String) -> NSColor {
@@ -355,7 +356,7 @@ class CalendarTools: NSObject {
         }
         return NSColor.clear
     }
-    
+
     // currently not working not sure why, moved to appDelegate
     func registerNotification(_ selector: Selector) {
         eventStore.requestAccess(to: .event, completion: {
