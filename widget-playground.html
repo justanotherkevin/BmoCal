@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workday Widget Playground</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0e0e10;
+  --surface: #181820;
+  --border: #2a2a35;
+  --text: #e0e0e8;
+  --muted: #888890;
+  --accent: #5b8aff;
+}
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 13px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ─── Header ──────────────────────────────────────────────── */
+.header {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface);
+}
+.header h1 { font-size: 13px; font-weight: 600; color: var(--text); }
+.header span { font-size: 11px; color: var(--muted); }
+
+/* ─── Main layout ─────────────────────────────────────────── */
+.main {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ─── Controls sidebar ────────────────────────────────────── */
+.controls {
+  width: 280px;
+  padding: 12px 14px;
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+  flex-shrink: 0;
+  scrollbar-width: thin;
+  scrollbar-color: #333 transparent;
+}
+.controls::-webkit-scrollbar { width: 4px; }
+.controls::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+
+.section { margin-bottom: 18px; }
+.section-title {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 7px;
+}
+.row label { font-size: 12px; color: #b0b0bc; min-width: 80px; }
+.row .val { font-size: 11px; color: var(--muted); font-family: 'SF Mono', monospace; min-width: 38px; text-align: right; }
+
+input[type="range"] {
+  flex: 1; height: 3px; accent-color: var(--accent);
+  cursor: pointer; background: var(--border); border-radius: 2px;
+}
+select {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 3px 6px;
+  font-size: 12px;
+  flex: 1;
+  cursor: pointer;
+}
+select:focus { outline: 1px solid var(--accent); }
+
+/* Toggle */
+.toggle { position: relative; display: inline-block; width: 30px; height: 17px; flex-shrink: 0; }
+.toggle input { opacity: 0; width: 0; height: 0; }
+.toggle-track {
+  position: absolute; inset: 0; background: #2a2a35; border-radius: 10px; cursor: pointer; transition: .2s;
+}
+.toggle-track:before {
+  content: ''; position: absolute; width: 11px; height: 11px; background: #fff; border-radius: 50%;
+  top: 3px; left: 3px; transition: .2s;
+}
+.toggle input:checked + .toggle-track { background: var(--accent); }
+.toggle input:checked + .toggle-track:before { transform: translateX(13px); }
+
+/* Presets */
+.presets { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 14px; }
+.preset {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 5px;
+  padding: 4px 10px; font-size: 11px; color: var(--muted); cursor: pointer; transition: .15s;
+}
+.preset:hover { border-color: #555; color: var(--text); }
+.preset.active { border-color: var(--accent); color: var(--accent); background: rgba(91,138,255,.1); }
+
+/* Events list */
+.events-list { display: flex; flex-direction: column; gap: 5px; margin-bottom: 6px; }
+.event-item {
+  display: flex; align-items: center; gap: 5px; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 6px; padding: 5px 7px;
+}
+.event-color { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; cursor: pointer; }
+.event-name-input {
+  flex: 1; background: transparent; border: none; color: var(--text);
+  font-size: 11px; outline: none; min-width: 0;
+}
+.event-times { font-size: 10px; color: var(--muted); font-family: 'SF Mono', monospace; white-space: nowrap; }
+.event-remove {
+  background: none; border: none; color: #444; cursor: pointer;
+  font-size: 15px; line-height: 1; padding: 0 2px; transition: .15s;
+}
+.event-remove:hover { color: #ff5555; }
+
+.add-btn {
+  width: 100%; background: transparent; border: 1px dashed #333;
+  border-radius: 6px; padding: 5px; color: #555; font-size: 11px;
+  cursor: pointer; transition: .15s; text-align: center;
+}
+.add-btn:hover { border-color: #555; color: var(--muted); }
+
+/* Edit event modal */
+.modal-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,.7); z-index: 100;
+  align-items: center; justify-content: center;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: #1c1c26; border: 1px solid var(--border); border-radius: 10px;
+  padding: 18px 20px; width: 240px; display: flex; flex-direction: column; gap: 12px;
+}
+.modal h3 { font-size: 13px; font-weight: 600; }
+.modal-row { display: flex; align-items: center; gap: 8px; }
+.modal-row label { font-size: 12px; color: #aaa; width: 60px; flex-shrink: 0; }
+.modal input[type="text"] {
+  flex: 1; background: var(--bg); border: 1px solid var(--border);
+  border-radius: 4px; color: var(--text); font-size: 12px; padding: 4px 7px; outline: none;
+}
+.modal input[type="color"] {
+  width: 36px; height: 24px; border: none; background: none;
+  border-radius: 4px; cursor: pointer; padding: 0;
+}
+.modal select { background: var(--bg); font-size: 12px; padding: 4px 6px; }
+.modal-btns { display: flex; gap: 8px; justify-content: flex-end; margin-top: 4px; }
+.modal-btns button {
+  padding: 5px 14px; border-radius: 5px; font-size: 12px; cursor: pointer; transition: .15s;
+}
+.btn-cancel { background: var(--surface); border: 1px solid var(--border); color: var(--muted); }
+.btn-save { background: var(--accent); border: 1px solid var(--accent); color: #fff; }
+.btn-cancel:hover { border-color: #555; color: var(--text); }
+.btn-save:hover { background: #6d99ff; }
+
+/* ─── Preview area ────────────────────────────────────────── */
+.preview-area { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+
+.preview {
+  flex: 1; position: relative; overflow: hidden;
+  background:
+    radial-gradient(ellipse at 25% 35%, #1a2e5a 0%, transparent 55%),
+    radial-gradient(ellipse at 75% 70%, #2a1040 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 90%, #3d1a00 0%, transparent 45%),
+    #070710;
+}
+
+.preview canvas { cursor: move; }
+
+.float-badge {
+  position: absolute; bottom: 16px; right: 16px;
+  background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
+  border-radius: 6px; padding: 4px 10px;
+  font-size: 11px; color: rgba(255,255,255,.4);
+  display: flex; align-items: center; gap: 5px;
+}
+.float-badge::before {
+  content: ''; width: 6px; height: 6px; background: #44cc88;
+  border-radius: 50%; display: block;
+}
+
+/* Time indicator */
+.time-indicator {
+  position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
+  background: rgba(0,0,0,.5); border: 1px solid rgba(255,255,255,.1);
+  border-radius: 6px; padding: 4px 10px; font-size: 11px; color: rgba(255,255,255,.5);
+  font-family: 'SF Mono', monospace; pointer-events: none;
+}
+
+/* ─── Prompt area ─────────────────────────────────────────── */
+.prompt-area {
+  padding: 10px 16px;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  min-height: 70px;
+  max-height: 100px;
+  display: flex; flex-direction: column; gap: 5px;
+}
+.prompt-header {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.prompt-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+.copy-btn {
+  background: var(--bg); border: 1px solid var(--border); border-radius: 4px;
+  padding: 3px 10px; font-size: 11px; color: var(--muted); cursor: pointer; transition: .15s;
+}
+.copy-btn:hover { border-color: #555; color: var(--text); }
+.copy-btn.ok { border-color: #44cc88; color: #44cc88; }
+#prompt-text {
+  font-size: 12px; line-height: 1.5; color: #aaa; font-family: inherit;
+  overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Workday Widget</h1>
+  <span>Interactive playground — adjust controls, preview the widget</span>
+</div>
+
+<div class="main">
+
+  <!-- ── Controls ─────────────────────────────────────── -->
+  <aside class="controls">
+
+    <!-- Presets -->
+    <div class="section">
+      <div class="section-title">Presets</div>
+      <div class="presets" id="presets">
+        <button class="preset active" data-preset="glass">Dark Glass</button>
+        <button class="preset" data-preset="minimal">Minimal</button>
+        <button class="preset" data-preset="vibrant">Vibrant</button>
+        <button class="preset" data-preset="frosted">Frosted</button>
+        <button class="preset" data-preset="compact">Compact</button>
+      </div>
+    </div>
+
+    <!-- Working Hours -->
+    <div class="section">
+      <div class="section-title">Working Hours</div>
+      <div class="row">
+        <label>Start</label>
+        <select id="workStart"></select>
+      </div>
+      <div class="row">
+        <label>End</label>
+        <select id="workEnd"></select>
+      </div>
+    </div>
+
+    <!-- Simulated Time -->
+    <div class="section">
+      <div class="section-title">Simulated Time</div>
+      <div class="row">
+        <label>Time</label>
+        <input type="range" id="simTime" min="0" max="100" step="0.5">
+        <span class="val" id="simTimeVal">—</span>
+      </div>
+      <div class="row">
+        <label>Auto-play</label>
+        <label class="toggle">
+          <input type="checkbox" id="autoPlay">
+          <div class="toggle-track"></div>
+        </label>
+      </div>
+    </div>
+
+    <!-- Calendar Events -->
+    <div class="section">
+      <div class="section-title">Calendar Events</div>
+      <div class="events-list" id="eventsList"></div>
+      <button class="add-btn" id="addEventBtn">+ Add event</button>
+    </div>
+
+    <!-- Appearance -->
+    <div class="section">
+      <div class="section-title">Appearance</div>
+      <div class="row">
+        <label>Widget size</label>
+        <input type="range" id="widgetSize" min="80" max="220" step="2">
+        <span class="val" id="widgetSizeVal"></span>
+      </div>
+      <div class="row">
+        <label>Ring width</label>
+        <input type="range" id="ringWidth" min="6" max="28" step="1">
+        <span class="val" id="ringWidthVal"></span>
+      </div>
+      <div class="row">
+        <label>BG opacity</label>
+        <input type="range" id="bgOpacity" min="0" max="100" step="1">
+        <span class="val" id="bgOpacityVal"></span>
+      </div>
+      <div class="row">
+        <label>Crosshairs</label>
+        <label class="toggle">
+          <input type="checkbox" id="showCrosshairs" checked>
+          <div class="toggle-track"></div>
+        </label>
+      </div>
+      <div class="row">
+        <label>Hour labels</label>
+        <label class="toggle">
+          <input type="checkbox" id="showLabels">
+          <div class="toggle-track"></div>
+        </label>
+      </div>
+      <div class="row">
+        <label>Border glow</label>
+        <label class="toggle">
+          <input type="checkbox" id="borderGlow" checked>
+          <div class="toggle-track"></div>
+        </label>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- ── Preview ───────────────────────────────────────── -->
+  <main class="preview-area">
+    <div class="preview" id="preview">
+      <div class="time-indicator" id="timeIndicator"></div>
+      <canvas id="canvas"></canvas>
+      <div class="float-badge">Floats on top</div>
+    </div>
+
+    <div class="prompt-area">
+      <div class="prompt-header">
+        <span class="prompt-label">Swift implementation prompt</span>
+        <button class="copy-btn" id="copyBtn">Copy</button>
+      </div>
+      <p id="prompt-text">—</p>
+    </div>
+  </main>
+
+</div>
+
+<!-- Edit Event Modal -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <h3>Edit Event</h3>
+    <div class="modal-row">
+      <label>Name</label>
+      <input type="text" id="modalName" placeholder="Event name">
+    </div>
+    <div class="modal-row">
+      <label>Color</label>
+      <input type="color" id="modalColor" value="#5b8aff">
+    </div>
+    <div class="modal-row">
+      <label>Start</label>
+      <select id="modalStart"></select>
+    </div>
+    <div class="modal-row">
+      <label>End</label>
+      <select id="modalEnd"></select>
+    </div>
+    <div class="modal-btns">
+      <button class="btn-cancel" id="modalCancel">Cancel</button>
+      <button class="btn-save" id="modalSave">Save</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── State ─────────────────────────────────────────────────────────────────────
+let editingEventId = null;
+
+const state = {
+  workStart: 8,
+  workEnd: 18,
+  currentTime: 10.5,  // decimal hours
+  widgetSize: 150,
+  ringWidth: 16,
+  bgOpacity: 75,
+  showCrosshairs: true,
+  showLabels: false,
+  borderGlow: true,
+  autoPlay: false,
+  events: [
+    { id: 1, name: 'Standup',   start: 9.0,  end: 9.5,  color: '#e040a0' },
+    { id: 2, name: 'Deep Work', start: 9.5,  end: 12.0, color: '#5b8aff' },
+    { id: 3, name: 'Lunch',     start: 12.0, end: 13.0, color: '#44cc88' },
+    { id: 4, name: 'Review',    start: 14.0, end: 15.5, color: '#ff8844' },
+    { id: 5, name: 'Planning',  start: 16.0, end: 17.0, color: '#aa55ff' },
+  ],
+  nextEventId: 6,
+  // Widget drag position
+  widgetX: null,
+  widgetY: null,
+};
+
+const PRESETS = {
+  glass: {
+    widgetSize: 150, ringWidth: 16, bgOpacity: 75,
+    showCrosshairs: true, showLabels: false, borderGlow: true,
+  },
+  minimal: {
+    widgetSize: 130, ringWidth: 10, bgOpacity: 40,
+    showCrosshairs: false, showLabels: false, borderGlow: false,
+  },
+  vibrant: {
+    widgetSize: 170, ringWidth: 20, bgOpacity: 90,
+    showCrosshairs: true, showLabels: true, borderGlow: true,
+  },
+  frosted: {
+    widgetSize: 160, ringWidth: 14, bgOpacity: 55,
+    showCrosshairs: true, showLabels: false, borderGlow: false,
+  },
+  compact: {
+    widgetSize: 100, ringWidth: 10, bgOpacity: 80,
+    showCrosshairs: false, showLabels: false, borderGlow: true,
+  },
+};
+
+// ── Canvas setup ─────────────────────────────────────────────────────────────
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+let dpr = window.devicePixelRatio || 1;
+
+function resizeCanvas() {
+  const preview = document.getElementById('preview');
+  const w = preview.clientWidth;
+  const h = preview.clientHeight;
+  canvas.style.position = 'absolute';
+  canvas.style.top = 0; canvas.style.left = 0;
+  canvas.style.width = w + 'px';
+  canvas.style.height = h + 'px';
+  canvas.width = w * dpr;
+  canvas.height = h * dpr;
+  if (state.widgetX === null) {
+    state.widgetX = w / 2;
+    state.widgetY = h / 2;
+  }
+  draw();
+}
+
+// ── Geometry helpers ─────────────────────────────────────────────────────────
+function timeToAngle(t) {
+  const frac = (t - state.workStart) / (state.workEnd - state.workStart);
+  return -Math.PI / 2 + frac * Math.PI * 2;
+}
+
+function polarX(cx, r, a) { return cx + r * Math.cos(a); }
+function polarY(cy, r, a) { return cy + r * Math.sin(a); }
+
+function formatTime(t) {
+  const h = Math.floor(t);
+  const m = Math.round((t - h) * 60);
+  const hh = h % 12 || 12;
+  const mm = String(m).padStart(2, '0');
+  const ampm = h < 12 ? 'AM' : 'PM';
+  return `${hh}:${mm} ${ampm}`;
+}
+
+function formatRemaining(hours) {
+  if (hours <= 0) return 'done';
+  const totalMin = Math.round(hours * 60);
+  if (totalMin < 60) return `${totalMin}m`;
+  const h = Math.floor(hours);
+  const m = Math.round((hours - h) * 60);
+  return m > 0 ? `${h}h ${m}m` : `${h}h`;
+}
+
+function hourLabel(h) {
+  const hh = h % 12 || 12;
+  return h < 12 ? `${hh}a` : (h === 12 ? '12p' : `${hh}p`);
+}
+
+// ── Drawing ───────────────────────────────────────────────────────────────────
+function draw() {
+  const w = canvas.width, h = canvas.height;
+  ctx.clearRect(0, 0, w, h);
+
+  const cx = state.widgetX * dpr;
+  const cy = state.widgetY * dpr;
+  const outerR = (state.widgetSize / 2) * dpr;
+  const rw = state.ringWidth * dpr;
+  const innerR = outerR - rw;
+  const midR = outerR - rw / 2;
+  const cornerR = outerR;  // full circle bg
+
+  const t = state.currentTime;
+  const currentEvent = state.events.find(e => t >= e.start && t < e.end);
+
+  // ── Background circle ──────────────────────────────────────────────────────
+  ctx.save();
+  if (state.bgOpacity > 50 && state.borderGlow) {
+    ctx.shadowColor = 'rgba(100,120,255,0.25)';
+    ctx.shadowBlur = 18 * dpr;
+  }
+  ctx.beginPath();
+  ctx.arc(cx, cy, outerR - 1, 0, Math.PI * 2);
+  const alpha = state.bgOpacity / 100;
+  ctx.fillStyle = `rgba(8,8,18,${alpha})`;
+  ctx.fill();
+  // Outer ring border
+  ctx.strokeStyle = `rgba(255,255,255,${0.08 + alpha * 0.06})`;
+  ctx.lineWidth = 1 * dpr;
+  ctx.stroke();
+  ctx.restore();
+
+  // ── Gray track ring ────────────────────────────────────────────────────────
+  ctx.save();
+  ctx.beginPath();
+  ctx.arc(cx, cy, midR, 0, Math.PI * 2);
+  ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+  ctx.lineWidth = rw;
+  ctx.stroke();
+  ctx.restore();
+
+  // ── Event arcs ─────────────────────────────────────────────────────────────
+  const sortedEvents = [...state.events].sort((a, b) => a.start - b.start);
+  for (const ev of sortedEvents) {
+    if (ev.end <= state.workStart || ev.start >= state.workEnd) continue;
+    const a1 = timeToAngle(Math.max(ev.start, state.workStart));
+    const a2 = timeToAngle(Math.min(ev.end, state.workEnd));
+    if (a2 <= a1) continue;
+
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(cx, cy, midR, a1, a2);
+    ctx.strokeStyle = ev.color;
+    ctx.lineWidth = rw;
+    ctx.lineCap = 'butt';
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  // ── Hour tick marks ────────────────────────────────────────────────────────
+  if (state.showCrosshairs) {
+    for (let h = state.workStart; h <= state.workEnd; h++) {
+      const a = timeToAngle(h);
+      const isMajor = h % 2 === 0;
+      const x1 = polarX(cx, outerR - (isMajor ? 1 : 2), a);
+      const y1 = polarY(cy, outerR - (isMajor ? 1 : 2), a);
+      const x2 = polarX(cx, innerR + (isMajor ? 1 : 2), a);
+      const y2 = polarY(cy, innerR + (isMajor ? 1 : 2), a);
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.strokeStyle = 'rgba(0,0,0,0.85)';
+      ctx.lineWidth = (isMajor ? 2 : 1.5) * dpr;
+      ctx.stroke();
+      ctx.restore();
+    }
+  }
+
+  // ── Hour labels on ring edge ───────────────────────────────────────────────
+  if (state.showLabels) {
+    const labelR = outerR + 9 * dpr;
+    ctx.save();
+    ctx.font = `${8 * dpr}px -apple-system, sans-serif`;
+    ctx.fillStyle = 'rgba(255,255,255,0.35)';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    for (let h = state.workStart; h <= state.workEnd; h += 2) {
+      const a = timeToAngle(h);
+      const lx = polarX(cx, labelR, a);
+      const ly = polarY(cy, labelR, a);
+      ctx.fillText(hourLabel(h), lx, ly);
+    }
+    ctx.restore();
+  }
+
+  // ── Progress sweep (white wedge for current event) ─────────────────────────
+  if (currentEvent) {
+    const a1 = timeToAngle(currentEvent.start);
+    const a2 = timeToAngle(t);
+
+    if (a2 > a1) {
+      ctx.save();
+      // Glow
+      ctx.shadowColor = 'rgba(255,255,255,0.3)';
+      ctx.shadowBlur = 8 * dpr;
+      ctx.beginPath();
+      ctx.moveTo(cx, cy);
+      ctx.arc(cx, cy, innerR - 2 * dpr, a1, a2);
+      ctx.closePath();
+      ctx.fillStyle = 'rgba(255,255,255,0.88)';
+      ctx.fill();
+      ctx.restore();
+    }
+  }
+
+  // ── Current-time tick ─────────────────────────────────────────────────────
+  const curAngle = timeToAngle(t);
+  // Glowing dot on ring
+  ctx.save();
+  const dotX = polarX(cx, midR, curAngle);
+  const dotY = polarY(cy, midR, curAngle);
+  ctx.shadowColor = 'rgba(255,255,255,0.9)';
+  ctx.shadowBlur = 6 * dpr;
+  ctx.beginPath();
+  ctx.arc(dotX, dotY, 3 * dpr, 0, Math.PI * 2);
+  ctx.fillStyle = '#fff';
+  ctx.fill();
+  ctx.restore();
+
+  // ── Center text ────────────────────────────────────────────────────────────
+  const timeFontSize = outerR * 0.22;
+  const subFontSize = outerR * 0.14;
+
+  // Current time
+  ctx.save();
+  ctx.font = `600 ${timeFontSize}px -apple-system, sans-serif`;
+  ctx.fillStyle = 'rgba(255,255,255,0.95)';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(formatTime(t), cx, cy - subFontSize * 0.7);
+  ctx.restore();
+
+  // Remaining text
+  let subText = '';
+  if (currentEvent) {
+    const rem = currentEvent.end - t;
+    subText = `${formatRemaining(rem)} left`;
+  } else if (t < state.workStart) {
+    subText = `starts ${formatRemaining(state.workStart - t)}`;
+  } else if (t >= state.workEnd) {
+    subText = 'workday done';
+  } else {
+    const next = state.events.find(e => e.start > t);
+    subText = next ? `free · ${formatRemaining(next.start - t)}` : 'free time';
+  }
+
+  ctx.save();
+  ctx.font = `${subFontSize}px -apple-system, sans-serif`;
+  ctx.fillStyle = currentEvent ? currentEvent.color : 'rgba(255,255,255,0.35)';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(subText, cx, cy + subFontSize * 1.2);
+  ctx.restore();
+
+  // ── Workday end arc (faint remaining) ─────────────────────────────────────
+  if (t >= state.workStart && t < state.workEnd) {
+    const a1 = timeToAngle(t);
+    const a2 = timeToAngle(state.workEnd);
+    if (a2 > a1) {
+      ctx.save();
+      ctx.beginPath();
+      // Faint current-time-to-end arc on outer edge
+      ctx.arc(cx, cy, outerR - 1, a1, a2);
+      ctx.strokeStyle = 'rgba(255,255,255,0.1)';
+      ctx.lineWidth = 2 * dpr;
+      ctx.lineCap = 'round';
+      ctx.stroke();
+      ctx.restore();
+    }
+  }
+}
+
+// ── UI updates ────────────────────────────────────────────────────────────────
+function updateAll() {
+  draw();
+  updateTimeIndicator();
+  updatePrompt();
+}
+
+function updateTimeIndicator() {
+  document.getElementById('timeIndicator').textContent =
+    `Simulated: ${formatTime(state.currentTime)}`;
+}
+
+function updatePrompt() {
+  const ev = state.events;
+  const workHours = state.workEnd - state.workStart;
+  const parts = [];
+
+  parts.push(`Workday ${state.workStart}:00–${state.workEnd}:00 (${workHours}h).`);
+
+  if (ev.length > 0) {
+    const evDesc = ev.map(e => `"${e.name}" ${e.start}–${e.end}`).join(', ');
+    parts.push(`Calendar events: ${evDesc}.`);
+  }
+
+  parts.push(`Widget is ${state.widgetSize}px, ring ${state.ringWidth}px thick, bg opacity ${state.bgOpacity}%.`);
+
+  const features = [];
+  if (state.showCrosshairs) features.push('hour crosshairs');
+  if (state.showLabels) features.push('hour labels on ring');
+  if (state.borderGlow) features.push('blue glow border');
+  if (features.length) parts.push(`Features: ${features.join(', ')}.`);
+
+  parts.push(`Circle = full workday (360° = ${workHours}h). Each event arc fills its time slot. White wedge sweeps from event start to current time. Center shows current time + time remaining in current event. Widget floats above all windows (NSWindow.level = .floating).`);
+
+  document.getElementById('prompt-text').textContent = parts.join(' ');
+}
+
+// ── Render event list ─────────────────────────────────────────────────────────
+function renderEventsList() {
+  const list = document.getElementById('eventsList');
+  list.innerHTML = '';
+
+  const sorted = [...state.events].sort((a, b) => a.start - b.start);
+  for (const ev of sorted) {
+    const item = document.createElement('div');
+    item.className = 'event-item';
+    item.innerHTML = `
+      <div class="event-color" style="background:${ev.color}" data-id="${ev.id}" title="Edit event"></div>
+      <input class="event-name-input" value="${ev.name}" data-id="${ev.id}" placeholder="Name">
+      <span class="event-times">${hourLabel(ev.start)}–${hourLabel(ev.end)}</span>
+      <button class="event-remove" data-id="${ev.id}">×</button>
+    `;
+    list.appendChild(item);
+  }
+
+  // Color dot → open modal to edit
+  list.querySelectorAll('.event-color').forEach(dot => {
+    dot.addEventListener('click', () => openModal(+dot.dataset.id));
+  });
+  // Name input
+  list.querySelectorAll('.event-name-input').forEach(inp => {
+    inp.addEventListener('input', () => {
+      const ev = state.events.find(e => e.id === +inp.dataset.id);
+      if (ev) { ev.name = inp.value; updateAll(); }
+    });
+  });
+  // Remove
+  list.querySelectorAll('.event-remove').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.events = state.events.filter(e => e.id !== +btn.dataset.id);
+      renderEventsList();
+      updateAll();
+    });
+  });
+}
+
+// ── Modal ─────────────────────────────────────────────────────────────────────
+function buildTimeOptions(sel) {
+  sel.innerHTML = '';
+  for (let h = 0; h < 24; h++) {
+    for (let m = 0; m < 60; m += 30) {
+      const val = h + m / 60;
+      const hh = h % 12 || 12;
+      const mm = String(m).padStart(2, '0');
+      const ampm = h < 12 ? 'AM' : 'PM';
+      const opt = document.createElement('option');
+      opt.value = val;
+      opt.textContent = `${hh}:${mm} ${ampm}`;
+      sel.appendChild(opt);
+    }
+  }
+}
+
+function openModal(id) {
+  editingEventId = id;
+  const ev = state.events.find(e => e.id === id);
+  if (!ev) return;
+  document.getElementById('modalName').value = ev.name;
+  document.getElementById('modalColor').value = ev.color;
+  buildTimeOptions(document.getElementById('modalStart'));
+  buildTimeOptions(document.getElementById('modalEnd'));
+  document.getElementById('modalStart').value = ev.start;
+  document.getElementById('modalEnd').value = ev.end;
+  document.getElementById('modalOverlay').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  editingEventId = null;
+}
+
+function saveModal() {
+  if (editingEventId === null) return;
+  const ev = state.events.find(e => e.id === editingEventId);
+  if (!ev) return;
+  ev.name = document.getElementById('modalName').value || ev.name;
+  ev.color = document.getElementById('modalColor').value;
+  ev.start = +document.getElementById('modalStart').value;
+  ev.end = +document.getElementById('modalEnd').value;
+  if (ev.end <= ev.start) ev.end = ev.start + 0.5;
+  closeModal();
+  renderEventsList();
+  updateAll();
+}
+
+document.getElementById('modalCancel').addEventListener('click', closeModal);
+document.getElementById('modalSave').addEventListener('click', saveModal);
+document.getElementById('modalOverlay').addEventListener('click', (e) => {
+  if (e.target === e.currentTarget) closeModal();
+});
+
+// ── Hour select helpers ────────────────────────────────────────────────────────
+function buildHourOptions(sel, from = 0, to = 23) {
+  sel.innerHTML = '';
+  for (let h = from; h <= to; h++) {
+    const hh = h % 12 || 12;
+    const ampm = h < 12 ? 'AM' : 'PM';
+    const opt = document.createElement('option');
+    opt.value = h;
+    opt.textContent = `${hh}:00 ${ampm}`;
+    sel.appendChild(opt);
+  }
+}
+
+// ── Bind controls ─────────────────────────────────────────────────────────────
+function bindControls() {
+  buildHourOptions(document.getElementById('workStart'), 5, 12);
+  buildHourOptions(document.getElementById('workEnd'), 13, 22);
+  document.getElementById('workStart').value = state.workStart;
+  document.getElementById('workEnd').value = state.workEnd;
+
+  document.getElementById('workStart').addEventListener('change', (e) => {
+    state.workStart = +e.target.value;
+    updateSimTimeRange();
+    updateAll();
+  });
+  document.getElementById('workEnd').addEventListener('change', (e) => {
+    state.workEnd = +e.target.value;
+    updateSimTimeRange();
+    updateAll();
+  });
+
+  // Sim time
+  updateSimTimeRange();
+  document.getElementById('simTime').addEventListener('input', (e) => {
+    const pct = +e.target.value / 100;
+    state.currentTime = state.workStart + pct * (state.workEnd - state.workStart);
+    document.getElementById('simTimeVal').textContent = formatTime(state.currentTime);
+    updateAll();
+  });
+
+  // Auto-play
+  document.getElementById('autoPlay').addEventListener('change', (e) => {
+    state.autoPlay = e.target.checked;
+  });
+
+  // Sliders
+  const sliders = [
+    ['widgetSize', 'widgetSizeVal', 'px', v => state.widgetSize = v],
+    ['ringWidth', 'ringWidthVal', 'px', v => state.ringWidth = v],
+    ['bgOpacity', 'bgOpacityVal', '%', v => state.bgOpacity = v],
+  ];
+  for (const [id, valId, unit, setter] of sliders) {
+    const el = document.getElementById(id);
+    el.value = state[id];
+    document.getElementById(valId).textContent = state[id] + unit;
+    el.addEventListener('input', () => {
+      setter(+el.value);
+      document.getElementById(valId).textContent = +el.value + unit;
+      updateAll();
+    });
+  }
+
+  // Toggles
+  const toggles = [
+    ['showCrosshairs', v => state.showCrosshairs = v],
+    ['showLabels', v => state.showLabels = v],
+    ['borderGlow', v => state.borderGlow = v],
+  ];
+  for (const [id, setter] of toggles) {
+    const el = document.getElementById(id);
+    el.checked = state[id];
+    el.addEventListener('change', () => { setter(el.checked); updateAll(); });
+  }
+
+  // Add event
+  document.getElementById('addEventBtn').addEventListener('click', () => {
+    const id = state.nextEventId++;
+    const COLORS = ['#e040a0','#5b8aff','#44cc88','#ff8844','#aa55ff','#ffcc44','#ff5555'];
+    const color = COLORS[(id - 1) % COLORS.length];
+    state.events.push({ id, name: 'New Event', start: 11.0, end: 12.0, color });
+    renderEventsList();
+    openModal(id);
+    updateAll();
+  });
+
+  // Presets
+  document.querySelectorAll('.preset').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const p = PRESETS[btn.dataset.preset];
+      if (!p) return;
+      Object.assign(state, p);
+      // Sync UI
+      document.getElementById('widgetSize').value = state.widgetSize;
+      document.getElementById('widgetSizeVal').textContent = state.widgetSize + 'px';
+      document.getElementById('ringWidth').value = state.ringWidth;
+      document.getElementById('ringWidthVal').textContent = state.ringWidth + 'px';
+      document.getElementById('bgOpacity').value = state.bgOpacity;
+      document.getElementById('bgOpacityVal').textContent = state.bgOpacity + '%';
+      document.getElementById('showCrosshairs').checked = state.showCrosshairs;
+      document.getElementById('showLabels').checked = state.showLabels;
+      document.getElementById('borderGlow').checked = state.borderGlow;
+      document.querySelectorAll('.preset').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      updateAll();
+    });
+  });
+}
+
+function updateSimTimeRange() {
+  const sl = document.getElementById('simTime');
+  const pct = (state.currentTime - state.workStart) / (state.workEnd - state.workStart) * 100;
+  sl.value = Math.max(0, Math.min(100, pct));
+  document.getElementById('simTimeVal').textContent = formatTime(state.currentTime);
+}
+
+// ── Drag widget ───────────────────────────────────────────────────────────────
+let dragging = false;
+let dragStartX, dragStartY, dragStartWX, dragStartWY;
+
+canvas.addEventListener('mousedown', (e) => {
+  const rect = canvas.getBoundingClientRect();
+  const mx = (e.clientX - rect.left);
+  const my = (e.clientY - rect.top);
+  const dx = mx - state.widgetX;
+  const dy = my - state.widgetY;
+  if (Math.sqrt(dx * dx + dy * dy) < state.widgetSize / 2) {
+    dragging = true;
+    dragStartX = e.clientX; dragStartY = e.clientY;
+    dragStartWX = state.widgetX; dragStartWY = state.widgetY;
+    canvas.style.cursor = 'grabbing';
+  }
+});
+
+window.addEventListener('mousemove', (e) => {
+  if (!dragging) return;
+  state.widgetX = dragStartWX + (e.clientX - dragStartX);
+  state.widgetY = dragStartWY + (e.clientY - dragStartY);
+  draw();
+});
+
+window.addEventListener('mouseup', () => {
+  dragging = false;
+  canvas.style.cursor = 'move';
+});
+
+// ── Auto-play ─────────────────────────────────────────────────────────────────
+setInterval(() => {
+  if (!state.autoPlay) return;
+  state.currentTime += 0.01;  // ~36s per tick
+  if (state.currentTime > state.workEnd) state.currentTime = state.workStart;
+  updateSimTimeRange();
+  updateAll();
+}, 50);
+
+// ── Copy prompt ───────────────────────────────────────────────────────────────
+document.getElementById('copyBtn').addEventListener('click', () => {
+  const text = document.getElementById('prompt-text').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById('copyBtn');
+    btn.textContent = 'Copied!';
+    btn.classList.add('ok');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('ok'); }, 1500);
+  });
+});
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+bindControls();
+renderEventsList();
+updateAll();
+</script>
+</body>
+</html>

@@ -17,9 +17,13 @@ BmoCal/
 ├── Main.storyboard                    # Main UI layout
 ├── NextEventPreferences.storyboard    # Preferences panel layout
 ├── Assets.xcassets/                   # App icons (normal, glow variants in blue/orange)
-└── Info.plist                         # Bundle metadata, Calendar/Reminders permissions
+├── Info.plist                         # Bundle metadata, Calendar/Reminders permissions
+└── widget/
+    ├── WorkdayWidgetView.swift        # CoreGraphics circular clock widget (NSView)
+    └── WorkdayWidgetWindowController.swift  # Borderless floating NSWindow controller
 BmoCal.xcodeproj/                      # Xcode project
 builds/                                # Pre-built zip releases
+widget-playground.html                 # Interactive HTML design preview for the widget
 ```
 
 ## Building
@@ -41,9 +45,11 @@ Entry point. Owns:
 
 Key methods:
 
-- `update()` — called every second; refreshes the menu bar title, triggers `shouldGlow`, detects day rollover
+- `update()` — called every second; refreshes the menu bar title, triggers `shouldGlow`, detects day rollover, calls `widgetController?.tick()`
 - `startGlow()` / `stopGlow()` / `glow()` — fade-in/out overlay animation on the status icon
 - `processCommandLine()` — handles `-R` (reset settings) and `-F:1`/`-F:0` (float right) launch args
+- `showWidget()` / `hideWidget()` / `toggleWidget()` — show/hide the floating clock widget
+- `refreshWidgetEvents()` — re-queries today's calendar events and pushes them to the widget view
 
 ### NextEventViewController (`NextEventViewController.swift`)
 
@@ -67,6 +73,10 @@ Persists to `~/Documents/BmoCal.cfg` as JSON.
 | ------------------ | -------- | ------- | -------------------------------------------------- |
 | `workdayStartHour` | Int      | 9       | Hour (0–23) when workday begins                    |
 | `workdayEndHour`   | Int      | 18      | Hour (0–23) when workday ends                      |
+| `showWidget`       | Bool     | false   | Whether the floating clock widget is visible       |
+| `widgetFloatsOnTop`| Bool     | true    | Widget window level: `.floating` vs `.normal`      |
+| `widgetX`          | Double   | -1      | Saved widget X position (-1 = default top-right)   |
+| `widgetY`          | Double   | -1      | Saved widget Y position                            |
 | `showNumber`       | Int      | 10      | Events to show: N > 0 = top N, 0 = today, -1 = 24h |
 | `useFlash`         | Bool     | true    | Flash icon when next event is ≤15 min away         |
 | `useFlashBlue`     | Bool     | false   | Blue glow (true) vs orange glow (false)            |
@@ -94,6 +104,7 @@ Wraps `EKEventStore`. All queries are synchronous (uses `DispatchGroup` for remi
 | `getTopN(n:calendars:reminders:)`   | `[EKCalendarItem]` | Next N events/reminders from now up to 1 year |
 | `getTodayAll(calendars:reminders:)` | `[EKCalendarItem]` | All events/reminders for today                |
 | `get24Hours(calendars:reminders:)`  | `[EKCalendarItem]` | Events/reminders in the next 24 hours         |
+| `getTodayEvents(calendars:)`        | `[EKEvent]`        | Today's calendar events sorted by start time (widget use) |
 | `getCalendarByNames(names:)`        | `[EKCalendar]`     | Filter calendars by display name              |
 | `getReminderListByNames(names:)`    | `[EKCalendar]`     | Filter reminder lists by display name         |
 | `requestAccess()`                   | Bool               | Request Calendar + Reminders permission       |
@@ -116,15 +127,46 @@ Pure formatting utilities — no state.
 | `getShortTimeString(_:endDate:)`                        | "9:00 AM" or "9:00 AM - 5:00 PM"                      |
 | `getStatusString(_:showSeconds:)`                       | "D:HH:MM[:SS]" compact format                         |
 
+### WorkdayWidgetView (`widget/WorkdayWidgetView.swift`)
+
+Custom `NSView` that draws the circular clock widget using Core Graphics.
+
+- `var todayEvents: [EKEvent]` — set by `AppDelegate.refreshWidgetEvents()` on calendar changes
+- `var workStart / workEnd: Int` — from settings, define the full-circle time span
+- `draw(_ dirtyRect:)` — renders: dark background circle (with blue glow shadow), dim track ring, colored arcs per event, hour tick marks, hour labels outside the ring, white wedge (progress through current event), glowing dot at current time, center time + remaining text
+- Mouse drag: moves the window; `mouseUp` saves the new position to settings
+- Right-click context menu: "Float on Top" toggle + "Close Widget"
+
+**Geometry:** full circle = workday duration. `timeToAngle(t) = π/2 − (t−workStart)/(workEnd−workStart) × 2π` — starts at 12 o'clock, sweeps clockwise. All arcs use `clockwise: true` in CoreGraphics (Y-up coordinate system).
+
+### WorkdayWidgetWindowController (`widget/WorkdayWidgetWindowController.swift`)
+
+`NSWindowController` wrapping a borderless, transparent `NSWindow`.
+
+- Window style: `.borderless`, `isOpaque = false`, `backgroundColor = .clear`, `hasShadow = false`
+- Collection behaviour: `.canJoinAllSpaces`, `.stationary`, `.ignoresCycle`
+- Default position: top-right of main screen's visible frame; restores from `Settings.widgetX/Y`
+- `tick()` — called every second by `AppDelegate.update()`; marks view dirty
+- `refreshEvents(events:workStart:workEnd:)` — updates the view's event data and redraws
+- `setFloating(_:)` — switches window level between `.floating` and `.normal`
+
 ## Customizations vs Upstream
 
-The workday progress bar feature lives in:
+**Menu bar progress bar** lives in:
 
 - `Settings.swift` — `workdayStartHour` and `workdayEndHour` fields
 - `TimeStringTools.swift` — `workdayProgressBar(startHour:endHour:)` and `workdayRemainingString(endHour:)`
 - `NextEventViewController.swift` — `getNextEventStatus()` implements the three-state logic (before/during/after workday)
 
-`getNextEventStatus()` implements three-state logic: before workday, during workday (progress bar), and after workday.
+**Floating clock widget** lives in:
+
+- `widget/WorkdayWidgetView.swift` — CoreGraphics drawing
+- `widget/WorkdayWidgetWindowController.swift` — borderless floating window
+- `Settings.swift` — `showWidget`, `widgetFloatsOnTop`, `widgetX`, `widgetY`
+- `CalendarTools.swift` — `getTodayEvents(calendars:)`
+- `AppDelegate.swift` — `showWidget()`, `hideWidget()`, `refreshWidgetEvents()`, `widgetController?.tick()` in `update()`
+
+Toggle via right-click on the menu bar icon → **Show Workday Widget**.
 
 ## Permissions Required
 
@@ -141,6 +183,7 @@ The app exits at launch if `CalendarTools().requestAccess()` returns false.
 - `requestAccess()` in `CalendarTools.swift` always returns `true` due to async completion blocks — actual denial is detected via the exit dialog in `AppDelegate`.
 - `NSUserNotification` APIs are deprecated in newer macOS versions; they still work but may eventually need migration to `UserNotifications` framework.
 - Reminder list color lookup in `getReminderListNames()` incorrectly queries `.event` calendars instead of `.reminder` — this is a bug in the upstream code.
+- `Main.storyboard` and `NextEventPreferences.storyboard` previously had `customModule="NextEvent"` (the original app name) causing a crash on launch. Fixed to `customModule="BmoCal"`.
 
 ## Development Notes
 

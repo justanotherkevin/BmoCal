@@ -1,11 +1,3 @@
-//
-//  NextEventPreferencesViewController.swift
-//  BmoCal
-//
-//  Created by Paul Wong on 2/13/18.
-//  Copyright © 2018 Paul Wong. All rights reserved.
-//
-
 import Cocoa
 import EventKit
 
@@ -76,7 +68,7 @@ class NextEventPreferencesViewController: NSViewController {
         calendars = settings.settings.calendarNames
 
         self.tableView.reloadData()
-        
+
         enableButtons()
     }
 
@@ -87,11 +79,11 @@ class NextEventPreferencesViewController: NSViewController {
 
         // title
         useTitleLimit.isEnabled = settings.settings.showTitle
-        
+
         // blocking alert then pick the time
         earlyWarning.isEnabled = settings.settings.useBlockingAlert
     }
-    
+
     func getState(value: Bool) -> NSControl.StateValue {
         if value == true {
             return .on
@@ -129,9 +121,9 @@ class NextEventPreferencesViewController: NSViewController {
              settings.settings.showNumber = Int((numberEvents.selectedItem?.title)!)!
         }
         settings.settings.calendarNames = calendars
-        
+
         enableButtons()
-        
+
         settings.needsDisplay = true
         settings.archive()
     }
