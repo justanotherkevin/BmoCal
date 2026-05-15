@@ -27,6 +27,8 @@
 		3693BF1B1C996AA921E4BCBF /* SmokeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6FFAD1F38270426402D647 /* SmokeTest.swift */; };
 		4C1897905A5E9154EDDC5210 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4360118BFBAE85CE9E04BAA2 /* Foundation.framework */; };
 		F53F5A52497E749F03195106 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBE8F2034967B0ECBB1C15E /* DateExtensions.swift */; };
+		AABB00000000000000000001 /* VerticalWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB00000000000000000002 /* VerticalWidgetView.swift */; };
+		AABB00000000000000000003 /* VerticalWidgetWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB00000000000000000004 /* VerticalWidgetWindowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		9EBE8F2034967B0ECBB1C15E /* DateExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateExtensions.swift; path = BmoCal/DateExtensions.swift; sourceTree = "<group>"; };
 		A0BA3ED37E70B0B96754975F /* SettingsTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SettingsTests.swift; path = BmoCalTests/SettingsTests.swift; sourceTree = "<group>"; };
 		B124608442DA899AA37C38ED /* BmoCalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BmoCalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AABB00000000000000000002 /* VerticalWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalWidgetView.swift; sourceTree = "<group>"; };
+		AABB00000000000000000004 /* VerticalWidgetWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalWidgetWindowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -156,6 +160,8 @@
 				1388199421569346003483C5 /* acknowledgments.txt */,
 				132BB42B23B171750016A468 /* MZAlertBox.storyboard */,
 				132BB42A23B171750016A468 /* MZAlertBoxViewController.swift */,
+				AABB00000000000000000002 /* VerticalWidgetView.swift */,
+				AABB00000000000000000004 /* VerticalWidgetWindowController.swift */,
 			);
 			path = BmoCal;
 			sourceTree = "<group>";
@@ -293,6 +299,8 @@
 				139B3302201EA9FE007A5909 /* NextEventViewController.swift in Sources */,
 				131C870E203C9B6200312F69 /* TimeStringTools.swift in Sources */,
 				F53F5A52497E749F03195106 /* DateExtensions.swift in Sources */,
+				AABB00000000000000000001 /* VerticalWidgetView.swift in Sources */,
+				AABB00000000000000000003 /* VerticalWidgetWindowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
