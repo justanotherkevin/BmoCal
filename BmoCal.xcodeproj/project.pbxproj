@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02A2507830E60896AE8C0D01 /* DateExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4C4CAB1C23185A3CCDDC1A /* DateExtensionsTests.swift */; };
 		131C870E203C9B6200312F69 /* TimeStringTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131C870D203C9B6200312F69 /* TimeStringTools.swift */; };
 		1322039C2027A38E00B1291C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1322039B2027A38E00B1291C /* Settings.swift */; };
 		132BB42C23B171750016A468 /* MZAlertBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132BB42A23B171750016A468 /* MZAlertBoxViewController.swift */; };
@@ -22,7 +23,21 @@
 		139B3302201EA9FE007A5909 /* NextEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B3301201EA9FE007A5909 /* NextEventViewController.swift */; };
 		13C21D8820332B5A00821F7C /* NextEventPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C21D8720332B5A00821F7C /* NextEventPreferencesViewController.swift */; };
 		13C21D8A20332B8C00821F7C /* NextEventPreferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13C21D8920332B8C00821F7C /* NextEventPreferences.storyboard */; };
+		2B27321327765EE2B438245B /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BA3ED37E70B0B96754975F /* SettingsTests.swift */; };
+		3693BF1B1C996AA921E4BCBF /* SmokeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6FFAD1F38270426402D647 /* SmokeTest.swift */; };
+		4C1897905A5E9154EDDC5210 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4360118BFBAE85CE9E04BAA2 /* Foundation.framework */; };
+		F53F5A52497E749F03195106 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBE8F2034967B0ECBB1C15E /* DateExtensions.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		126BC0E89F2740A06273F2A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 139B32CA201E8A99007A5909 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 139B32D1201E8A9A007A5909;
+			remoteInfo = BmoCal;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		139B7B6A20452BD500190740 /* CopyFiles */ = {
@@ -56,10 +71,26 @@
 		139B3301201EA9FE007A5909 /* NextEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextEventViewController.swift; sourceTree = "<group>"; };
 		13C21D8720332B5A00821F7C /* NextEventPreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextEventPreferencesViewController.swift; sourceTree = "<group>"; };
 		13C21D8920332B8C00821F7C /* NextEventPreferences.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NextEventPreferences.storyboard; sourceTree = "<group>"; };
+		1D4C4CAB1C23185A3CCDDC1A /* DateExtensionsTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateExtensionsTests.swift; path = BmoCalTests/DateExtensionsTests.swift; sourceTree = "<group>"; };
+		4360118BFBAE85CE9E04BAA2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		9A6FFAD1F38270426402D647 /* SmokeTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SmokeTest.swift; path = BmoCalTests/SmokeTest.swift; sourceTree = "<group>"; };
+		9EBE8F2034967B0ECBB1C15E /* DateExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateExtensions.swift; path = BmoCal/DateExtensions.swift; sourceTree = "<group>"; };
+		A0BA3ED37E70B0B96754975F /* SettingsTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SettingsTests.swift; path = BmoCalTests/SettingsTests.swift; sourceTree = "<group>"; };
+		B124608442DA899AA37C38ED /* BmoCalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BmoCalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		01F51A3C2FB52A580060CE34 /* widget */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = widget; sourceTree = "<group>"; };
+		01F51A3C2FB52A580060CE34 /* widget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
+			explicitFileTypes = {
+			};
+			explicitFolders = (
+			);
+			path = widget;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +98,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BE96D334F0E965DBF928E41 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C1897905A5E9154EDDC5210 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +117,11 @@
 			children = (
 				139B32D4201E8A9A007A5909 /* BmoCal */,
 				139B32D3201E8A9A007A5909 /* Products */,
+				722BA83114C7FE989C264464 /* Frameworks */,
+				9A6FFAD1F38270426402D647 /* SmokeTest.swift */,
+				A0BA3ED37E70B0B96754975F /* SettingsTests.swift */,
+				1D4C4CAB1C23185A3CCDDC1A /* DateExtensionsTests.swift */,
+				9EBE8F2034967B0ECBB1C15E /* DateExtensions.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				139B32D2201E8A9A007A5909 /* BmoCal.app */,
+				B124608442DA899AA37C38ED /* BmoCalTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -115,9 +160,43 @@
 			path = BmoCal;
 			sourceTree = "<group>";
 		};
+		4ADF8254963F2D15771E1500 /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+				4360118BFBAE85CE9E04BAA2 /* Foundation.framework */,
+			);
+			name = "OS X";
+			sourceTree = "<group>";
+		};
+		722BA83114C7FE989C264464 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4ADF8254963F2D15771E1500 /* OS X */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0DC7EB387A521C4F724903C1 /* BmoCalTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92D1D311B15848A6775F0977 /* Build configuration list for PBXNativeTarget "BmoCalTests" */;
+			buildPhases = (
+				76A28BA53832279B1A9DEB42 /* Sources */,
+				9BE96D334F0E965DBF928E41 /* Frameworks */,
+				F99084C57AD2E7F9518BBAAA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CF24422DBA0EC8FCF04BD672 /* PBXTargetDependency */,
+			);
+			name = BmoCalTests;
+			productName = BmoCalTests;
+			productReference = B124608442DA899AA37C38ED /* BmoCalTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		139B32D1201E8A9A007A5909 /* BmoCal */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 139B32E2201E8A9A007A5909 /* Build configuration list for PBXNativeTarget "BmoCal" */;
@@ -171,6 +250,7 @@
 			projectRoot = "";
 			targets = (
 				139B32D1201E8A9A007A5909 /* BmoCal */,
+				0DC7EB387A521C4F724903C1 /* BmoCalTests */,
 			);
 		};
 /* End PBXProject section */
@@ -190,6 +270,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F99084C57AD2E7F9518BBAAA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -205,10 +292,30 @@
 				132BB42C23B171750016A468 /* MZAlertBoxViewController.swift in Sources */,
 				139B3302201EA9FE007A5909 /* NextEventViewController.swift in Sources */,
 				131C870E203C9B6200312F69 /* TimeStringTools.swift in Sources */,
+				F53F5A52497E749F03195106 /* DateExtensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		76A28BA53832279B1A9DEB42 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3693BF1B1C996AA921E4BCBF /* SmokeTest.swift in Sources */,
+				2B27321327765EE2B438245B /* SettingsTests.swift in Sources */,
+				02A2507830E60896AE8C0D01 /* DateExtensionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CF24422DBA0EC8FCF04BD672 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BmoCal;
+			target = 139B32D1201E8A9A007A5909 /* BmoCal */;
+			targetProxy = 126BC0E89F2740A06273F2A0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		139B32E0201E8A9A007A5909 /* Debug */ = {
@@ -388,6 +495,46 @@
 			};
 			name = Release;
 		};
+		22AA8CEF4AF968E3C64B7C76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BmoCal.app/Contents/MacOS/BmoCal";
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G7Y6J5C2S2;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@loader_path/../../../../MacOS",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Mazookie.NextEvent.BmoCalTests;
+				PRODUCT_NAME = BmoCalTests;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BmoCal.app/Contents/MacOS/BmoCal";
+			};
+			name = Release;
+		};
+		B4955222B33C5FB5485F0EE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BmoCal.app/Contents/MacOS/BmoCal";
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G7Y6J5C2S2;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@loader_path/../../../../MacOS",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Mazookie.NextEvent.BmoCalTests;
+				PRODUCT_NAME = BmoCalTests;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BmoCal.app/Contents/MacOS/BmoCal";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -405,6 +552,15 @@
 			buildConfigurations = (
 				139B32E3201E8A9A007A5909 /* Debug */,
 				139B32E4201E8A9A007A5909 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		92D1D311B15848A6775F0977 /* Build configuration list for PBXNativeTarget "BmoCalTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22AA8CEF4AF968E3C64B7C76 /* Release */,
+				B4955222B33C5FB5485F0EE9 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

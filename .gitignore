@@ -6,6 +6,10 @@
 builds/
 build/
 DerivedData
+_dd/
+.vscode/
+buildServer.json
+default.profraw
 
 ## Various settings
 *.pbxuser

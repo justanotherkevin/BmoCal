@@ -1,60 +1,67 @@
-# Graph Report - .  (2026-05-10)
+# Graph Report - .  (2026-05-13)
 
 ## Corpus Check
-- 49 files · ~358,729 words
+- 14 files · ~499,985 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 219 nodes · 298 edges · 21 communities detected
-- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 15 edges (avg confidence: 0.86)
+- 241 nodes · 317 edges · 28 communities detected
+- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 4 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
-- [[_COMMUNITY_Cross-Cutting Concepts & Docs|Cross-Cutting Concepts & Docs]]
-- [[_COMMUNITY_NextEventViewController Methods|NextEventViewController Methods]]
-- [[_COMMUNITY_AppDelegate Methods|AppDelegate Methods]]
-- [[_COMMUNITY_CalendarTools EventKit Methods|CalendarTools EventKit Methods]]
-- [[_COMMUNITY_Glow Effect Menu Bar Icons|Glow Effect Menu Bar Icons]]
-- [[_COMMUNITY_Time Formatting Utilities|Time Formatting Utilities]]
-- [[_COMMUNITY_Alert Box Controller|Alert Box Controller]]
-- [[_COMMUNITY_Preferences View Controller|Preferences View Controller]]
-- [[_COMMUNITY_About Box Controller|About Box Controller]]
-- [[_COMMUNITY_App Icon Resolution Set|App Icon Resolution Set]]
-- [[_COMMUNITY_Settings Persistence|Settings Persistence]]
-- [[_COMMUNITY_Default Menu Bar Icons|Default Menu Bar Icons]]
-- [[_COMMUNITY_Mazookie Brand Logos|Mazookie Brand Logos]]
-- [[_COMMUNITY_Reminder Button Icon|Reminder Button Icon]]
-- [[_COMMUNITY_Calendar Button Icon|Calendar Button Icon]]
-- [[_COMMUNITY_Settings Button Icon|Settings Button Icon]]
-- [[_COMMUNITY_Bridging Header|Bridging Header]]
-- [[_COMMUNITY_Calendar Access Request|Calendar Access Request]]
-- [[_COMMUNITY_App Screenshot|App Screenshot]]
-- [[_COMMUNITY_Help Menu Bar Widget|Help: Menu Bar Widget]]
-- [[_COMMUNITY_Help Preferences Window|Help: Preferences Window]]
+- [[_COMMUNITY_Community 0|Community 0]]
+- [[_COMMUNITY_Community 1|Community 1]]
+- [[_COMMUNITY_Community 2|Community 2]]
+- [[_COMMUNITY_Community 3|Community 3]]
+- [[_COMMUNITY_Community 4|Community 4]]
+- [[_COMMUNITY_Community 5|Community 5]]
+- [[_COMMUNITY_Community 6|Community 6]]
+- [[_COMMUNITY_Community 7|Community 7]]
+- [[_COMMUNITY_Community 8|Community 8]]
+- [[_COMMUNITY_Community 9|Community 9]]
+- [[_COMMUNITY_Community 10|Community 10]]
+- [[_COMMUNITY_Community 11|Community 11]]
+- [[_COMMUNITY_Community 12|Community 12]]
+- [[_COMMUNITY_Community 13|Community 13]]
+- [[_COMMUNITY_Community 14|Community 14]]
+- [[_COMMUNITY_Community 15|Community 15]]
+- [[_COMMUNITY_Community 16|Community 16]]
+- [[_COMMUNITY_Community 17|Community 17]]
+- [[_COMMUNITY_Community 18|Community 18]]
+- [[_COMMUNITY_Community 19|Community 19]]
+- [[_COMMUNITY_Community 20|Community 20]]
+- [[_COMMUNITY_Community 21|Community 21]]
+- [[_COMMUNITY_Community 22|Community 22]]
+- [[_COMMUNITY_Community 23|Community 23]]
+- [[_COMMUNITY_Community 24|Community 24]]
+- [[_COMMUNITY_Community 25|Community 25]]
+- [[_COMMUNITY_Community 26|Community 26]]
+- [[_COMMUNITY_Community 27|Community 27]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `NextEventViewController` - 25 edges
-2. `AppDelegate` - 25 edges
-3. `CalendarTools` - 22 edges
+1. `AppDelegate` - 29 edges
+2. `NextEventViewController` - 25 edges
+3. `CalendarTools` - 23 edges
 4. `NextEventPreferencesViewController` - 13 edges
 5. `TimeStringTools` - 13 edges
-6. `AppDelegate - Application Entry Point & Coordinator` - 13 edges
-7. `Date` - 11 edges
-8. `MZAboutBoxViewController` - 11 edges
-9. `NextEvent Application Icon Set` - 11 edges
-10. `MZAlertBoxViewController` - 10 edges
+6. `WorkdayWidgetView` - 13 edges
+7. `WorkdayWidgetView` - 13 edges
+8. `Date` - 11 edges
+9. `MZAboutBoxViewController` - 11 edges
+10. `NextEvent Application Icon Set` - 11 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `AppDelegate - Application Entry Point & Coordinator` --conceptually_related_to--> `macOS Menu Bar Widget Pattern`  [INFERRED]
-  NextEvent/AppDelegate.swift → README.md
-- `Menu Bar Icon Glow Effect` --conceptually_related_to--> `15-Minute Flash Warning for Upcoming Events`  [INFERRED]
-  NextEvent/AppDelegate.swift → README.md
-- `AppDelegate - Application Entry Point & Coordinator` --conceptually_related_to--> `15-Minute Flash Warning for Upcoming Events`  [INFERRED]
-  NextEvent/AppDelegate.swift → README.md
-- `AppDelegate - Application Entry Point & Coordinator` --conceptually_related_to--> `NextEvent Application (macOS Menu Bar Countdown Widget)`  [INFERRED]
-  NextEvent/AppDelegate.swift → README.md
-- `Event Notification System (Blocking + System Alerts)` --conceptually_related_to--> `Blocking Alert on Event Start`  [INFERRED]
-  NextEvent/NextEventViewController.swift → README.md
+- `Mazookie Full Logo (300x88, help document)` --semantically_similar_to--> `Mazookie Name Logo Sticker Asset`  [INFERRED] [semantically similar]
+  NextEvent/help.rtfd/Mazookie_full_logo_small.png → NextEvent/Assets.xcassets/mazookie_name_logo_sticker_small.imageset
+- `NextEvent Application (macOS Menu Bar Countdown Widget)` --conceptually_related_to--> `NextEvent Application Icon Set`  [INFERRED]
+  README.md → NextEvent/Assets.xcassets/AppIcon.appiconset
+- `NextEvent Application Icon Set` --conceptually_related_to--> `App Icon @1x (16×16)`  [EXTRACTED]
+  NextEvent/Assets.xcassets/AppIcon.appiconset → NextEvent/Assets.xcassets/AppIcon.appiconset/icon_16x16.png
+- `NextEvent Application Icon Set` --conceptually_related_to--> `App Icon @2x (32×32)`  [EXTRACTED]
+  NextEvent/Assets.xcassets/AppIcon.appiconset → NextEvent/Assets.xcassets/AppIcon.appiconset/icon_16x16@2x.png
+- `NextEvent Application Icon Set` --conceptually_related_to--> `App Icon @1x (32×32)`  [EXTRACTED]
+  NextEvent/Assets.xcassets/AppIcon.appiconset → NextEvent/Assets.xcassets/AppIcon.appiconset/icon_32x32.png
 
 ## Hyperedges (group relationships)
 - **Event Notification Pipeline** — appdelegate_main, nexteventviewcontroller_notification, alertboxvc_main, concept_blocking_alert, concept_flash_alert [INFERRED 0.85]
@@ -67,130 +74,154 @@
 
 ## Communities
 
-### Community 0 - "Cross-Cutting Concepts & Docs"
-Cohesion: 0.08
-Nodes (34): Help Document Viewer (RTFD), MZAboutBoxViewController - About/Help Dialog, Acknowledgments (MIT License), In-Alert Countdown Timer Display, MZAlertBoxViewController - Blocking Event Alert, AppDelegate - Application Entry Point & Coordinator, NSPopover (Event List Popup), 1-Second Timer Loop for UI Updates (+26 more)
-
-### Community 1 - "NextEventViewController Methods"
+### Community 0 - "Community 0"
 Cohesion: 0.13
-Nodes (4): Date, KSTableCellView, NextEventViewController, NSTableCellView
+Nodes (5): Date, KSTableCellView, NextEventViewController, NSTableCellView, NSTableViewDataSource
 
-### Community 2 - "AppDelegate Methods"
-Cohesion: 0.14
+### Community 1 - "Community 1"
+Cohesion: 0.13
 Nodes (2): AppDelegate, NSApplicationDelegate
 
-### Community 3 - "CalendarTools EventKit Methods"
+### Community 2 - "Community 2"
 Cohesion: 0.14
 Nodes (2): CalendarTools, Date
 
-### Community 4 - "Glow Effect Menu Bar Icons"
-Cohesion: 0.12
-Nodes (17): Menu Bar Icon Glow Effect, Mazookie Blue Icon Black @1x (20×20), Mazookie Blue Icon Black @2x (40×40), Mazookie Blue Icon White @1x (20×20), Mazookie Blue Icon White @2x (40×40), Mazookie Menu Bar Icon (Blue Variant), Mazookie Menu Bar Icon (Orange Variant), Mazookie Orange Icon Black @1x (20×20) (+9 more)
+### Community 3 - "Community 3"
+Cohesion: 0.09
+Nodes (22): App Icon @2x (1024×1024), App Icon @1x (128×128), App Icon @1x (16×16), App Icon @2x (256×256), App Icon @1x (256×256), App Icon @2x (32×32), App Icon @1x (32×32), App Icon @2x (512×512) (+14 more)
 
-### Community 5 - "Time Formatting Utilities"
+### Community 4 - "Community 4"
+Cohesion: 0.12
+Nodes (4): MZAlertBoxWindowController, NSWindowController, WorkdayWidgetWindowController, WorkdayWidgetWindowController
+
+### Community 5 - "Community 5"
 Cohesion: 0.16
 Nodes (2): NSObject, TimeStringTools
 
-### Community 6 - "Alert Box Controller"
-Cohesion: 0.18
-Nodes (4): MZAlertBoxViewController, MZAlertBoxWindowController, NSViewController, NSWindowController
+### Community 6 - "Community 6"
+Cohesion: 0.19
+Nodes (2): NSView, WorkdayWidgetView
 
-### Community 7 - "Preferences View Controller"
-Cohesion: 0.23
-Nodes (3): NextEventPreferencesViewController, NSTableViewDataSource, NSTableViewDelegate
+### Community 7 - "Community 7"
+Cohesion: 0.21
+Nodes (1): WorkdayWidgetView
 
-### Community 8 - "About Box Controller"
+### Community 8 - "Community 8"
+Cohesion: 0.26
+Nodes (2): NextEventPreferencesViewController, NSTableViewDelegate
+
+### Community 9 - "Community 9"
 Cohesion: 0.24
 Nodes (1): MZAboutBoxViewController
 
-### Community 9 - "App Icon Resolution Set"
-Cohesion: 0.18
-Nodes (11): App Icon @2x (1024×1024), App Icon @1x (128×128), App Icon @1x (16×16), App Icon @2x (256×256), App Icon @1x (256×256), App Icon @2x (32×32), App Icon @1x (32×32), App Icon @2x (512×512) (+3 more)
+### Community 10 - "Community 10"
+Cohesion: 0.27
+Nodes (2): MZAlertBoxViewController, NSViewController
 
-### Community 10 - "Settings Persistence"
+### Community 11 - "Community 11"
 Cohesion: 0.43
 Nodes (2): Codable, Settings
 
-### Community 11 - "Default Menu Bar Icons"
-Cohesion: 0.29
-Nodes (7): Status Item (Menu Bar Icon), Mazookie Menu Bar Icon (Default Black), Mazookie MB Icon Black @1x (20×20), Mazookie MB Icon Black @2x (40×40), NextEvent Menu Bar Icon (Default), NextEvent MB Glow Effect @1x, NextEvent MB Glow Effect @2x
+### Community 12 - "Community 12"
+Cohesion: 0.4
+Nodes (5): Mazookie Menu Bar Icon (Orange Variant), Mazookie Orange Icon Black @1x (20×20), Mazookie Orange Icon Black @2x (40×40), Mazookie Orange Icon White @1x (20×20), Mazookie Orange Icon White @2x (40×40)
 
-### Community 12 - "Mazookie Brand Logos"
+### Community 13 - "Community 13"
+Cohesion: 0.4
+Nodes (5): Mazookie Blue Icon Black @1x (20×20), Mazookie Blue Icon Black @2x (40×40), Mazookie Blue Icon White @1x (20×20), Mazookie Blue Icon White @2x (40×40), Mazookie Menu Bar Icon (Blue Variant)
+
+### Community 14 - "Community 14"
+Cohesion: 0.67
+Nodes (1): SampleEvent
+
+### Community 15 - "Community 15"
+Cohesion: 0.67
+Nodes (3): Mazookie Menu Bar Icon (Default Black), Mazookie MB Icon Black @1x (20×20), Mazookie MB Icon Black @2x (40×40)
+
+### Community 16 - "Community 16"
+Cohesion: 0.67
+Nodes (3): NextEvent Menu Bar Icon (Default), NextEvent MB Glow Effect @1x, NextEvent MB Glow Effect @2x
+
+### Community 17 - "Community 17"
+Cohesion: 0.67
+Nodes (3): NextEvent Menu Bar Icon (Orange Glow Variant), NextEvent MB Orange Glow @1x, NextEvent MB Orange Glow @2x
+
+### Community 18 - "Community 18"
+Cohesion: 0.67
+Nodes (3): NextEvent MB Blue Glow @1x, NextEvent MB Blue Glow @2x, NextEvent Menu Bar Icon (Blue Glow Variant)
+
+### Community 19 - "Community 19"
 Cohesion: 1.0
 Nodes (2): Mazookie Full Logo (300x88, help document), Mazookie Name Logo Sticker Asset
 
-### Community 13 - "Reminder Button Icon"
+### Community 20 - "Community 20"
 Cohesion: 1.0
 Nodes (2): Reminders Icon @1x (16x16), Reminders Icon @2x (32x32)
 
-### Community 14 - "Calendar Button Icon"
+### Community 21 - "Community 21"
 Cohesion: 1.0
 Nodes (2): Calendar Icon @1x (16x16), Calendar Icon @2x (32x32)
 
-### Community 15 - "Settings Button Icon"
+### Community 22 - "Community 22"
 Cohesion: 1.0
 Nodes (2): Gear Icon @1x (16x16), Gear Icon @2x (32x32)
 
-### Community 16 - "Bridging Header"
+### Community 23 - "Community 23"
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 17 - "Calendar Access Request"
+### Community 24 - "Community 24"
 Cohesion: 1.0
-Nodes (1): Calendar/Reminder Access Request
+Nodes (1): Acknowledgments (MIT License)
 
-### Community 18 - "App Screenshot"
+### Community 25 - "Community 25"
 Cohesion: 1.0
 Nodes (1): NextEvent App Screenshot (3840x2160)
 
-### Community 19 - "Help: Menu Bar Widget"
+### Community 26 - "Community 26"
 Cohesion: 1.0
 Nodes (1): Help Illustration - Menu Bar Countdown Widget (400x330)
 
-### Community 20 - "Help: Preferences Window"
+### Community 27 - "Community 27"
 Cohesion: 1.0
 Nodes (1): Help Screenshot - Preferences Window (250x534)
 
-## Ambiguous Edges - Review These
-- `AppDelegate - Application Entry Point & Coordinator` → `Bridging Header (CommonCrypto import)`  [AMBIGUOUS]
-  NextEvent/NextEvent-Bridging-Header.h · relation: conceptually_related_to
-
 ## Knowledge Gaps
-- **48 isolated node(s):** `NSPopover (Event List Popup)`, `Calendar/Reminder Access Request`, `Event Table View (KSTableCellView)`, `Settings Struct (All Config Flags)`, `Fuzzy Time Formatting (tomorrow, next week, etc)` (+43 more)
+- **45 isolated node(s):** `SampleEvent`, `Version History (2.2.1, 2.2.3, 2.2.4)`, `Acknowledgments (MIT License)`, `macOS Menu Bar Widget Pattern`, `Apple EventKit Integration (Calendar + Reminders)` (+40 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **Thin community `Mazookie Brand Logos`** (2 nodes): `Mazookie Full Logo (300x88, help document)`, `Mazookie Name Logo Sticker Asset`
+- **Thin community `Community 19`** (2 nodes): `Mazookie Full Logo (300x88, help document)`, `Mazookie Name Logo Sticker Asset`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Reminder Button Icon`** (2 nodes): `Reminders Icon @1x (16x16)`, `Reminders Icon @2x (32x32)`
+- **Thin community `Community 20`** (2 nodes): `Reminders Icon @1x (16x16)`, `Reminders Icon @2x (32x32)`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Calendar Button Icon`** (2 nodes): `Calendar Icon @1x (16x16)`, `Calendar Icon @2x (32x32)`
+- **Thin community `Community 21`** (2 nodes): `Calendar Icon @1x (16x16)`, `Calendar Icon @2x (32x32)`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Settings Button Icon`** (2 nodes): `Gear Icon @1x (16x16)`, `Gear Icon @2x (32x32)`
+- **Thin community `Community 22`** (2 nodes): `Gear Icon @1x (16x16)`, `Gear Icon @2x (32x32)`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Bridging Header`** (1 nodes): `NextEvent-Bridging-Header.h`
+- **Thin community `Community 23`** (1 nodes): `NextEvent-Bridging-Header.h`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Calendar Access Request`** (1 nodes): `Calendar/Reminder Access Request`
+- **Thin community `Community 24`** (1 nodes): `Acknowledgments (MIT License)`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `App Screenshot`** (1 nodes): `NextEvent App Screenshot (3840x2160)`
+- **Thin community `Community 25`** (1 nodes): `NextEvent App Screenshot (3840x2160)`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Help: Menu Bar Widget`** (1 nodes): `Help Illustration - Menu Bar Countdown Widget (400x330)`
+- **Thin community `Community 26`** (1 nodes): `Help Illustration - Menu Bar Countdown Widget (400x330)`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Help: Preferences Window`** (1 nodes): `Help Screenshot - Preferences Window (250x534)`
+- **Thin community `Community 27`** (1 nodes): `Help Screenshot - Preferences Window (250x534)`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **What is the exact relationship between `AppDelegate - Application Entry Point & Coordinator` and `Bridging Header (CommonCrypto import)`?**
-  _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
-- **Why does `AppDelegate - Application Entry Point & Coordinator` connect `Cross-Cutting Concepts & Docs` to `Default Menu Bar Icons`, `Glow Effect Menu Bar Icons`?**
-  _High betweenness centrality (0.070) - this node is a cross-community bridge._
-- **Why does `NextEventViewController` connect `NextEventViewController Methods` to `Alert Box Controller`, `Preferences View Controller`?**
-  _High betweenness centrality (0.057) - this node is a cross-community bridge._
-- **Why does `AppDelegate` connect `AppDelegate Methods` to `Time Formatting Utilities`?**
+- **Why does `NextEventViewController` connect `Community 0` to `Community 8`, `Community 10`?**
+  _High betweenness centrality (0.059) - this node is a cross-community bridge._
+- **Why does `AppDelegate` connect `Community 1` to `Community 5`?**
   _High betweenness centrality (0.056) - this node is a cross-community bridge._
-- **What connects `NSPopover (Event List Popup)`, `Calendar/Reminder Access Request`, `Event Table View (KSTableCellView)` to the rest of the system?**
-  _48 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `Cross-Cutting Concepts & Docs` be split into smaller, more focused modules?**
-  _Cohesion score 0.08 - nodes in this community are weakly interconnected._
-- **Should `NextEventViewController Methods` be split into smaller, more focused modules?**
+- **Why does `MZAlertBoxViewController` connect `Community 10` to `Community 4`?**
+  _High betweenness centrality (0.051) - this node is a cross-community bridge._
+- **What connects `SampleEvent`, `Version History (2.2.1, 2.2.3, 2.2.4)`, `Acknowledgments (MIT License)` to the rest of the system?**
+  _45 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.13 - nodes in this community are weakly interconnected._
+- **Should `Community 1` be split into smaller, more focused modules?**
+  _Cohesion score 0.13 - nodes in this community are weakly interconnected._
+- **Should `Community 2` be split into smaller, more focused modules?**
+  _Cohesion score 0.14 - nodes in this community are weakly interconnected._

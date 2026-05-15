@@ -44,28 +44,28 @@ class NextEventPreferencesViewController: NSViewController {
     func refresh() {
         allCalendars = CalendarTools().getAllCalendars() + CalendarTools().getAllReminderLists()
 
-        flash.state = getState(value: settings.settings.useFlash)
-        flashBlue.state = getState(value: settings.settings.useFlashBlue)
-        alternateIcon.state = getState(value: settings.settings.useAltIcon)
-        systemAlert.state = getState(value: settings.settings.useSystemAlert)
-        blockingAlert.state = getState(value: settings.settings.useBlockingAlert)
-        earlyWarning.selectItem(withTitle: String(settings.settings.earlyWarning))
-        travelTime.state = getState(value: settings.settings.notifyTravelTime)
-        playChime.state = getState(value: settings.settings.useSound)
-        showSeconds.state = getState(value: settings.settings.showSeconds)
-        leadingZeros.state = getState(value: settings.settings.leadingZeros)
-        useFuzzyTime.state = getState(value: settings.settings.useFuzzyTime)
-        showTitle.state = getState(value: settings.settings.showTitle)
-        useTitleLimit.state = getState(value: settings.settings.useTitleLimit)
-        showTime.state = getState(value: settings.settings.showTime)
-        if settings.settings.showNumber == 0 {
+        flash.state = getState(value: settings.data.useFlash)
+        flashBlue.state = getState(value: settings.data.useFlashBlue)
+        alternateIcon.state = getState(value: settings.data.useAltIcon)
+        systemAlert.state = getState(value: settings.data.useSystemAlert)
+        blockingAlert.state = getState(value: settings.data.useBlockingAlert)
+        earlyWarning.selectItem(withTitle: String(settings.data.earlyWarning))
+        travelTime.state = getState(value: settings.data.notifyTravelTime)
+        playChime.state = getState(value: settings.data.useSound)
+        showSeconds.state = getState(value: settings.data.showSeconds)
+        leadingZeros.state = getState(value: settings.data.leadingZeros)
+        useFuzzyTime.state = getState(value: settings.data.useFuzzyTime)
+        showTitle.state = getState(value: settings.data.showTitle)
+        useTitleLimit.state = getState(value: settings.data.useTitleLimit)
+        showTime.state = getState(value: settings.data.showTime)
+        if settings.data.showNumber == 0 {
             numberEvents.selectItem(withTitle: "Today only")
-        } else if settings.settings.showNumber == -1 {
+        } else if settings.data.showNumber == -1 {
             numberEvents.selectItem(withTitle: "24 Hours")
         } else {
-            numberEvents.selectItem(withTitle: String(settings.settings.showNumber))
+            numberEvents.selectItem(withTitle: String(settings.data.showNumber))
         }
-        calendars = settings.settings.calendarNames
+        calendars = settings.data.calendarNames
 
         self.tableView.reloadData()
 
@@ -75,13 +75,13 @@ class NextEventPreferencesViewController: NSViewController {
     func enableButtons() {
         // enable buttons
         // time
-        useFuzzyTime.isEnabled = settings.settings.showTime
+        useFuzzyTime.isEnabled = settings.data.showTime
 
         // title
-        useTitleLimit.isEnabled = settings.settings.showTitle
+        useTitleLimit.isEnabled = settings.data.showTitle
 
         // blocking alert then pick the time
-        earlyWarning.isEnabled = settings.settings.useBlockingAlert
+        earlyWarning.isEnabled = settings.data.useBlockingAlert
     }
 
     func getState(value: Bool) -> NSControl.StateValue {
@@ -99,28 +99,28 @@ class NextEventPreferencesViewController: NSViewController {
     }
 
     @IBAction func updateSettings(_ sender: Any) {
-        settings.settings.useFlash = getState(value: flash.state)
-        settings.settings.useFlashBlue = getState(value: flashBlue.state)
-        settings.settings.useAltIcon = getState(value: alternateIcon.state)
-        settings.settings.useSystemAlert = getState(value: systemAlert.state)
-        settings.settings.useBlockingAlert = getState(value: blockingAlert.state)
-        settings.settings.earlyWarning = Int((earlyWarning.selectedItem?.title)!)!
-        settings.settings.notifyTravelTime = getState(value: travelTime.state)
-        settings.settings.useSound = getState(value: playChime.state)
-        settings.settings.showSeconds = getState(value: showSeconds.state)
-        settings.settings.leadingZeros = getState(value: leadingZeros.state)
-        settings.settings.useFuzzyTime = getState(value: useFuzzyTime.state)
-        settings.settings.showTitle = getState(value: showTitle.state)
-        settings.settings.useTitleLimit = getState(value: useTitleLimit.state)
-        settings.settings.showTime = getState(value: showTime.state)
+        settings.data.useFlash = getState(value: flash.state)
+        settings.data.useFlashBlue = getState(value: flashBlue.state)
+        settings.data.useAltIcon = getState(value: alternateIcon.state)
+        settings.data.useSystemAlert = getState(value: systemAlert.state)
+        settings.data.useBlockingAlert = getState(value: blockingAlert.state)
+        settings.data.earlyWarning = Int((earlyWarning.selectedItem?.title)!)!
+        settings.data.notifyTravelTime = getState(value: travelTime.state)
+        settings.data.useSound = getState(value: playChime.state)
+        settings.data.showSeconds = getState(value: showSeconds.state)
+        settings.data.leadingZeros = getState(value: leadingZeros.state)
+        settings.data.useFuzzyTime = getState(value: useFuzzyTime.state)
+        settings.data.showTitle = getState(value: showTitle.state)
+        settings.data.useTitleLimit = getState(value: useTitleLimit.state)
+        settings.data.showTime = getState(value: showTime.state)
         if numberEvents.selectedItem?.title == "Today only" {
-            settings.settings.showNumber = 0
+            settings.data.showNumber = 0
         } else if numberEvents.selectedItem?.title == "24 Hours" {
-            settings.settings.showNumber = -1
+            settings.data.showNumber = -1
         } else {
-             settings.settings.showNumber = Int((numberEvents.selectedItem?.title)!)!
+             settings.data.showNumber = Int((numberEvents.selectedItem?.title)!)!
         }
-        settings.settings.calendarNames = calendars
+        settings.data.calendarNames = calendars
 
         enableButtons()
 

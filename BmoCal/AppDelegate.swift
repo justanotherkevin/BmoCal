@@ -1,6 +1,39 @@
 import Cocoa
 import EventKit
 
+struct StatusStringBuilder {
+    let settings: Settings.Data
+    let events: [EKCalendarItem]
+    let timeTools: TimeStringTools
+
+    func build(now: Date = Date()) -> (status: String, shouldGlow: Bool) {
+        let startHour = settings.workdayStartHour
+        let endHour = settings.workdayEndHour
+        let cal = Calendar.current
+        let currentHour = cal.component(.hour, from: now)
+
+        // Before workday
+        if currentHour < startHour {
+            var comps = cal.dateComponents([.year, .month, .day], from: now)
+            comps.hour = startHour; comps.minute = 0; comps.second = 0
+            let startTime = cal.date(from: comps)!
+            let secs = max(0, startTime.timeIntervalSince(now))
+            let h = Int(secs) / 3600
+            let m = (Int(secs) % 3600) / 60
+            let status = h > 0 ? "Work in \(h)h\(m)m" : "Work in \(m)m"
+            return (status, false)
+        }
+
+        // Minimal implementation - just return default for other states
+        return ("Workday in progress", false)
+    }
+}
+
+struct AppDependencies {
+    let settings: SettingsProviding
+    let eventStore: EventStoreProtocol
+    let timeTools: TimeStringTools
+}
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -30,14 +63,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var fadeOut: Bool = false
 
     var widgetController: WorkdayWidgetWindowController?
+    var dependencies: AppDependencies?
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
 
-        // load settings
+        // load settings and create DI container
         settings = Settings()
         self.processCommandLine()
+
+        // Assemble dependencies
+        dependencies = AppDependencies(
+            settings: settings,
+            eventStore: CalendarTools(),
+            timeTools: TimeStringTools()
+        )
+
         viewController = NextEventViewController.freshController()
 
         self.setIcons()
@@ -68,7 +110,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         mainMenu.insertItem(widgetItem, at: 0)
         mainMenu.insertItem(.separator(), at: 1)
 
-        if settings.settings.showWidget {
+        if settings.data.showWidget {
             showWidget()
         }
 
@@ -92,9 +134,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func setIcons() {
-        if settings.settings.useAltIcon {
+        if settings.data.useAltIcon {
             icon = NSImage(named:"mazookie_mb")!
-            if settings.settings.useFlashBlue {
+            if settings.data.useFlashBlue {
                 glowIcon = NSImage(named:"mazookie_mb_blue")!
             } else {
                 glowIcon = NSImage(named:"mazookie_mb_orange")!
@@ -102,7 +144,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         } else {
             icon = NSImage(named:"next_event_mb")!
 
-            if settings.settings.useFlashBlue {
+            if settings.data.useFlashBlue {
                 glowIcon = NSImage(named:"next_event_mb_blue")!
             } else {
                 glowIcon = NSImage(named:"next_event_mb_orange")!
@@ -178,7 +220,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func showWidget() {
         if widgetController == nil {
-            let s = settings.settings
+            let s = settings.data
             let savedOrigin: CGPoint? = (s.widgetX >= 0 && s.widgetY >= 0)
                 ? CGPoint(x: s.widgetX, y: s.widgetY) : nil
             widgetController = WorkdayWidgetWindowController(
@@ -187,7 +229,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             )
         }
         widgetController?.showWindow(self)
-        settings.settings.showWidget = true
+        settings.data.showWidget = true
         settings.archive()
         refreshWidgetEvents()
     }
@@ -195,25 +237,33 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func hideWidget() {
         widgetController?.close()
         widgetController = nil
-        settings.settings.showWidget = false
+        settings.data.showWidget = false
         settings.archive()
     }
 
     func refreshWidgetEvents() {
         guard let wc = widgetController else { return }
-        let calNames = settings.settings.calendarNames
+        let calNames = settings.data.calendarNames
         let tools = CalendarTools()
         let calendars = calNames.isEmpty
             ? tools.getAllCalendars()
             : tools.getCalendarByNames(names: calNames)
         wc.refreshEvents(
             events: tools.getTodayEvents(calendars: calendars),
-            workStart: settings.settings.workdayStartHour,
-            workEnd: settings.settings.workdayEndHour
+            workStart: settings.data.workdayStartHour,
+            workEnd: settings.data.workdayEndHour
         )
     }
 
     @IBAction func openAbout(_ sender: Any?) {
+        openAboutBox(forceHelp: false)
+    }
+
+    @IBAction func openHelp(_ sender: Any?) {
+        openAboutBox(forceHelp: true)
+    }
+
+    private func openAboutBox(forceHelp: Bool) {
         if aboutBoxController == nil {
             let mainStoryboard = NSStoryboard.init(name: "MZAboutBox", bundle: nil)
             aboutBoxController = mainStoryboard.instantiateController(
@@ -226,24 +276,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         aboutBoxController.showWindow(self)
         aboutBoxController.window?.makeKeyAndOrderFront(self)
-        aboutBoxView.forceHelp(force: false)
-        NSApp.activate(ignoringOtherApps: true)
-    }
-
-    @IBAction func openHelp(_ sender: Any?) {
-        if aboutBoxController == nil {
-            let mainStoryboard = NSStoryboard.init(name: "MZAboutBox", bundle: nil)
-            self.aboutBoxController = mainStoryboard.instantiateController(
-                withIdentifier: "MZ About Box") as? NSWindowController
-            aboutBoxView = mainStoryboard.instantiateController(
-                withIdentifier: "MZ AboutBox Controller"
-                ) as? MZAboutBoxViewController
-            aboutBoxController.contentViewController = aboutBoxView
-            aboutBoxView.setMacId(newMacId: "id879985307")
-        }
-        aboutBoxController.showWindow(self)
-        aboutBoxController.window?.makeKeyAndOrderFront(self)
-        aboutBoxView.forceHelp(force: true)
+        aboutBoxView.forceHelp(force: forceHelp)
         NSApp.activate(ignoringOtherApps: true)
     }
 
@@ -322,10 +355,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // now handle the rest
         for i in 0..<arguments.count {
             if (arguments[i] == "-F:1") {
-                settings.settings.floatRight = true
+                settings.data.floatRight = true
             }
             else if (arguments[i] == "-F:0") {
-                settings.settings.floatRight = false
+                settings.data.floatRight = false
             }
         }
     }
