@@ -2,45 +2,38 @@ import Foundation
 import EventKit
 import Cocoa
 
-
-extension Date {
-    var startOfDay: Date {
-        return Calendar.current.startOfDay(for: self)
-    }
-
-    var endOfDay: Date? {
-        var components = DateComponents()
-        components.day = 1
-        components.second = -1
-        return Calendar.current.date(byAdding: components, to: startOfDay)
-    }
-
-    var startOfNextDay: Date? {
-        var components = DateComponents()
-        components.day = 1
-        return Calendar.current.date(byAdding: components, to: startOfDay)
-    }
+protocol EventStoreProtocol {
+    func getTopN(n: Int, calendars: [EKCalendar], reminders: [EKCalendar]) -> [EKCalendarItem]
+    func getTodayAll(calendars: [EKCalendar], reminders: [EKCalendar]) -> [EKCalendarItem]
+    func get24Hours(calendars: [EKCalendar], reminders: [EKCalendar]) -> [EKCalendarItem]
+    func getTodayEvents(calendars: [EKCalendar]) -> [EKEvent]
+    func getCalendarByNames(names: [String]) -> [EKCalendar]
+    func getReminderListByNames(names: [String]) -> [EKCalendar]
+    func getAllCalendars() -> [EKCalendar]
+    func getAllReminderLists() -> [EKCalendar]
+    func requestAccess() -> Bool
 }
 
-class CalendarTools: NSObject {
+class CalendarTools: NSObject, EventStoreProtocol {
 
     let eventStore = EKEventStore()
 
     func getEventsAndReminderOnDay(day: Date, calendars: [EKCalendar], reminders: [EKCalendar]) -> [EKCalendarItem] {
         var all: [EKCalendarItem:Date] = [:]
 
-        for reminder in getReminders(start: day.startOfDay, end: day.endOfDay!, calendars: reminders) {
-            let dc = ((reminder) as! EKReminder).dueDateComponents
-            let date = Calendar.current.date(from: dc!)
-            if (date != nil && date! >= day.startOfDay && date! < day.endOfDay!) {
-                all[reminder] = date!
-            }
+        guard let dayEnd = day.endOfDay else { return [] }
+        for item in getReminders(start: day.startOfDay, end: dayEnd, calendars: reminders) {
+            guard let reminder = item as? EKReminder,
+                  let dc = reminder.dueDateComponents,
+                  let date = Calendar.current.date(from: dc),
+                  date >= day.startOfDay && date < dayEnd else { continue }
+            all[item] = date
         }
-        for event in getEvents(start: day.startOfDay, end: day.endOfDay!, calendars: calendars) {
-            let date = ((event) as! EKEvent).startDate
-            if (date != nil && date! >= day.startOfDay && date! <= day.endOfDay!) {
-                all[event] = date!
-            }
+        for item in getEvents(start: day.startOfDay, end: dayEnd, calendars: calendars) {
+            guard let event = item as? EKEvent,
+                  let date = event.startDate,
+                  date >= day.startOfDay && date <= dayEnd else { continue }
+            all[item] = date
         }
 
         let sortedKeys = Array(all.keys).sorted{all[$0]! < all[$1]!}
@@ -49,126 +42,52 @@ class CalendarTools: NSObject {
     }
 
     func getTopN(n: Int, calendars: [EKCalendar], reminders: [EKCalendar]) -> [EKCalendarItem] {
-        var results: [EKCalendarItem] = []
-        var all: [EKCalendarItem:Date] = [:]
         let now = Date()
-        let oneYearFromNow = Calendar.current.date(byAdding: .year, value: 1, to: now)
-
-        for reminder in getReminders(start: now, end: oneYearFromNow!, calendars: reminders) {
-            let dc = ((reminder) as! EKReminder).dueDateComponents
-            let date = Calendar.current.date(from: dc!)
-            if (date != nil && date! > now) {
-                all[reminder] = date
-            }
-        }
-
-        for event in getEvents(start: now, end: oneYearFromNow!, calendars: calendars) {
-            //print(((event) as! EKEvent).title, event.value(forKey: "travelTime")!)
-            let date = ((event) as! EKEvent).startDate
-            if (date != nil && date! > now) {
-                // adding a print statement keeps calendar from coming back nil
-                // i clearly have no idea what's going on!
-                print("calendar color: \(String(describing: event.calendar.color))")
-                all[event] = date!
-            }
-        }
-
-        let sortedKeys = Array(all.keys).sorted{all[$0]! < all[$1]!}
-
-        var count = 0
-        for item in sortedKeys {
-            //print(item.calendar as Any))
-            results.append(item)
-            count += 1
-            if count >= n {
-                break
-            }
-        }
-
-        if results.count <= 0 {
-            let store = EKEventStore()
-            let newItem = EKEvent(eventStore: store)
-            newItem.title = "N/A"
-            results.append(newItem)
-        }
-
-        return results
+        let oneYearFromNow = Calendar.current.date(byAdding: .year, value: 1, to: now)!
+        return queryAndSortItems(start: now, end: oneYearFromNow, calendars: calendars, reminders: reminders, limit: n)
     }
 
     func getTodayAll(calendars: [EKCalendar], reminders: [EKCalendar]) -> [EKCalendarItem] {
-        var results: [EKCalendarItem] = []
-        var all: [EKCalendarItem:Date] = [:]
         let startDate = Calendar.current.date(
-            from: Calendar.current.dateComponents(
-                [.year, .month, .day],
-                from: Date()
-            )
+            from: Calendar.current.dateComponents([.year, .month, .day], from: Date())
         )!.addingTimeInterval(-1)
         let endDate = Calendar.current.date(byAdding: .day, value: 1, to: startDate)!
-
-        for reminder in getReminders(start: startDate, end: endDate, calendars: reminders) {
-            let dc = ((reminder) as! EKReminder).dueDateComponents
-            let date = Calendar.current.date(from: dc!)
-            if (date != nil && date! > startDate) {
-                all[reminder] = date
-            }
-        }
-
-        for event in getEvents(start: startDate, end: endDate, calendars: calendars) {
-            let date = ((event) as! EKEvent).startDate
-            if (date != nil && date! > startDate) {
-                all[event] = date!
-            }
-        }
-
-        let sortedKeys = Array(all.keys).sorted{all[$0]! < all[$1]!}
-
-        for item in sortedKeys {
-            results.append(item)
-        }
-
-        if results.count <= 0 {
-            let store = EKEventStore()
-            let newItem = EKEvent(eventStore: store)
-            newItem.title = "N/A"
-            results.append(newItem)
-        }
-
-        return results
+        return queryAndSortItems(start: startDate, end: endDate, calendars: calendars, reminders: reminders)
     }
 
     func get24Hours(calendars: [EKCalendar], reminders: [EKCalendar]) -> [EKCalendarItem] {
-        var results: [EKCalendarItem] = []
-        var all: [EKCalendarItem:Date] = [:]
         let startDate = Date()
         let endDate = Calendar.current.date(byAdding: .second, value: 86400, to: startDate)!
+        return queryAndSortItems(start: startDate, end: endDate, calendars: calendars, reminders: reminders)
+    }
 
-        for reminder in getReminders(start: startDate, end: endDate, calendars: reminders) {
-            let dc = ((reminder) as! EKReminder).dueDateComponents
-            let date = Calendar.current.date(from: dc!)
-            if (date != nil && date! > startDate) {
-                all[reminder] = date
-            }
+    private func queryAndSortItems(start: Date, end: Date, calendars: [EKCalendar], reminders: [EKCalendar], limit: Int? = nil) -> [EKCalendarItem] {
+        var all: [EKCalendarItem: Date] = [:]
+
+        for item in getReminders(start: start, end: end, calendars: reminders) {
+            guard let reminder = item as? EKReminder,
+                  let dc = reminder.dueDateComponents,
+                  let date = Calendar.current.date(from: dc),
+                  date > start else { continue }
+            all[item] = date
         }
 
-        for event in getEvents(start: startDate, end: endDate, calendars: calendars) {
-            let date = ((event) as! EKEvent).startDate
-            if (date != nil && date! > startDate) {
-                all[event] = date!
-            }
+        for item in getEvents(start: start, end: end, calendars: calendars) {
+            guard let event = item as? EKEvent,
+                  let date = event.startDate,
+                  date > start else { continue }
+            print("calendar color: \(String(describing: event.calendar.color))")
+            all[item] = date
         }
 
-        let sortedKeys = Array(all.keys).sorted{all[$0]! < all[$1]!}
+        let sortedKeys = Array(all.keys).sorted { all[$0]! < all[$1]! }
+        var results: [EKCalendarItem] = []
 
-        for item in sortedKeys {
+        for (index, item) in sortedKeys.enumerated() {
             results.append(item)
-        }
-
-        if results.count <= 0 {
-            let store = EKEventStore()
-            let newItem = EKEvent(eventStore: store)
-            newItem.title = "N/A"
-            results.append(newItem)
+            if let limit = limit, index + 1 >= limit {
+                break
+            }
         }
 
         return results
@@ -186,7 +105,7 @@ class CalendarTools: NSObject {
         group.enter()
         eventStore.fetchReminders(matching: predicate, completion: { (reminders: [EKReminder]?) -> Void in
             DispatchQueue.global().sync {
-                results = reminders!
+                results = reminders ?? []
                 group.leave()
             }
         })
@@ -221,17 +140,13 @@ class CalendarTools: NSObject {
         group.enter()
         eventStore.fetchReminders(matching: predicate, completion: { (reminders: [EKReminder]?) -> Void in
             DispatchQueue.global().sync {
-                results = reminders!
+                results = reminders ?? []
                 group.leave()
             }
         })
         group.wait()
 
-        if results.count > 0 {
-            retval = true
-        }
-
-        return retval
+        return !results.isEmpty
     }
 
     func hasEventsOnDay(day: Date, calendars: [EKCalendar]) -> Bool {
@@ -319,7 +234,7 @@ class CalendarTools: NSObject {
 
     func getReminderListNames() -> [String] {
         var results: [String] = []
-        let calendars = eventStore.calendars(for: EKEntityType.event)
+        let calendars = eventStore.calendars(for: EKEntityType.reminder)
         for calendar in calendars {
             if !results.contains(calendar.title) {
                 results.append(calendar.title)
@@ -334,7 +249,7 @@ class CalendarTools: NSObject {
         let items = getEvents(start: today.startOfDay, end: endOfDay, calendars: calendars)
         return items.compactMap { $0 as? EKEvent }
             .filter { $0.startDate != nil }
-            .sorted { $0.startDate! < $1.startDate! }
+            .sorted { ($0.startDate ?? .distantFuture) < ($1.startDate ?? .distantFuture) }
     }
 
     func getCalendarColorByName(name: String) -> NSColor {
@@ -384,35 +299,23 @@ class CalendarTools: NSObject {
     }
 
     func requestAccess() -> Bool {
-        var result = true
-        eventStore.requestAccess(to: EKEntityType.event, completion: {
-            (accessGranted: Bool, error: Error?) in
+        let group = DispatchGroup()
+        var eventGranted = true
+        var reminderGranted = true
 
-            if accessGranted == true {
-                DispatchQueue.main.async(execute: {
-                    // access granted
-                })
-            } else {
-                DispatchQueue.main.async(execute: {
-                    // access denied
-                    result = false
-                })
-            }
-        })
-        eventStore.requestAccess(to: EKEntityType.reminder, completion: {
-            (accessGranted: Bool, error: Error?) in
+        group.enter()
+        eventStore.requestAccess(to: .event) { granted, _ in
+            eventGranted = granted
+            group.leave()
+        }
 
-            if accessGranted == true {
-                DispatchQueue.main.async(execute: {
-                    // access granted
-                })
-            } else {
-                DispatchQueue.main.async(execute: {
-                    // access denied
-                    result = false
-                })
-            }
-        })
-        return result
+        group.enter()
+        eventStore.requestAccess(to: .reminder) { granted, _ in
+            reminderGranted = granted
+            group.leave()
+        }
+
+        group.wait()
+        return eventGranted && reminderGranted
     }
 }

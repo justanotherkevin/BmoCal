@@ -1,9 +1,15 @@
 import Foundation
 
+protocol SettingsProviding {
+    var data: Settings.Data { get set }
+    var needsDisplay: Bool { get set }
+    func archive()
+    func reset()
+}
 
-class Settings: NSObject {
+class Settings: NSObject, SettingsProviding {
 
-    struct Settings: Codable {
+    struct Data: Codable {
         // persistant
         var floatRight: Bool = false
         var useAltIcon: Bool = false
@@ -30,7 +36,7 @@ class Settings: NSObject {
         var widgetY: Double = -1
     }
 
-    var settings: Settings = Settings()
+    var data: Data = Data()
     var needsDisplay: Bool = true
 
     override init() {
@@ -40,48 +46,49 @@ class Settings: NSObject {
 
     func unarchive() {
         do {
-            let readData = try Data(contentsOf: archivePath())
-            self.settings = try JSONDecoder().decode(Settings.self, from: readData)
+            let readData = try Foundation.Data(contentsOf: archivePath())
+            self.data = try JSONDecoder().decode(Data.self, from: readData)
         } catch {
             reset()
         }
     }
 
     func archive() {
-        let jsonData = try! JSONEncoder().encode(self.settings)
+        let jsonData = try! JSONEncoder().encode(self.data)
         try! jsonData.write(to: archivePath())
     }
 
     func archivePath() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return URL(fileURLWithPath: paths[0].path + "/" + (Bundle.main.infoDictionary!["CFBundleName"] as! String) + ".cfg")
+        return URL(
+            fileURLWithPath: paths[0].path + "/"
+                + (Bundle.main.infoDictionary!["CFBundleName"] as! String) + ".cfg")
     }
 
     func reset() {
-        settings.floatRight = false
-        settings.useAltIcon = false
-        settings.useFlashBlue = false
-        settings.useFlash = true
-        settings.useSystemAlert = false
-        settings.useBlockingAlert = false
-        settings.earlyWarning = 1
-        settings.notifyTravelTime = false
-        settings.useSound = false
-        settings.useFuzzyTime = false
-        settings.showSeconds = false
-        settings.leadingZeros = false
-        settings.showNumber = 10
-        settings.showTime = true
-        settings.showTitle = false
-        settings.useTitleLimit = false
-        settings.calendarNames = []
-        settings.workdayStartHour = 9
-        settings.workdayEndHour = 18
-        settings.showWidget = false
-        settings.widgetFloatsOnTop = true
-        settings.widgetX = -1
-        settings.widgetY = -1
+        data.floatRight = false
+        data.useAltIcon = false
+        data.useFlashBlue = false
+        data.useFlash = true
+        data.useSystemAlert = false
+        data.useBlockingAlert = false
+        data.earlyWarning = 1
+        data.notifyTravelTime = false
+        data.useSound = false
+        data.useFuzzyTime = false
+        data.showSeconds = false
+        data.leadingZeros = false
+        data.showNumber = 10
+        data.showTime = true
+        data.showTitle = false
+        data.useTitleLimit = false
+        data.calendarNames = []
+        data.workdayStartHour = 9
+        data.workdayEndHour = 18
+        data.showWidget = false
+        data.widgetFloatsOnTop = true
+        data.widgetX = -1
+        data.widgetY = -1
         self.archive()
     }
 }
-

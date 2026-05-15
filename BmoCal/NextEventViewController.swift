@@ -1,28 +1,6 @@
 import Cocoa
 import EventKit
 
-extension Date {
-
-    // Convert UTC (or GMT) to local time
-    func toLocalTime() -> Date {
-        let timezone = TimeZone.current
-        let seconds = TimeInterval(timezone.secondsFromGMT(for: self))
-        return Date(timeInterval: seconds, since: self)
-    }
-
-    // Convert local time to UTC (or GMT)
-    func toGlobalTime() -> Date {
-        let timezone = TimeZone.current
-        let seconds = -TimeInterval(timezone.secondsFromGMT(for: self))
-        return Date(timeInterval: seconds, since: self)
-    }
-    func toString( dateFormat format  : String ) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = format
-        return dateFormatter.string(from: self)
-    }
-}
-
 class KSTableCellView: NSTableCellView {
 
     @IBOutlet weak var eventTitle: NSTextField!
@@ -68,9 +46,11 @@ class NextEventViewController: NSViewController {
         }
 
         DispatchQueue.main.async { [weak self] in
-            var cf: NSRect = (self?.controllerView.frame)!
-            cf.size.height = CGFloat(82 * final_count + 38)
-            self?.controllerView.frame = cf
+            let defaultHeight = CGFloat(82 * final_count + 38)
+            var cf = self?.controllerView?.frame
+                ?? NSRect(x: 0, y: 0, width: 386, height: defaultHeight)
+            cf.size.height = defaultHeight
+            self?.controllerView?.frame = cf
             self?.view.window?.setContentSize(cf.size)
             let appDelegate = NSApp.delegate as? AppDelegate
             appDelegate?.popover.contentSize = cf.size
@@ -78,58 +58,40 @@ class NextEventViewController: NSViewController {
     }
 
     func getDateFromEventItem(_ item: EKCalendarItem) -> Date? {
-        var itemDate:Date? = nil
-        let type_name = String(describing: type(of: item))
-        if type_name == "EKEvent" {
-            itemDate = (item as! EKEvent).startDate
-        } else if type_name == "EKReminder" {
-            let dc = (item as! EKReminder).dueDateComponents
-            itemDate = Calendar.current.date(from: dc!)!
+        if let event = item as? EKEvent {
+            return event.startDate
+        } else if let reminder = item as? EKReminder,
+                  let dc = reminder.dueDateComponents {
+            return Calendar.current.date(from: dc)
         }
-        return itemDate
+        return nil
     }
 
     func getLocationFromEventItem(_ item: EKCalendarItem) -> String {
-        var location: String = "   "
-        let type_name = String(describing: type(of: item))
-        if type_name == "EKEvent" {
-            location = (item as! EKEvent).location ?? "   "
-        } else if type_name == "EKReminder" {
-            let reminder = (item as! EKReminder)
-            if reminder.hasAlarms {
-                for alarm in reminder.alarms! {
-                    let firstLocation = alarm.structuredLocation?.title
-                    if firstLocation != nil {
-                        location = firstLocation!
-                        break;
+        if let event = item as? EKEvent {
+            return event.location ?? "   "
+        } else if let reminder = item as? EKReminder {
+            if reminder.hasAlarms, let alarms = reminder.alarms {
+                for alarm in alarms {
+                    if let loc = alarm.structuredLocation?.title {
+                        return loc
                     }
                 }
-            } else {
-                location = reminder.location ?? "   "
             }
-
+            return reminder.location ?? "   "
         }
-        return location
+        return "   "
     }
 
     func getTravelTimeFromEventItem(_ item: EKCalendarItem) -> TimeInterval {
-        var travelTime: TimeInterval = 0
-        let type_name = String(describing: type(of: item))
-        if type_name == "EKEvent" {
-            travelTime = (item as! EKEvent).value(forKey: "travelTime") as! TimeInterval
+        if let event = item as? EKEvent {
+            return event.value(forKey: "travelTime") as? TimeInterval ?? 0
         }
-
-        return travelTime
+        return 0
     }
 
     func isAllDay(_ item: EKCalendarItem) -> Bool {
-        var retval: Bool = false
-        let type_name = String(describing: type(of: item))
-        if type_name == "EKEvent" {
-            retval = (item as! EKEvent).isAllDay
-        }
-
-        return retval
+        return (item as? EKEvent)?.isAllDay ?? false
     }
 
 
@@ -142,8 +104,8 @@ class NextEventViewController: NSViewController {
             let breakdownInfo: DateComponents? = Calendar.current.dateComponents(unitFlags, from: now,  to: itemDate!)
             fullTime = TimeStringTools().getTimeString(
                 breakdownInfo!,
-                showSeconds: settings.settings.showSeconds,
-                leadingZeros: settings.settings.leadingZeros
+                showSeconds: settings.data.showSeconds,
+                leadingZeros: settings.data.leadingZeros
             )
         }
         return fullTime
@@ -174,8 +136,8 @@ class NextEventViewController: NSViewController {
             let breakdownInfo: DateComponents? = Calendar.current.dateComponents(unitFlags, from: now,  to: itemDate!)
             fullTime = TimeStringTools().getTimeString(
                 breakdownInfo!,
-                showSeconds: settings.settings.showSeconds,
-                leadingZeros: settings.settings.leadingZeros
+                showSeconds: settings.data.showSeconds,
+                leadingZeros: settings.data.leadingZeros
             )
         }
         return fullTime
@@ -193,8 +155,8 @@ class NextEventViewController: NSViewController {
     }
 
     func getNextEventStatus() -> String {
-        let startHour = settings.settings.workdayStartHour
-        let endHour = settings.settings.workdayEndHour
+        let startHour = settings.data.workdayStartHour
+        let endHour = settings.data.workdayEndHour
         let now = Date()
         let cal = Calendar.current
         let currentHour = cal.component(.hour, from: now)
@@ -242,7 +204,7 @@ class NextEventViewController: NSViewController {
             if let itemDate = getDateFromEventItem(item) {
                 let secs = itemDate.timeIntervalSince(now)
                 if secs > 0 {
-                    if settings.settings.useFlash && !shouldGlow && secs <= 900 {
+                    if settings.data.useFlash && !shouldGlow && secs <= 900 {
                         shouldGlow = true
                     }
                     let h = Int(secs) / 3600
@@ -345,7 +307,7 @@ class NextEventViewController: NSViewController {
     func notify() {
         var notification: NSUserNotification?
 
-        if settings.settings.useSystemAlert || settings.settings.useBlockingAlert {
+        if settings.data.useSystemAlert || settings.data.useBlockingAlert {
 
             for item in calendarItems {
 
@@ -357,37 +319,37 @@ class NextEventViewController: NSViewController {
                     color = item.calendar!.color
                 }
 
-                if item.title.isEmpty || item.title == "N/A" || itemDate! < now {
+                guard let itemDate = itemDate, !item.title.isEmpty, itemDate >= now else {
                     shouldGlow = false
                     continue
                 }
 
                 // notify travel
-                if settings.settings.notifyTravelTime {
+                if settings.data.notifyTravelTime {
                     let travelTime = getTravelTimeFromEventItem(item)
 
                     if travelTime > 0 {
-                        let tt = ceil((itemDate!.addingTimeInterval(0-travelTime)).timeIntervalSinceReferenceDate)
+                        let tt = ceil((itemDate.addingTimeInterval(0-travelTime)).timeIntervalSinceReferenceDate)
                         if ceil(now.timeIntervalSinceReferenceDate) == tt {
-                            if settings.settings.useSystemAlert {
+                            if settings.data.useSystemAlert {
                                 notification = NSUserNotification()
                                 notification?.title = "Time to leave for \(item.title ?? "Next Event")"
-                                notification?.informativeText = "\(itemDate!.description(with: .current))"
+                                notification?.informativeText = "\(itemDate.description(with: .current))"
                                 notification?.deliveryDate = now
                                 // play sound
-                                if settings.settings.useSound {
+                                if settings.data.useSound {
                                     notification?.soundName = NSUserNotificationDefaultSoundName
                                 } else {
                                     notification?.soundName = nil
                                 }
                                 let center = NSUserNotificationCenter.default
                                 center.scheduleNotification(notification!)
-                            } else if settings.settings.useSound {
+                            } else if settings.data.useSound {
                                 NSSound.beep()
                             }
 
-                            if settings.settings.useBlockingAlert {
-                                self.alert(title: "Time to leave for \(item.title ?? "Next Event")", date: itemDate!, location: itemLocation, color: color)
+                            if settings.data.useBlockingAlert {
+                                self.alert(title: "Time to leave for \(item.title ?? "Next Event")", date: itemDate, location: itemLocation, color: color)
                             }
 
                             shouldGlow = true
@@ -397,27 +359,27 @@ class NextEventViewController: NSViewController {
 
                 // notify event
                 //print("\(ceil(now.timeIntervalSinceReferenceDate)) == \(ceil(itemDate.timeIntervalSinceReferenceDate)), \(item.title ?? "No title")")
-                if ceil(now.timeIntervalSinceReferenceDate) == ceil(itemDate!.timeIntervalSinceReferenceDate) {
+                if ceil(now.timeIntervalSinceReferenceDate) == ceil(itemDate.timeIntervalSinceReferenceDate) {
 
-                    if settings.settings.useSystemAlert {
+                    if settings.data.useSystemAlert {
                         notification = NSUserNotification()
                         notification?.title = item.title
-                        notification?.informativeText = "\(itemDate!.description(with: .current))"
+                        notification?.informativeText = "\(itemDate.description(with: .current))"
                         notification?.deliveryDate = now
                         // play sound
-                        if settings.settings.useSound {
+                        if settings.data.useSound {
                             notification?.soundName = NSUserNotificationDefaultSoundName
                         } else {
                             notification?.soundName = nil
                         }
                         let center = NSUserNotificationCenter.default
                         center.scheduleNotification(notification!)
-                    } else if settings.settings.useSound {
+                    } else if settings.data.useSound {
                         NSSound.beep()
                     }
 
-                    if settings.settings.useBlockingAlert && settings.settings.earlyWarning == 0 {
-                        self.alert(title: item.title, date: itemDate!, location: itemLocation, color: color)
+                    if settings.data.useBlockingAlert && settings.data.earlyWarning == 0 {
+                        self.alert(title: item.title, date: itemDate, location: itemLocation, color: color)
                     }
 
                     shouldGlow = false
@@ -425,10 +387,10 @@ class NextEventViewController: NSViewController {
                 }
 
                 // notify early warning
-                if settings.settings.earlyWarning > 0 && settings.settings.useBlockingAlert {
-                    let tt = ceil((itemDate!.addingTimeInterval(0-TimeInterval(settings.settings.earlyWarning*60) )).timeIntervalSinceReferenceDate)
+                if settings.data.earlyWarning > 0 && settings.data.useBlockingAlert {
+                    let tt = ceil((itemDate.addingTimeInterval(0-TimeInterval(settings.data.earlyWarning*60) )).timeIntervalSinceReferenceDate)
                     if ceil(now.timeIntervalSinceReferenceDate) == tt {
-                        self.alert(title: item.title, date: itemDate!, location: itemLocation, color: color, playSound: settings.settings.useSound)
+                        self.alert(title: item.title, date: itemDate, location: itemLocation, color: color, playSound: settings.data.useSound)
                     }
                 }
             }
@@ -442,15 +404,15 @@ class NextEventViewController: NSViewController {
             settings = appDelegate?.settings
         }
 
-        let calendars = CalendarTools().getCalendarByNames(names: settings.settings.calendarNames)
-        let reminderLists = CalendarTools().getReminderListByNames(names: settings.settings.calendarNames)
-        if settings.settings.showNumber > 0 {
+        let calendars = CalendarTools().getCalendarByNames(names: settings.data.calendarNames)
+        let reminderLists = CalendarTools().getReminderListByNames(names: settings.data.calendarNames)
+        if settings.data.showNumber > 0 {
             calendarItems = CalendarTools().getTopN(
-                n: settings.settings.showNumber,
+                n: settings.data.showNumber,
                 calendars: calendars,
                 reminders: reminderLists
             )
-        } else if settings.settings.showNumber == 0 {
+        } else if settings.data.showNumber == 0 {
             calendarItems = CalendarTools().getTodayAll(
                 calendars: calendars,
                 reminders: reminderLists

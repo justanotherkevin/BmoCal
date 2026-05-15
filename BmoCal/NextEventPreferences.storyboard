@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="24765" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="24765"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -40,11 +40,11 @@
                                 <rect key="frame" x="17" y="16" width="258" height="528"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" id="s5O-ef-5Cb">
-                                    <rect key="frame" x="4" y="5" width="250" height="520"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="258" height="528"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H0b-uj-I3r" userLabel="Use Flash Blue">
-                                            <rect key="frame" x="18" y="460" width="216" height="20"/>
+                                            <rect key="frame" x="18" y="468" width="216" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Flash blue" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="x52-wG-IaM">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -55,7 +55,7 @@
                                             </connections>
                                         </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EJb-Ya-dcV">
-                                            <rect key="frame" x="18" y="321" width="216" height="20"/>
+                                            <rect key="frame" x="18" y="329" width="216" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Play chime" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="TsC-4F-gGe">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -65,8 +65,8 @@
                                                 <action selector="updateSettings:" target="wA8-j3-h1G" id="axa-pv-VcM"/>
                                             </connections>
                                         </button>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ctv-kB-LZm">
-                                            <rect key="frame" x="18" y="161" width="126" height="17"/>
+                                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ctv-kB-LZm">
+                                            <rect key="frame" x="18" y="169" width="126" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Number of events" id="zg6-PX-Mjm">
                                                 <font key="font" metaFont="system"/>
@@ -75,7 +75,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qa7-QZ-JdI" userLabel="Use fuzzy time">
-                                            <rect key="frame" x="18" y="233" width="216" height="20"/>
+                                            <rect key="frame" x="18" y="241" width="216" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Use fuzzy time" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="d0t-qa-USK">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -85,8 +85,8 @@
                                                 <action selector="updateSettings:" target="wA8-j3-h1G" id="Cof-aA-SKf"/>
                                             </connections>
                                         </button>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y2U-4m-Ea8">
-                                            <rect key="frame" x="18" y="134" width="216" height="17"/>
+                                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y2U-4m-Ea8">
+                                            <rect key="frame" x="18" y="142" width="216" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Calendars &amp; Reminders" id="VaD-tz-ygq">
                                                 <font key="font" metaFont="system"/>
@@ -95,7 +95,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TQT-aF-kHf" userLabel="Show leading zeros">
-                                            <rect key="frame" x="18" y="277" width="216" height="20"/>
+                                            <rect key="frame" x="18" y="285" width="216" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Show leading zeros" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="S2D-vI-YI1">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -106,7 +106,7 @@
                                             </connections>
                                         </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D8p-Ae-whx" userLabel="Show seconds">
-                                            <rect key="frame" x="18" y="299" width="216" height="20"/>
+                                            <rect key="frame" x="18" y="307" width="216" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Show seconds" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="oNo-Rg-vuh">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -117,7 +117,7 @@
                                             </connections>
                                         </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G1D-bF-hat">
-                                            <rect key="frame" x="18" y="438" width="216" height="20"/>
+                                            <rect key="frame" x="18" y="446" width="216" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Use alternate icon" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="H4C-8u-pxd">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -128,7 +128,7 @@
                                             </connections>
                                         </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xZJ-tQ-Mnf">
-                                            <rect key="frame" x="18" y="416" width="216" height="20"/>
+                                            <rect key="frame" x="18" y="424" width="216" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Use System Alert" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="BPC-gu-onc">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -139,7 +139,7 @@
                                             </connections>
                                         </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="86e-Bh-3DQ" userLabel="Show Title">
-                                            <rect key="frame" x="18" y="211" width="216" height="20"/>
+                                            <rect key="frame" x="18" y="219" width="216" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Show Title on menu bar" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="PBb-1m-jSJ">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -150,7 +150,7 @@
                                             </connections>
                                         </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zaX-Og-2pW" userLabel="Use Travel Time">
-                                            <rect key="frame" x="17" y="343" width="216" height="20"/>
+                                            <rect key="frame" x="17" y="351" width="216" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Use Travel Time" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="YOH-ct-bdO">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -161,7 +161,7 @@
                                             </connections>
                                         </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZiE-cw-WV3">
-                                            <rect key="frame" x="18" y="482" width="216" height="20"/>
+                                            <rect key="frame" x="18" y="490" width="216" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Flash at 15 minute mark" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="4jW-yh-Fxu">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -172,7 +172,7 @@
                                             </connections>
                                         </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pTy-qs-SYp" userLabel="Show Time">
-                                            <rect key="frame" x="18" y="255" width="216" height="20"/>
+                                            <rect key="frame" x="18" y="263" width="216" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Show Time on menu bar" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="pcz-Z8-6p0">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -183,7 +183,7 @@
                                             </connections>
                                         </button>
                                         <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="20" horizontalPageScroll="10" verticalLineScroll="20" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9JL-fn-KMK">
-                                            <rect key="frame" x="19" y="12" width="215" height="114"/>
+                                            <rect key="frame" x="19" y="20" width="215" height="114"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <clipView key="contentView" id="bIR-lA-ke7">
                                                 <rect key="frame" x="1" y="1" width="213" height="112"/>
@@ -237,7 +237,7 @@
                                                                         <rect key="frame" x="35" y="1" width="147" height="17"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <subviews>
-                                                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nej-aH-wA2">
+                                                                            <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nej-aH-wA2">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="147" height="17"/>
                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                                 <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" id="ugd-DU-29e">
@@ -267,7 +267,7 @@
                                             </scroller>
                                         </scrollView>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ADp-Kj-5KQ">
-                                            <rect key="frame" x="18" y="394" width="216" height="20"/>
+                                            <rect key="frame" x="18" y="402" width="216" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Use Blocking Alert" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="whf-rP-Ihb">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -278,11 +278,11 @@
                                             </connections>
                                         </button>
                                         <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6qT-oK-GSm">
-                                            <rect key="frame" x="149" y="156" width="85" height="26"/>
+                                            <rect key="frame" x="156" y="158" width="85" height="26"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             <popUpButtonCell key="cell" type="push" title="1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="W2E-P1-TO0" id="t07-q0-2Z5">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="menu"/>
+                                                <font key="font" metaFont="message"/>
                                                 <menu key="menu" title="OtherViews" id="OAt-mY-SVr">
                                                     <items>
                                                         <menuItem title="1" state="on" id="W2E-P1-TO0"/>
@@ -299,7 +299,7 @@
                                             </connections>
                                         </popUpButton>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rXB-9q-jEo" userLabel="Show title">
-                                            <rect key="frame" x="18" y="187" width="216" height="20"/>
+                                            <rect key="frame" x="18" y="195" width="216" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Use Title Limit" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="Iwp-78-lg0">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -310,11 +310,11 @@
                                             </connections>
                                         </button>
                                         <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="odo-W7-vT6">
-                                            <rect key="frame" x="149" y="364" width="85" height="26"/>
+                                            <rect key="frame" x="156" y="370" width="85" height="26"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             <popUpButtonCell key="cell" type="push" title="0" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="D8B-Ra-tJ9" id="Cdp-E4-2Nq">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="menu"/>
+                                                <font key="font" metaFont="message"/>
                                                 <menu key="menu" title="OtherViews" id="MJ5-QJ-yA9">
                                                     <items>
                                                         <menuItem title="0" state="on" id="D8B-Ra-tJ9"/>
@@ -328,8 +328,8 @@
                                                 <action selector="updateSettings:" target="wA8-j3-h1G" id="a1m-2T-R2j"/>
                                             </connections>
                                         </popUpButton>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HsU-h6-h9X">
-                                            <rect key="frame" x="18" y="370" width="126" height="17"/>
+                                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HsU-h6-h9X">
+                                            <rect key="frame" x="18" y="378" width="126" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Early Warning" id="dS2-zA-Hj1">
                                                 <font key="font" metaFont="system"/>

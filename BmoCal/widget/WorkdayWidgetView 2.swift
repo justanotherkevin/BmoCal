@@ -283,8 +283,8 @@ class WorkdayWidgetView: NSView {
         initialMouseLocation = nil
         // Persist position
         if let appDelegate = NSApp.delegate as? AppDelegate, let window = self.window {
-            appDelegate.settings.settings.widgetX = Double(window.frame.origin.x)
-            appDelegate.settings.settings.widgetY = Double(window.frame.origin.y)
+            appDelegate.settings.data.widgetX = Double(window.frame.origin.x)
+            appDelegate.settings.data.widgetY = Double(window.frame.origin.y)
             appDelegate.settings.archive()
         }
     }
@@ -316,7 +316,7 @@ class WorkdayWidgetView: NSView {
         guard let w = window else { return }
         w.level = (w.level == .floating) ? .normal : .floating
         if let app = NSApp.delegate as? AppDelegate {
-            app.settings.settings.widgetFloatsOnTop = (w.level == .floating)
+            app.settings.data.widgetFloatsOnTop = (w.level == .floating)
             app.settings.archive()
         }
     }
