@@ -34,6 +34,11 @@ class Settings: NSObject, SettingsProviding {
         var widgetFloatsOnTop: Bool = true
         var widgetX: Double = -1
         var widgetY: Double = -1
+        var showVerticalWidget: Bool = false
+        var verticalWidgetFloatsOnTop: Bool = true
+        var verticalWidgetX: Double = -1
+        var verticalWidgetY: Double = -1
+        var verticalWidgetHeight: Double = 400
     }
 
     var data: Data = Data()

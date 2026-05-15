@@ -63,6 +63,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var fadeOut: Bool = false
 
     var widgetController: WorkdayWidgetWindowController?
+    var verticalWidgetController: VerticalWidgetWindowController?
     var dependencies: AppDependencies?
 
 
@@ -102,16 +103,25 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.registerNotification()
         //CalendarTools().registerNotification(#selector(itemsChanged(_:)))
 
-        // Widget menu item — inserted at top of the status-item menu
+        // Widget menu items — inserted at top of the status-item menu
+        let verticalWidgetItem = NSMenuItem(title: "Show Vertical Widget",
+                                            action: #selector(toggleVerticalWidget(_:)),
+                                            keyEquivalent: "")
+        verticalWidgetItem.target = self
+        mainMenu.insertItem(verticalWidgetItem, at: 0)
+
         let widgetItem = NSMenuItem(title: "Show Workday Widget",
                                     action: #selector(toggleWidget(_:)),
                                     keyEquivalent: "")
         widgetItem.target = self
-        mainMenu.insertItem(widgetItem, at: 0)
-        mainMenu.insertItem(.separator(), at: 1)
+        mainMenu.insertItem(widgetItem, at: 1)
+        mainMenu.insertItem(.separator(), at: 2)
 
         if settings.data.showWidget {
             showWidget()
+        }
+        if settings.data.showVerticalWidget {
+            showVerticalWidget()
         }
 
         // Last things to do
@@ -184,6 +194,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
 
         widgetController?.tick()
+        verticalWidgetController?.tick()
     }
 
     @objc func onClickStatusItem(sender: NSButton) {
@@ -201,11 +212,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func refreshAll(_ sender: Any?) {
         viewController.refreshAll(self)
         refreshWidgetEvents()
+        refreshVerticalWidgetEvents()
     }
 
     @objc func itemsChanged(_ notification: Notification) {
         viewController.refreshAll(self)
         refreshWidgetEvents()
+        refreshVerticalWidgetEvents()
     }
 
     // MARK: - Workday Widget
@@ -243,6 +256,54 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func refreshWidgetEvents() {
         guard let wc = widgetController else { return }
+        let calNames = settings.data.calendarNames
+        let tools = CalendarTools()
+        let calendars = calNames.isEmpty
+            ? tools.getAllCalendars()
+            : tools.getCalendarByNames(names: calNames)
+        wc.refreshEvents(
+            events: tools.getTodayEvents(calendars: calendars),
+            workStart: settings.data.workdayStartHour,
+            workEnd: settings.data.workdayEndHour
+        )
+    }
+
+    // MARK: - Vertical Widget
+
+    @objc func toggleVerticalWidget(_ sender: Any?) {
+        if verticalWidgetController != nil {
+            hideVerticalWidget()
+        } else {
+            showVerticalWidget()
+        }
+    }
+
+    func showVerticalWidget() {
+        if verticalWidgetController == nil {
+            let s = settings.data
+            let savedOrigin: CGPoint? = (s.verticalWidgetX >= 0 && s.verticalWidgetY >= 0)
+                ? CGPoint(x: s.verticalWidgetX, y: s.verticalWidgetY) : nil
+            verticalWidgetController = VerticalWidgetWindowController(
+                floatOnTop: s.verticalWidgetFloatsOnTop,
+                savedOrigin: savedOrigin,
+                height: CGFloat(s.verticalWidgetHeight)
+            )
+        }
+        verticalWidgetController?.showWindow(self)
+        settings.data.showVerticalWidget = true
+        settings.archive()
+        refreshVerticalWidgetEvents()
+    }
+
+    func hideVerticalWidget() {
+        verticalWidgetController?.close()
+        verticalWidgetController = nil
+        settings.data.showVerticalWidget = false
+        settings.archive()
+    }
+
+    func refreshVerticalWidgetEvents() {
+        guard let wc = verticalWidgetController else { return }
         let calNames = settings.data.calendarNames
         let tools = CalendarTools()
         let calendars = calNames.isEmpty
