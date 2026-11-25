@@ -236,26 +236,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
                 first = false
             }
 
-            var time = ""
-            if viewController.isAllDay(item) {
-                time = "All day"
-            } else if let date = date {
-                time = tools.getShortTimeString(date)
-            }
-            let title = time.isEmpty ? (item.title ?? "") : "\(time)   \(item.title ?? "")"
-            let row = NSMenuItem(title: title, action: #selector(openEventItem(_:)), keyEquivalent: "")
-            row.target = self
-            row.representedObject = item
-            var attrs: [NSAttributedString.Key: Any] = [.font: NSFont.menuFont(ofSize: 0)]
-            if i == next {
-                attrs[.font] = NSFont.boldSystemFont(ofSize: NSFont.systemFontSize)
-                attrs[.foregroundColor] = NSColor.controlAccentColor
-            }
-            if viewController.isDeclined(item) {
-                attrs[.strikethroughStyle] = NSUnderlineStyle.single.rawValue
-            }
-            row.attributedTitle = NSAttributedString(string: title, attributes: attrs)
-            items.append(row)
+            items.append(eventMenuItem(for: item, date: date, isNext: i == next, tools: tools))
         }
 
         if items.isEmpty {
@@ -268,6 +249,29 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             item.tag = AppDelegate.eventItemTag
             menu.insertItem(item, at: i)
         }
+    }
+
+    private func eventMenuItem(for item: EKCalendarItem, date: Date?, isNext: Bool, tools: TimeStringTools) -> NSMenuItem {
+        var time = ""
+        if viewController.isAllDay(item) {
+            time = "All day"
+        } else if let date = date {
+            time = tools.getShortTimeString(date)
+        }
+        let title = time.isEmpty ? (item.title ?? "") : "\(time)   \(item.title ?? "")"
+        let row = NSMenuItem(title: title, action: #selector(openEventItem(_:)), keyEquivalent: "")
+        row.target = self
+        row.representedObject = item
+        var attrs: [NSAttributedString.Key: Any] = [.font: NSFont.menuFont(ofSize: 0)]
+        if isNext {
+            attrs[.font] = NSFont.boldSystemFont(ofSize: NSFont.systemFontSize)
+            attrs[.foregroundColor] = NSColor.controlAccentColor
+        }
+        if viewController.isDeclined(item) {
+            attrs[.strikethroughStyle] = NSUnderlineStyle.single.rawValue
+        }
+        row.attributedTitle = NSAttributedString(string: title, attributes: attrs)
+        return row
     }
 
     @objc func openEventItem(_ sender: NSMenuItem) {
