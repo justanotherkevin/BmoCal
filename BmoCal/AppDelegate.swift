@@ -115,7 +115,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                                     keyEquivalent: "")
         widgetItem.target = self
         mainMenu.insertItem(widgetItem, at: 1)
-        mainMenu.insertItem(.separator(), at: 2)
+        let resetItem = NSMenuItem(title: "Reset Widget Positions",
+                                   action: #selector(resetWidgetPositions(_:)),
+                                   keyEquivalent: "")
+        resetItem.target = self
+        mainMenu.insertItem(resetItem, at: 2)
+        mainMenu.insertItem(.separator(), at: 3)
 
         if settings.data.showWidget {
             showWidget()
@@ -221,6 +226,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         refreshVerticalWidgetEvents()
     }
 
+    @objc func resetWidgetPositions(_ sender: Any?) {
+        settings.data.widgetX = -1
+        settings.data.widgetY = -1
+        settings.data.verticalWidgetX = -1
+        settings.data.verticalWidgetY = -1
+        settings.archive()
+        guard let sf = NSScreen.main?.visibleFrame else { return }
+        widgetController?.window?.setFrameOrigin(WorkdayWidgetWindowController.defaultOrigin(in: sf))
+        verticalWidgetController?.window?.setFrameOrigin(
+            VerticalWidgetWindowController.defaultOrigin(in: sf, height: CGFloat(settings.data.verticalWidgetHeight)))
+    }
+
     // MARK: - Workday Widget
 
     @objc func toggleWidget(_ sender: Any?) {
@@ -234,8 +251,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func showWidget() {
         if widgetController == nil {
             let s = settings.data
-            let savedOrigin: CGPoint? = (s.widgetX >= 0 && s.widgetY >= 0)
-                ? CGPoint(x: s.widgetX, y: s.widgetY) : nil
+            let size = WorkdayWidgetWindowController.windowSize
+            let savedOrigin = validSavedOrigin(
+                x: s.widgetX, y: s.widgetY,
+                size: CGSize(width: size, height: size),
+                screens: NSScreen.screens.map { $0.frame })
             widgetController = WorkdayWidgetWindowController(
                 floatOnTop: s.widgetFloatsOnTop,
                 savedOrigin: savedOrigin
@@ -281,8 +301,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func showVerticalWidget() {
         if verticalWidgetController == nil {
             let s = settings.data
-            let savedOrigin: CGPoint? = (s.verticalWidgetX >= 0 && s.verticalWidgetY >= 0)
-                ? CGPoint(x: s.verticalWidgetX, y: s.verticalWidgetY) : nil
+            let savedOrigin = validSavedOrigin(
+                x: s.verticalWidgetX, y: s.verticalWidgetY,
+                size: CGSize(width: VerticalWidgetWindowController.windowWidth,
+                             height: CGFloat(s.verticalWidgetHeight)),
+                screens: NSScreen.screens.map { $0.frame })
             verticalWidgetController = VerticalWidgetWindowController(
                 floatOnTop: s.verticalWidgetFloatsOnTop,
                 savedOrigin: savedOrigin,

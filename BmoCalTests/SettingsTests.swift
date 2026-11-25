@@ -76,3 +76,14 @@ func statusStringBuilderBeforeWorkday() {
     #expect(status.contains("Work in"))
     #expect(status.contains("1h"))
 }
+
+@Test("validSavedOrigin accepts on-screen and left-monitor origins, rejects off-screen and unset")
+func validSavedOriginCases() {
+    let main = NSRect(x: 0, y: 0, width: 1920, height: 1080)
+    let left = NSRect(x: -1920, y: 0, width: 1920, height: 1080)
+    let size = CGSize(width: 200, height: 200)
+    #expect(validSavedOrigin(x: 100, y: 100, size: size, screens: [main]) == CGPoint(x: 100, y: 100))
+    #expect(validSavedOrigin(x: 4405, y: 100, size: size, screens: [main]) == nil)
+    #expect(validSavedOrigin(x: -500, y: 100, size: size, screens: [left, main]) == CGPoint(x: -500, y: 100))
+    #expect(validSavedOrigin(x: -1, y: -1, size: size, screens: [main]) == nil)
+}
