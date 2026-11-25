@@ -20,6 +20,10 @@ Open `BmoCal.xcodeproj` in Xcode and build (⌘B) or run (⌘R).
 
 Requires macOS and Xcode — no external dependencies or package manager.
 
+## Credits
+
+BmoCal is inspired by NextEvent, a macOS menu bar app made by Mazookie.
+
 ## License
 
 Released under the [MIT License](LICENSE).
