@@ -36,14 +36,13 @@ struct AppDependencies {
 }
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
     let GLOW_INTERVAL   = 0.1
 
     @IBOutlet weak var mainMenu: NSMenu!
 
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.variableLength)
-    let popover = NSPopover()
 
     var timer: Timer!
     var preferenceController: NSWindowController!
@@ -82,6 +81,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         )
 
         viewController = NextEventViewController.freshController()
+        // The view is never shown; load it so settings and the IBOutlets are set up.
+        _ = viewController.view
 
         self.setIcons()
         yesterday = getMidnight(date: Date())
@@ -91,9 +92,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.sendAction(on: [.leftMouseUp, .rightMouseUp])
         }
         statusItem.button?.menu = mainMenu
-        popover.contentViewController = viewController
-        popover.behavior = NSPopover.Behavior.transient
-        popover.animates = true
+        mainMenu.delegate = self
 
         // check for access and request notification
         if CalendarTools().requestAccess() == false {
@@ -121,6 +120,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         resetItem.target = self
         mainMenu.insertItem(resetItem, at: 2)
         mainMenu.insertItem(.separator(), at: 3)
+
+        let calendarItem = NSMenuItem(title: "Open Calendar",
+                                      action: #selector(NextEventViewController.launchCalendar(_:)),
+                                      keyEquivalent: "")
+        calendarItem.target = viewController
+        mainMenu.insertItem(calendarItem, at: 4)
+        let remindersItem = NSMenuItem(title: "Open Reminders",
+                                       action: #selector(NextEventViewController.launchReminders(_:)),
+                                       keyEquivalent: "")
+        remindersItem.target = viewController
+        mainMenu.insertItem(remindersItem, at: 5)
+        mainMenu.insertItem(.separator(), at: 6)
 
         if settings.data.showWidget {
             showWidget()
@@ -203,14 +214,82 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @objc func onClickStatusItem(sender: NSButton) {
-        let event = NSApp.currentEvent!
+        NSMenu.popUpContextMenu(sender.menu!, with: NSApp.currentEvent!, for: sender)
+    }
 
-        if event.type == NSEvent.EventType.leftMouseUp {
-            // Left button click
-            togglePopover(self)
+    // MARK: - Event list (top of the status-item menu)
+
+    static let eventItemTag = 9001
+
+    func menuNeedsUpdate(_ menu: NSMenu) {
+        guard menu === mainMenu else { return }
+        for item in menu.items.reversed() where item.tag == AppDelegate.eventItemTag {
+            menu.removeItem(item)
+        }
+        var items: [NSMenuItem] = []
+        let tools = TimeStringTools()
+        let cal = Calendar.current
+        let next = viewController.getNextEvent()
+        var lastDay: Date?
+        var first = true
+
+        for (i, item) in viewController.calendarItems.enumerated() {
+            let date = viewController.getDateFromEventItem(item)
+            let day = date.map { cal.startOfDay(for: $0) }
+            if first || day != lastDay {
+                let header = NSMenuItem(title: date.map { tools.dayHeader(for: $0) } ?? "No date:",
+                                        action: nil, keyEquivalent: "")
+                header.isEnabled = false
+                items.append(header)
+                lastDay = day
+                first = false
+            }
+
+            var time = ""
+            if viewController.isAllDay(item) {
+                time = "All day"
+            } else if let date = date {
+                time = tools.getShortTimeString(date)
+            }
+            let title = time.isEmpty ? (item.title ?? "") : "\(time)   \(item.title ?? "")"
+            let row = NSMenuItem(title: title, action: #selector(openEventItem(_:)), keyEquivalent: "")
+            row.target = self
+            row.representedObject = item
+            var attrs: [NSAttributedString.Key: Any] = [.font: NSFont.menuFont(ofSize: 0)]
+            if i == next {
+                attrs[.font] = NSFont.boldSystemFont(ofSize: NSFont.systemFontSize)
+                attrs[.foregroundColor] = NSColor.controlAccentColor
+            }
+            if viewController.isDeclined(item) {
+                attrs[.strikethroughStyle] = NSUnderlineStyle.single.rawValue
+            }
+            row.attributedTitle = NSAttributedString(string: title, attributes: attrs)
+            items.append(row)
+        }
+
+        if items.isEmpty {
+            let none = NSMenuItem(title: "No upcoming events", action: nil, keyEquivalent: "")
+            none.isEnabled = false
+            items.append(none)
+        }
+        items.append(.separator())
+        for (i, item) in items.enumerated() {
+            item.tag = AppDelegate.eventItemTag
+            menu.insertItem(item, at: i)
+        }
+    }
+
+    @objc func openEventItem(_ sender: NSMenuItem) {
+        if let event = sender.representedObject as? EKEvent,
+           let id = event.eventIdentifier,
+           let url = URL(string: "ical://ekevent/\(id)?method=show&options=more"),
+           NSWorkspace.shared.open(url) {
+            return
+        }
+        if sender.representedObject is EKReminder {
+            viewController.launchReminders(sender)
         } else {
-            // Right button click
-            NSMenu.popUpContextMenu(sender.menu!, with: event, for: sender)
+            viewController.launchCalendar(sender)
         }
     }
 
@@ -372,25 +451,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         preferenceController.showWindow(self)
         preferenceController.window?.makeKeyAndOrderFront(self)
         NSApp.activate(ignoringOtherApps: true)
-    }
-
-    @objc func togglePopover(_ sender: Any?) {
-        if popover.isShown {
-            closePopover(sender: sender)
-        } else {
-            showPopover(sender: sender)
-        }
-    }
-
-    func showPopover(sender: Any?) {
-        if let button = statusItem.button {
-            NSApplication.shared.activate(ignoringOtherApps: true)
-            popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
-        }
-    }
-
-    func closePopover(sender: Any?) {
-        popover.performClose(sender)
     }
 
     func registerNotification() {

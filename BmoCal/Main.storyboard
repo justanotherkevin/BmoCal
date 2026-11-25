@@ -697,6 +697,12 @@
                                 <action selector="openAbout:" target="Voe-Tx-rLC" id="VnS-dE-1A5"/>
                             </connections>
                         </menuItem>
+                        <menuItem title="Help..." id="hLp-Mn-0001">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="openHelp:" target="Voe-Tx-rLC" id="hLp-Mn-0002"/>
+                            </connections>
+                        </menuItem>
                         <menuItem title="Preferences..." id="ItL-AB-eD6">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
