@@ -9,6 +9,7 @@
 - The Preferences window no longer has blank space at the top, and its title, the about text and the help file now say BmoCal.
 - A settings file that is missing a setting now loads that setting's default. Before, one missing setting reset every setting.
 - CLAUDE.md is no longer tracked by git.
+- The README credits NextEvent by Mazookie as the app that inspired BmoCal.
 - The round workday widget now opens at the top left of the main screen by default, and the vertical widget opens on the left edge below it.
 - A widget whose saved position is off every connected screen now opens at its default position, so it no longer disappears after you change your monitor layout.
 - Widgets can now keep a saved position on a monitor to the left of the main screen.
