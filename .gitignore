@@ -10,6 +10,7 @@ _dd/
 .vscode/
 buildServer.json
 default.profraw
+.DS_Store
 
 ## Various settings
 *.pbxuser

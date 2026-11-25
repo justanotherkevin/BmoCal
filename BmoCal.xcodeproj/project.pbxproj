@@ -26,9 +26,9 @@
 		2B27321327765EE2B438245B /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BA3ED37E70B0B96754975F /* SettingsTests.swift */; };
 		3693BF1B1C996AA921E4BCBF /* SmokeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6FFAD1F38270426402D647 /* SmokeTest.swift */; };
 		4C1897905A5E9154EDDC5210 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4360118BFBAE85CE9E04BAA2 /* Foundation.framework */; };
-		F53F5A52497E749F03195106 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBE8F2034967B0ECBB1C15E /* DateExtensions.swift */; };
 		AABB00000000000000000001 /* VerticalWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB00000000000000000002 /* VerticalWidgetView.swift */; };
 		AABB00000000000000000003 /* VerticalWidgetWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB00000000000000000004 /* VerticalWidgetWindowController.swift */; };
+		F53F5A52497E749F03195106 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBE8F2034967B0ECBB1C15E /* DateExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,23 +78,13 @@
 		9A6FFAD1F38270426402D647 /* SmokeTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SmokeTest.swift; path = BmoCalTests/SmokeTest.swift; sourceTree = "<group>"; };
 		9EBE8F2034967B0ECBB1C15E /* DateExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateExtensions.swift; path = BmoCal/DateExtensions.swift; sourceTree = "<group>"; };
 		A0BA3ED37E70B0B96754975F /* SettingsTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SettingsTests.swift; path = BmoCalTests/SettingsTests.swift; sourceTree = "<group>"; };
-		B124608442DA899AA37C38ED /* BmoCalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BmoCalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AABB00000000000000000002 /* VerticalWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalWidgetView.swift; sourceTree = "<group>"; };
 		AABB00000000000000000004 /* VerticalWidgetWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalWidgetWindowController.swift; sourceTree = "<group>"; };
+		B124608442DA899AA37C38ED /* BmoCalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BmoCalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		01F51A3C2FB52A580060CE34 /* widget */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
-			explicitFileTypes = {
-			};
-			explicitFolders = (
-			);
-			path = widget;
-			sourceTree = "<group>";
-		};
+		01F51A3C2FB52A580060CE34 /* widget */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = widget; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -462,16 +452,17 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 30;
 				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = ZFAVFY86NH;
 				INFOPLIST_FILE = BmoCal/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BmoCal;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 2.2.4;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Mazookie.NextEvent;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Bmocal.Workday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -488,16 +479,17 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 30;
 				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = ZFAVFY86NH;
 				INFOPLIST_FILE = BmoCal/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BmoCal;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 2.2.4;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Mazookie.NextEvent;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Bmocal.Workday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
