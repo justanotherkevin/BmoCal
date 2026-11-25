@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## BmoCal — Workday Countdown Menu Bar App
 
-macOS menu bar agent (`LSUIElement = true`, no Dock icon) showing a workday progress bar, countdown to the next calendar event, and an optional floating circular clock widget.
+macOS menu bar agent (`LSUIElement = true`, no Dock icon) showing a workday progress bar, countdown to the next calendar event, and an optional floating widget.
 
 ## Build & Test
 
@@ -33,6 +33,7 @@ In Xcode: ⌘B to build, ⌘U to run tests. No external dependencies or package 
 **Update loop:** `AppDelegate` owns a 1-second `Timer` → `update()` → refreshes menu bar title and calls `NextEventViewController.update()`. A separate 0.1s glow timer pulses the icon.
 
 **Data flow:**
+
 ```
 EKEventStore (OS)
     └→ CalendarTools (sync query wrapper, DispatchGroup for reminders)
@@ -42,6 +43,7 @@ EKEventStore (OS)
 ```
 
 **Status string states** (`NextEventViewController.getNextEventStatus()`):
+
 - Before workday: `"Work in Xh Ym"`
 - During workday: `"[████░░░░░░] 4h32m · EventTitle Xm"`
 - After workday: `"Workday done"` or `"Done · EventTitle Xm"`
@@ -50,18 +52,18 @@ EKEventStore (OS)
 
 ## File Glossary
 
-| File | Role |
-|------|------|
-| `AppDelegate.swift` | Entry point; owns StatusItem, Popover, update timer, glow animation, widget lifecycle |
-| `NextEventViewController.swift` | Popover view + status string generation + event notifications |
-| `Settings.swift` | Persistent config — `Data` struct (Codable JSON → `~/Documents/BmoCal.cfg`) |
-| `CalendarTools.swift` | EKEventStore wrapper; synchronous query interface |
-| `TimeStringTools.swift` | Pure stateless formatting: progress bar, fuzzy time, countdown strings |
-| `DateExtensions.swift` | `startOfDay`, `endOfDay`, local/UTC timezone helpers |
-| `WorkdayWidgetView.swift` | CoreGraphics NSView — circular clock drawing + mouse drag |
-| `WorkdayWidgetWindowController.swift` | Borderless transparent NSWindow; persists widget position |
-| `NextEventPreferencesViewController.swift` | Preferences panel (calendar/reminder selector, notification settings) |
-| `MZAlertBoxViewController.swift` | Modal blocking alert for event notifications |
+| File                                       | Role                                                                                  |
+| ------------------------------------------ | ------------------------------------------------------------------------------------- |
+| `AppDelegate.swift`                        | Entry point; owns StatusItem, Popover, update timer, glow animation, widget lifecycle |
+| `NextEventViewController.swift`            | Popover view + status string generation + event notifications                         |
+| `Settings.swift`                           | Persistent config — `Data` struct (Codable JSON → `~/Documents/BmoCal.cfg`)           |
+| `CalendarTools.swift`                      | EKEventStore wrapper; synchronous query interface                                     |
+| `TimeStringTools.swift`                    | Pure stateless formatting: progress bar, fuzzy time, countdown strings                |
+| `DateExtensions.swift`                     | `startOfDay`, `endOfDay`, local/UTC timezone helpers                                  |
+| `WorkdayWidgetView.swift`                  | CoreGraphics NSView — circular clock drawing + mouse drag                             |
+| `WorkdayWidgetWindowController.swift`      | Borderless transparent NSWindow; persists widget position                             |
+| `NextEventPreferencesViewController.swift` | Preferences panel (calendar/reminder selector, notification settings)                 |
+| `MZAlertBoxViewController.swift`           | Modal blocking alert for event notifications                                          |
 
 ## Feature Locations (Cross-File)
 
@@ -92,11 +94,11 @@ EKEventStore (OS)
 
 Pull these in when you need detail beyond the glossary:
 
-| Doc | When to use |
-|-----|-------------|
-| `docuemnts/reference/settings-reference.md` | Adding/changing settings; understanding all 19 config fields with defaults |
-| `docuemnts/reference/api-reference.md` | CalendarTools query methods, TimeStringTools formatting methods |
-| `docuemnts/plans/architecture-improvement-plan.md` | Refactoring work; Phase 1 mostly done, Phase 2 partially done |
+| Doc                                                | When to use                                                                |
+| -------------------------------------------------- | -------------------------------------------------------------------------- |
+| `docuemnts/reference/settings-reference.md`        | Adding/changing settings; understanding all 19 config fields with defaults |
+| `docuemnts/reference/api-reference.md`             | CalendarTools query methods, TimeStringTools formatting methods            |
+| `docuemnts/plans/architecture-improvement-plan.md` | Refactoring work; Phase 1 mostly done, Phase 2 partially done              |
 
 ## Context Navigation (Graphify)
 

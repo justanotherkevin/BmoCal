@@ -715,7 +715,7 @@
                     </connections>
                 </menu>
             </objects>
-            <point key="canvasLocation" x="-247" y="-902"/>
+            <point key="canvasLocation" x="-311" y="-931"/>
         </scene>
         <!--Next Event View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -929,7 +929,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-265" y="-652"/>
+            <point key="canvasLocation" x="-311" y="-665"/>
         </scene>
     </scenes>
     <resources>

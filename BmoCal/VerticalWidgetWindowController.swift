@@ -38,12 +38,14 @@ class VerticalWidgetWindowController: NSWindowController {
         if let origin = savedOrigin {
             window.setFrameOrigin(origin)
         } else if let screen = NSScreen.main {
-            let sf = screen.visibleFrame
-            window.setFrameOrigin(NSPoint(
-                x: sf.maxX - w - 20,
-                y: sf.midY - height / 2
-            ))
+            window.setFrameOrigin(Self.defaultOrigin(in: screen.visibleFrame, height: height))
         }
+    }
+
+    // Left edge, below the round widget's default spot
+    static func defaultOrigin(in sf: NSRect, height: CGFloat) -> NSPoint {
+        let below = sf.maxY - 20 - WorkdayWidgetWindowController.windowSize - 20 - height
+        return NSPoint(x: sf.minX + 20, y: max(below, sf.minY + 20))
     }
 
     required init?(coder: NSCoder) {

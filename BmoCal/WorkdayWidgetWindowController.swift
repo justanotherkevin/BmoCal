@@ -36,16 +36,17 @@ class WorkdayWidgetWindowController: NSWindowController {
         widgetView = WorkdayWidgetView(frame: rect)
         window.contentView = widgetView
 
-        // Restore saved position or default to top-right corner
+        // Restore saved position or default to top-left corner
         if let origin = savedOrigin {
             window.setFrameOrigin(origin)
         } else if let screen = NSScreen.main {
-            let sf = screen.visibleFrame
-            window.setFrameOrigin(NSPoint(
-                x: sf.maxX - size - 20,
-                y: sf.maxY - size - 20
-            ))
+            window.setFrameOrigin(Self.defaultOrigin(in: screen.visibleFrame))
         }
+    }
+
+    // Top-left corner of the given visible frame
+    static func defaultOrigin(in sf: NSRect) -> NSPoint {
+        NSPoint(x: sf.minX + 20, y: sf.maxY - windowSize - 20)
     }
 
     required init?(coder: NSCoder) {
@@ -68,4 +69,12 @@ class WorkdayWidgetWindowController: NSWindowController {
     func setFloating(_ floating: Bool) {
         window?.level = floating ? .floating : .normal
     }
+}
+
+/// Returns the saved origin only if the window's center would land on one of the screens.
+/// (-1, -1) means unset. Negative coordinates are valid (monitors left of / below the main screen).
+func validSavedOrigin(x: Double, y: Double, size: CGSize, screens: [NSRect]) -> CGPoint? {
+    if x == -1 && y == -1 { return nil }
+    let center = CGPoint(x: x + size.width / 2, y: y + size.height / 2)
+    return screens.contains { $0.contains(center) } ? CGPoint(x: x, y: y) : nil
 }
