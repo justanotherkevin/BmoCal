@@ -87,3 +87,38 @@ func validSavedOriginCases() {
     #expect(validSavedOrigin(x: -500, y: 100, size: size, screens: [left, main]) == CGPoint(x: -500, y: 100))
     #expect(validSavedOrigin(x: -1, y: -1, size: size, screens: [main]) == nil)
 }
+
+@Test("Old cfg JSON containing removed keys (useAltIcon) still decodes")
+func settingsDecodeIgnoresUnknownKeys() throws {
+    var dict = try JSONSerialization.jsonObject(with: JSONEncoder().encode(Settings.Data())) as! [String: Any]
+    dict["useAltIcon"] = true
+    dict["workdayStartHour"] = 7
+    let json = try JSONSerialization.data(withJSONObject: dict)
+    let data = try JSONDecoder().decode(Settings.Data.self, from: json)
+    #expect(data.workdayStartHour == 7)
+}
+
+@Test("JSON with a single key decodes that value and defaults elsewhere")
+func settingsDecodePartialJSON() throws {
+    let json = Foundation.Data(#"{"workdayStartHour":7}"#.utf8)
+    let data = try JSONDecoder().decode(Settings.Data.self, from: json)
+    #expect(data.workdayStartHour == 7)
+    #expect(data.workdayEndHour == 18)
+    #expect(data.showNumber == 10)
+    #expect(data.showTime == true)
+    #expect(data.verticalWidgetHeight == 400)
+}
+
+@Test("Settings.Data encode/decode round trip preserves modified values")
+func settingsRoundTrip() throws {
+    var original = Settings.Data()
+    original.workdayStartHour = 6
+    original.calendarNames = ["A", "B"]
+    original.widgetX = 123.5
+    original.showWidget = true
+    let decoded = try JSONDecoder().decode(Settings.Data.self, from: JSONEncoder().encode(original))
+    #expect(decoded.workdayStartHour == 6)
+    #expect(decoded.calendarNames == ["A", "B"])
+    #expect(decoded.widgetX == 123.5)
+    #expect(decoded.showWidget == true)
+}

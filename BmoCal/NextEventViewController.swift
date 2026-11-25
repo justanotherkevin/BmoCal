@@ -38,25 +38,6 @@ class NextEventViewController: NSViewController {
     //    self.refreshAll(self)
     //}
 
-    func setControllerViewSize(_ count: Int) {
-        var final_count = count
-
-        if final_count < 1 {
-            final_count = 10
-        }
-
-        DispatchQueue.main.async { [weak self] in
-            let defaultHeight = CGFloat(82 * final_count + 38)
-            var cf = self?.controllerView?.frame
-                ?? NSRect(x: 0, y: 0, width: 386, height: defaultHeight)
-            cf.size.height = defaultHeight
-            self?.controllerView?.frame = cf
-            self?.view.window?.setContentSize(cf.size)
-            let appDelegate = NSApp.delegate as? AppDelegate
-            appDelegate?.popover.contentSize = cf.size
-        }
-    }
-
     func getDateFromEventItem(_ item: EKCalendarItem) -> Date? {
         if let event = item as? EKEvent {
             return event.startDate
@@ -141,6 +122,12 @@ class NextEventViewController: NSViewController {
             )
         }
         return fullTime
+    }
+
+    /// True when the current user has declined this event.
+    func isDeclined(_ item: EKCalendarItem) -> Bool {
+        guard let event = item as? EKEvent else { return false }
+        return event.attendees?.first(where: { $0.isCurrentUser })?.participantStatus == .declined
     }
 
     func getNextEvent() -> Int {
@@ -261,18 +248,18 @@ class NextEventViewController: NSViewController {
     func alert(title: String, date: Date, location: String, color: NSColor, playSound: Bool = false) {
         DispatchQueue.main.async {
 
-            var alertBoxWindow: MZAlertBoxWindowController!
-            var alertBoxView: MZAlertBoxViewController!
+            var alertBoxWindow: EventNotificationAlertWindowController!
+            var alertBoxView: EventNotificationAlertViewController!
 
-            let mainStoryboard = NSStoryboard.init(name: "MZAlertBox", bundle: nil)
+            let mainStoryboard = NSStoryboard.init(name: "EventNotificationAlert", bundle: nil)
 
             alertBoxWindow = mainStoryboard.instantiateController(
-                withIdentifier: "MZ Alert Box Window Controller"
-            ) as? MZAlertBoxWindowController
+                withIdentifier: "EventNotificationAlertWindowController"
+            ) as? EventNotificationAlertWindowController
 
             alertBoxView = mainStoryboard.instantiateController(
-                withIdentifier: "MZ Alert Box Controller"
-            ) as? MZAlertBoxViewController
+                withIdentifier: "EventNotificationAlertViewController"
+            ) as? EventNotificationAlertViewController
 
             alertBoxWindow!.contentViewController = alertBoxView
 
@@ -424,9 +411,8 @@ class NextEventViewController: NSViewController {
             )
         }
 
-        self.setControllerViewSize(calendarItems.count)
         DispatchQueue.main.async { [weak self] in
-            self?.tableView.reloadData()
+            self?.tableView?.reloadData()
         }
     }
 

@@ -399,4 +399,18 @@ class TimeStringTools: NSObject {
         )
     }
 
+    /// Menu section header: "Today (Fri, 12 Feb):", "Tomorrow (Sat, 13 Feb):", else "Mon, 15 Feb:".
+    func dayHeader(for date: Date, now: Date = Date(), calendar: Calendar = .current) -> String {
+        let f = DateFormatter()
+        f.locale = Locale(identifier: "en_US_POSIX")
+        f.calendar = calendar
+        f.timeZone = calendar.timeZone
+        f.dateFormat = "EEE, d MMM"
+        let day = f.string(from: date)
+        if calendar.isDate(date, inSameDayAs: now) { return "Today (\(day)):" }
+        if let tomorrow = calendar.date(byAdding: .day, value: 1, to: now),
+           calendar.isDate(date, inSameDayAs: tomorrow) { return "Tomorrow (\(day)):" }
+        return "\(day):"
+    }
+
 }

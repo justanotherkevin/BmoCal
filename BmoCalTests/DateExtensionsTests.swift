@@ -50,3 +50,13 @@ func localGlobalRoundTrip() {
     let diff = abs(date.timeIntervalSince(global))
     #expect(diff < 1.0)  // should round-trip within 1 second
 }
+
+@Test("dayHeader labels today, tomorrow and later days")
+func dayHeader() {
+    let cal = Calendar.current
+    let now = cal.date(from: DateComponents(year: 2026, month: 2, day: 12, hour: 10))!
+    let tools = TimeStringTools()
+    #expect(tools.dayHeader(for: now, now: now) == "Today (Thu, 12 Feb):")
+    #expect(tools.dayHeader(for: now.addingTimeInterval(86400), now: now) == "Tomorrow (Fri, 13 Feb):")
+    #expect(tools.dayHeader(for: now.addingTimeInterval(3 * 86400), now: now) == "Sun, 15 Feb:")
+}

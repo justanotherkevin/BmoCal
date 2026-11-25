@@ -6,7 +6,6 @@ class NextEventPreferencesViewController: NSViewController {
 
     @IBOutlet weak var flash: NSButton!
     @IBOutlet weak var flashBlue: NSButton!
-    @IBOutlet weak var alternateIcon: NSButton!
     @IBOutlet weak var systemAlert: NSButton!
     @IBOutlet weak var blockingAlert: NSButton!
     @IBOutlet weak var earlyWarning: NSPopUpButton!
@@ -46,7 +45,6 @@ class NextEventPreferencesViewController: NSViewController {
 
         flash.state = getState(value: settings.data.useFlash)
         flashBlue.state = getState(value: settings.data.useFlashBlue)
-        alternateIcon.state = getState(value: settings.data.useAltIcon)
         systemAlert.state = getState(value: settings.data.useSystemAlert)
         blockingAlert.state = getState(value: settings.data.useBlockingAlert)
         earlyWarning.selectItem(withTitle: String(settings.data.earlyWarning))
@@ -101,7 +99,6 @@ class NextEventPreferencesViewController: NSViewController {
     @IBAction func updateSettings(_ sender: Any) {
         settings.data.useFlash = getState(value: flash.state)
         settings.data.useFlashBlue = getState(value: flashBlue.state)
-        settings.data.useAltIcon = getState(value: alternateIcon.state)
         settings.data.useSystemAlert = getState(value: systemAlert.state)
         settings.data.useBlockingAlert = getState(value: blockingAlert.state)
         settings.data.earlyWarning = Int((earlyWarning.selectedItem?.title)!)!

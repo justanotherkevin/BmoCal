@@ -697,6 +697,12 @@
                                 <action selector="openAbout:" target="Voe-Tx-rLC" id="VnS-dE-1A5"/>
                             </connections>
                         </menuItem>
+                        <menuItem title="Help..." id="hLp-Mn-0001">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="openHelp:" target="Voe-Tx-rLC" id="hLp-Mn-0002"/>
+                            </connections>
+                        </menuItem>
                         <menuItem title="Preferences..." id="ItL-AB-eD6">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
@@ -755,7 +761,6 @@
                                     <font key="font" metaFont="message"/>
                                     <menu key="menu" title="OtherViews" id="4oR-pp-xzn">
                                         <items>
-                                            <menuItem state="mixed" image="mazookie_gear" hidden="YES" enabled="NO" id="IBZ-CX-WVa"/>
                                             <menuItem title="Refresh" id="kTQ-zJ-MEH">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                                 <connections>
@@ -934,7 +939,6 @@
     </scenes>
     <resources>
         <image name="calendar_button" width="16" height="16"/>
-        <image name="mazookie_gear" width="16" height="16"/>
         <image name="reminder_button" width="16" height="16"/>
     </resources>
 </document>

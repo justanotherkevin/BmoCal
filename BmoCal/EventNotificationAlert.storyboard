@@ -9,8 +9,8 @@
         <!--Window Controller-->
         <scene sceneID="wqz-8B-Lke">
             <objects>
-                <windowController storyboardIdentifier="MZ Alert Box Window Controller" showSeguePresentationStyle="single" id="Fim-uS-KLg" customClass="MZAlertBoxWindowController" customModule="BmoCal" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" identifier="MZ Alert Box" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" tabbingMode="disallowed" id="fce-V1-aPW" customClass="NSPanel">
+                <windowController storyboardIdentifier="EventNotificationAlertWindowController" showSeguePresentationStyle="single" id="Fim-uS-KLg" customClass="EventNotificationAlertWindowController" customModule="BmoCal" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" identifier="EventNotificationAlert" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" tabbingMode="disallowed" id="fce-V1-aPW" customClass="NSPanel">
                         <windowStyleMask key="styleMask" fullSizeContentView="YES"/>
                         <windowCollectionBehavior key="collectionBehavior" moveToActiveSpace="YES" fullScreenPrimary="YES"/>
                         <rect key="contentRect" x="425" y="461" width="414" height="100"/>
@@ -27,10 +27,10 @@
             </objects>
             <point key="canvasLocation" x="-259" y="-718"/>
         </scene>
-        <!--MZ Alert Box Controller-->
+        <!--EventNotificationAlertViewController-->
         <scene sceneID="MTN-0H-a8k">
             <objects>
-                <viewController storyboardIdentifier="MZ Alert Box Controller" showSeguePresentationStyle="single" id="Mec-K7-Y5U" userLabel="MZ Alert Box Controller" customClass="MZAlertBoxViewController" customModule="BmoCal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EventNotificationAlertViewController" showSeguePresentationStyle="single" id="Mec-K7-Y5U" userLabel="EventNotificationAlertViewController" customClass="EventNotificationAlertViewController" customModule="BmoCal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Fws-kS-WGg">
                         <rect key="frame" x="0.0" y="0.0" width="733" height="492"/>
                         <autoresizingMask key="autoresizingMask"/>

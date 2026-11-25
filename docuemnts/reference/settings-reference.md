@@ -13,7 +13,6 @@ All fields live in `Settings.Data` (`Settings.swift`). Persisted as JSON to `~/D
 | `widgetY` | Double | -1 | Saved widget Y position |
 | `useFlash` | Bool | true | Flash icon when next event is ≤15 min away |
 | `useFlashBlue` | Bool | false | Blue glow (true) vs orange glow (false) |
-| `useAltIcon` | Bool | false | Mazookie icon instead of BmoCal icon |
 | `useSystemAlert` | Bool | false | macOS notification center alerts |
 | `useBlockingAlert` | Bool | false | Modal blocking alert window |
 | `earlyWarning` | Int | 1 | Minutes before event to show blocking alert |
