@@ -9,8 +9,8 @@
         <!--Window Controller-->
         <scene sceneID="sgI-a3-n2J">
             <objects>
-                <windowController storyboardIdentifier="MZ About Box" id="udD-Wc-ru0" sceneMemberID="viewController">
-                    <window key="window" identifier="MZ About Box" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="I0q-bc-xkq" customClass="NSPanel">
+                <windowController storyboardIdentifier="AboutPanel" id="udD-Wc-ru0" sceneMemberID="viewController">
+                    <window key="window" identifier="AboutPanel" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="I0q-bc-xkq" customClass="NSPanel">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
                         <rect key="contentRect" x="425" y="461" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
@@ -29,7 +29,7 @@
         <!--About Box View Controller-->
         <scene sceneID="rX6-nr-r2r">
             <objects>
-                <viewController storyboardIdentifier="MZ AboutBox Controller" id="Kkt-nr-uPz" customClass="MZAboutBoxViewController" customModule="BmoCal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AboutPanelViewController" id="Kkt-nr-uPz" customClass="AboutPanelViewController" customModule="BmoCal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="wE7-Qh-rcP">
                         <rect key="frame" x="0.0" y="0.0" width="612" height="294"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

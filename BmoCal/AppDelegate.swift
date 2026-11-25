@@ -47,7 +47,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     var timer: Timer!
     var preferenceController: NSWindowController!
     var aboutBoxController: NSWindowController!
-    var aboutBoxView: MZAboutBoxViewController!
+    var aboutBoxView: AboutPanelViewController!
     var settings: Settings!
     var viewController: NextEventViewController!
 
@@ -160,21 +160,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
 
     func setIcons() {
-        if settings.data.useAltIcon {
-            icon = NSImage(named:"mazookie_mb")!
-            if settings.data.useFlashBlue {
-                glowIcon = NSImage(named:"mazookie_mb_blue")!
-            } else {
-                glowIcon = NSImage(named:"mazookie_mb_orange")!
-            }
-        } else {
-            icon = NSImage(named:"next_event_mb")!
+        icon = NSImage(named:"next_event_mb")!
 
-            if settings.data.useFlashBlue {
-                glowIcon = NSImage(named:"next_event_mb_blue")!
-            } else {
-                glowIcon = NSImage(named:"next_event_mb_orange")!
-            }
+        if settings.data.useFlashBlue {
+            glowIcon = NSImage(named:"next_event_mb_blue")!
+        } else {
+            glowIcon = NSImage(named:"next_event_mb_orange")!
         }
     }
 
@@ -428,14 +419,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
     private func openAboutBox(forceHelp: Bool) {
         if aboutBoxController == nil {
-            let mainStoryboard = NSStoryboard.init(name: "MZAboutBox", bundle: nil)
+            let mainStoryboard = NSStoryboard.init(name: "AboutPanel", bundle: nil)
             aboutBoxController = mainStoryboard.instantiateController(
-                withIdentifier: "MZ About Box") as? NSWindowController
+                withIdentifier: "AboutPanel") as? NSWindowController
             aboutBoxView = mainStoryboard.instantiateController(
-                withIdentifier: "MZ AboutBox Controller"
-                ) as? MZAboutBoxViewController
+                withIdentifier: "AboutPanelViewController"
+                ) as? AboutPanelViewController
             aboutBoxController.contentViewController = aboutBoxView
-            aboutBoxView.setMacId(newMacId: "id879985307")
         }
         aboutBoxController.showWindow(self)
         aboutBoxController.window?.makeKeyAndOrderFront(self)

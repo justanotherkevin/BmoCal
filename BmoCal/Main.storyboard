@@ -761,7 +761,6 @@
                                     <font key="font" metaFont="message"/>
                                     <menu key="menu" title="OtherViews" id="4oR-pp-xzn">
                                         <items>
-                                            <menuItem state="mixed" image="mazookie_gear" hidden="YES" enabled="NO" id="IBZ-CX-WVa"/>
                                             <menuItem title="Refresh" id="kTQ-zJ-MEH">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                                 <connections>
@@ -940,7 +939,6 @@
     </scenes>
     <resources>
         <image name="calendar_button" width="16" height="16"/>
-        <image name="mazookie_gear" width="16" height="16"/>
         <image name="reminder_button" width="16" height="16"/>
     </resources>
 </document>

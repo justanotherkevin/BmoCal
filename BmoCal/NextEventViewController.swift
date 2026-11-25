@@ -248,18 +248,18 @@ class NextEventViewController: NSViewController {
     func alert(title: String, date: Date, location: String, color: NSColor, playSound: Bool = false) {
         DispatchQueue.main.async {
 
-            var alertBoxWindow: MZAlertBoxWindowController!
-            var alertBoxView: MZAlertBoxViewController!
+            var alertBoxWindow: EventNotificationAlertWindowController!
+            var alertBoxView: EventNotificationAlertViewController!
 
-            let mainStoryboard = NSStoryboard.init(name: "MZAlertBox", bundle: nil)
+            let mainStoryboard = NSStoryboard.init(name: "EventNotificationAlert", bundle: nil)
 
             alertBoxWindow = mainStoryboard.instantiateController(
-                withIdentifier: "MZ Alert Box Window Controller"
-            ) as? MZAlertBoxWindowController
+                withIdentifier: "EventNotificationAlertWindowController"
+            ) as? EventNotificationAlertWindowController
 
             alertBoxView = mainStoryboard.instantiateController(
-                withIdentifier: "MZ Alert Box Controller"
-            ) as? MZAlertBoxViewController
+                withIdentifier: "EventNotificationAlertViewController"
+            ) as? EventNotificationAlertViewController
 
             alertBoxWindow!.contentViewController = alertBoxView
 

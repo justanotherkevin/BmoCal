@@ -12,7 +12,6 @@ class Settings: NSObject, SettingsProviding {
     struct Data: Codable {
         // persistant
         var floatRight: Bool = false
-        var useAltIcon: Bool = false
         var useFlashBlue: Bool = false
         var useFlash: Bool = false
         var useSystemAlert: Bool = false
@@ -72,7 +71,6 @@ class Settings: NSObject, SettingsProviding {
 
     func reset() {
         data.floatRight = false
-        data.useAltIcon = false
         data.useFlashBlue = false
         data.useFlash = true
         data.useSystemAlert = false

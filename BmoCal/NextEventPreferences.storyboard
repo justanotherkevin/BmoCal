@@ -116,17 +116,6 @@
                                                 <action selector="updateSettings:" target="wA8-j3-h1G" id="hPB-2y-Ump"/>
                                             </connections>
                                         </button>
-                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G1D-bF-hat">
-                                            <rect key="frame" x="18" y="446" width="216" height="20"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="check" title="Use alternate icon" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="H4C-8u-pxd">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="updateSettings:" target="wA8-j3-h1G" id="4Zw-4m-ntB"/>
-                                            </connections>
-                                        </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xZJ-tQ-Mnf">
                                             <rect key="frame" x="18" y="424" width="216" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -340,15 +329,9 @@
                                     </subviews>
                                 </view>
                             </box>
-                            <imageView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IV9-pe-vhs">
-                                <rect key="frame" x="20" y="550" width="252" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <imageCell key="cell" continuous="YES" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="mazookie_name_logo_sticker_small" id="Bya-PS-tMO"/>
-                            </imageView>
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="alternateIcon" destination="G1D-bF-hat" id="V37-6Q-SVC"/>
                         <outlet property="blockingAlert" destination="ADp-Kj-5KQ" id="S2r-oW-Wsb"/>
                         <outlet property="earlyWarning" destination="odo-W7-vT6" id="Gqe-Jc-dXG"/>
                         <outlet property="flash" destination="ZiE-cw-WV3" id="nkt-n0-5oX"/>
@@ -370,7 +353,4 @@
             <point key="canvasLocation" x="-173.5" y="-1067"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="mazookie_name_logo_sticker_small" width="600" height="125"/>
-    </resources>
 </document>

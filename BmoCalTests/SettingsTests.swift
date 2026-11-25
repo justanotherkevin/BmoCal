@@ -87,3 +87,13 @@ func validSavedOriginCases() {
     #expect(validSavedOrigin(x: -500, y: 100, size: size, screens: [left, main]) == CGPoint(x: -500, y: 100))
     #expect(validSavedOrigin(x: -1, y: -1, size: size, screens: [main]) == nil)
 }
+
+@Test("Old cfg JSON containing removed keys (useAltIcon) still decodes")
+func settingsDecodeIgnoresUnknownKeys() throws {
+    var dict = try JSONSerialization.jsonObject(with: JSONEncoder().encode(Settings.Data())) as! [String: Any]
+    dict["useAltIcon"] = true
+    dict["workdayStartHour"] = 7
+    let json = try JSONSerialization.data(withJSONObject: dict)
+    let data = try JSONDecoder().decode(Settings.Data.self, from: json)
+    #expect(data.workdayStartHour == 7)
+}

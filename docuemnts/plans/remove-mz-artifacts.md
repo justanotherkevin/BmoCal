@@ -1,5 +1,7 @@
 # Remove "MZ" (Mazookie) Naming Artifacts
 
+> Status: done. Both phases implemented (files renamed to AboutPanel* and EventNotificationAlert*).
+
 ## Context
 The codebase contains legacy "MZ" prefixes inherited from the original creator. These appear in:
 - Class names (`MZAlertBoxViewController`, `MZAboutBoxViewController`)
