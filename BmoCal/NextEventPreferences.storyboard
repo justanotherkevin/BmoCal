@@ -10,7 +10,7 @@
         <scene sceneID="rVt-Ca-cLF">
             <objects>
                 <windowController storyboardIdentifier="Preference Panel" id="Nxt-w3-3ZU" sceneMemberID="viewController">
-                    <window key="window" identifier="Preference Panel" title="NextEvent Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="JLN-KY-Ikg" customClass="NSPanel">
+                    <window key="window" identifier="Preference Panel" title="BmoCal Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="JLN-KY-Ikg" customClass="NSPanel">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="425" y="461" width="158" height="73"/>
@@ -33,18 +33,18 @@
                 <customObject id="dxi-Nl-V1V" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <viewController id="wA8-j3-h1G" customClass="NextEventPreferencesViewController" customModule="BmoCal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="iiq-tx-XAl">
-                        <rect key="frame" x="0.0" y="0.0" width="293" height="610"/>
+                        <rect key="frame" x="0.0" y="0.0" width="293" height="538"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <box autoresizesSubviews="NO" fixedFrame="YES" borderType="line" title="1" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="Ncq-vL-MVQ" userLabel="Box">
-                                <rect key="frame" x="17" y="16" width="258" height="528"/>
+                                <rect key="frame" x="17" y="16" width="258" height="506"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" id="s5O-ef-5Cb">
-                                    <rect key="frame" x="0.0" y="0.0" width="258" height="528"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="258" height="506"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H0b-uj-I3r" userLabel="Use Flash Blue">
-                                            <rect key="frame" x="18" y="468" width="216" height="20"/>
+                                            <rect key="frame" x="18" y="446" width="216" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Flash blue" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="x52-wG-IaM">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -150,7 +150,7 @@
                                             </connections>
                                         </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZiE-cw-WV3">
-                                            <rect key="frame" x="18" y="490" width="216" height="20"/>
+                                            <rect key="frame" x="18" y="468" width="216" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Flash at 15 minute mark" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="4jW-yh-Fxu">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
