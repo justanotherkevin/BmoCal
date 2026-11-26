@@ -22,7 +22,7 @@ struct UpdateChecker {
 
     /// Silent on any failure; calls back on the main queue only when a newer release exists.
     func check(completion: @escaping (_ version: String, _ url: URL) -> Void) {
-        guard let api = URL(string: "https://api.github.com/repos/justanotherkevin/BmoCal/releases/latest"),
+        guard let api = URL(string: "https://api.github.com/repos/justanotherkevin/BmoCal-menu-bar-calendar/releases/latest"),
               let local = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String else { return }
         var request = URLRequest(url: api)
         request.setValue("application/vnd.github+json", forHTTPHeaderField: "Accept")

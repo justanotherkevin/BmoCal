@@ -4,12 +4,12 @@
 
 **A macOS menu bar calendar with a next meeting countdown, a workday progress bar, and meeting reminders from Apple Calendar.**
 
-[![Star this repo](https://img.shields.io/github/stars/justanotherkevin/BmoCal?style=for-the-badge&logo=github&label=%E2%AD%90%20Star%20this%20repo&color=yellow)](https://github.com/justanotherkevin/BmoCal/stargazers)
+[![Star this repo](https://img.shields.io/github/stars/justanotherkevin/BmoCal-menu-bar-calendar?style=for-the-badge&logo=github&label=%E2%AD%90%20Star%20this%20repo&color=yellow)](https://github.com/justanotherkevin/BmoCal-menu-bar-calendar/stargazers)
 
 ![macOS 13+](https://img.shields.io/badge/macOS-13%2B-000000?style=for-the-badge&logo=apple&logoColor=white)
 ![Swift](https://img.shields.io/badge/Swift-native-F05138?style=for-the-badge&logo=swift&logoColor=white)
-![License MIT](https://img.shields.io/github/license/justanotherkevin/BmoCal?style=for-the-badge)
-![Latest release](https://img.shields.io/github/v/release/justanotherkevin/BmoCal?style=for-the-badge)
+![License MIT](https://img.shields.io/github/license/justanotherkevin/BmoCal-menu-bar-calendar?style=for-the-badge)
+![Latest release](https://img.shields.io/github/v/release/justanotherkevin/BmoCal-menu-bar-calendar?style=for-the-badge)
 
 </div>
 
@@ -45,7 +45,7 @@ BmoCal works with any calendar account added to macOS Calendar, such as iCloud, 
 
 BmoCal needs macOS 13 Ventura or later.
 
-1. Download `BmoCal.zip` from the [latest release](https://github.com/justanotherkevin/BmoCal/releases/latest).
+1. Download `BmoCal.zip` from the [latest release](https://github.com/justanotherkevin/BmoCal-menu-bar-calendar/releases/latest).
 2. Unzip it and move `BmoCal.app` to the `/Applications` folder.
 3. Open `BmoCal.app`.
 4. macOS will block it because the app is not notarized. Open System Settings, go to Privacy & Security, scroll down, click "Open Anyway", and confirm.
@@ -114,6 +114,6 @@ Released under the [MIT License](LICENSE).
 
 Built by [Kevin Hu](https://github.com/justanotherkevin)
 
-[![Star this repo](https://img.shields.io/github/stars/justanotherkevin/BmoCal?style=for-the-badge&logo=github&label=%E2%AD%90%20Star%20this%20repo&color=yellow)](https://github.com/justanotherkevin/BmoCal/stargazers)
+[![Star this repo](https://img.shields.io/github/stars/justanotherkevin/BmoCal-menu-bar-calendar?style=for-the-badge&logo=github&label=%E2%AD%90%20Star%20this%20repo&color=yellow)](https://github.com/justanotherkevin/BmoCal-menu-bar-calendar/stargazers)
 
 </div>
