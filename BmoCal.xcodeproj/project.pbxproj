@@ -18,6 +18,8 @@
 		137B1D5B202FFE7C002C9BCD /* AboutPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137B1D5A202FFE7C002C9BCD /* AboutPanelViewController.swift */; };
 		137B1D5D20300B7A002C9BCD /* help.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 137B1D5C20300B7A002C9BCD /* help.rtfd */; };
 		1388199521569346003483C5 /* acknowledgments.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1388199421569346003483C5 /* acknowledgments.txt */; };
+		AA0000012FC000010060CE34 /* UpdateChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000022FC000010060CE34 /* UpdateChecker.swift */; };
+		AA0000032FC000010060CE34 /* UpdateCheckerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000042FC000010060CE34 /* UpdateCheckerTests.swift */; };
 		139B32D6201E8A9A007A5909 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B32D5201E8A9A007A5909 /* AppDelegate.swift */; };
 		139B32DA201E8A9A007A5909 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 139B32D9201E8A9A007A5909 /* Assets.xcassets */; };
 		139B3302201EA9FE007A5909 /* NextEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B3301201EA9FE007A5909 /* NextEventViewController.swift */; };
@@ -69,6 +71,8 @@
 		137B1D5C20300B7A002C9BCD /* help.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = help.rtfd; sourceTree = "<group>"; };
 		1388199421569346003483C5 /* acknowledgments.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = acknowledgments.txt; sourceTree = "<group>"; };
 		139B32D2201E8A9A007A5909 /* BmoCal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BmoCal.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA0000022FC000010060CE34 /* UpdateChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateChecker.swift; sourceTree = "<group>"; };
+		AA0000042FC000010060CE34 /* UpdateCheckerTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UpdateCheckerTests.swift; path = BmoCalTests/UpdateCheckerTests.swift; sourceTree = "<group>"; };
 		139B32D5201E8A9A007A5909 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		139B32D9201E8A9A007A5909 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		139B32DE201E8A9A007A5909 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -123,6 +127,7 @@
 				5C1A00000000000000000002 /* TimeStringToolsTests.swift */,
 				5C1A0000000000000000A002 /* ThemeTests.swift */,
 				5C1A0000000000000000B002 /* SettingsWindowTests.swift */,
+				AA0000042FC000010060CE34 /* UpdateCheckerTests.swift */,
 				1D4C4CAB1C23185A3CCDDC1A /* DateExtensionsTests.swift */,
 				9EBE8F2034967B0ECBB1C15E /* DateExtensions.swift */,
 			);
@@ -144,6 +149,7 @@
 				137B1D5A202FFE7C002C9BCD /* AboutPanelViewController.swift */,
 				137B1D58202FF7F3002C9BCD /* AboutPanel.storyboard */,
 				139B32D5201E8A9A007A5909 /* AppDelegate.swift */,
+				AA0000022FC000010060CE34 /* UpdateChecker.swift */,
 				137B1D53202C0503002C9BCD /* CalendarTools.swift */,
 				139B3301201EA9FE007A5909 /* NextEventViewController.swift */,
 				132203972021806F00B1291C /* NextEvent-Bridging-Header.h */,
@@ -300,6 +306,7 @@
 				AABB0000000000000000A001 /* Theme.swift in Sources */,
 				AABB0000000000000000B001 /* SettingsWindow.swift in Sources */,
 				AABB00000000000000000003 /* VerticalWidgetWindowController.swift in Sources */,
+				AA0000012FC000010060CE34 /* UpdateChecker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +319,7 @@
 				5C1A00000000000000000001 /* TimeStringToolsTests.swift in Sources */,
 				5C1A0000000000000000A001 /* ThemeTests.swift in Sources */,
 				5C1A0000000000000000B001 /* SettingsWindowTests.swift in Sources */,
+				AA0000032FC000010060CE34 /* UpdateCheckerTests.swift in Sources */,
 				02A2507830E60896AE8C0D01 /* DateExtensionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,11 +368,11 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = G7Y6J5C2S2;
+				DEVELOPMENT_TEAM = ZFAVFY86NH;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -426,11 +434,11 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = G7Y6J5C2S2;
+				DEVELOPMENT_TEAM = ZFAVFY86NH;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;

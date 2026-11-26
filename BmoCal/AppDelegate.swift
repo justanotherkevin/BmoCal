@@ -51,6 +51,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
     var icon: NSImage!
     var yesterday: Date?
+    let updateItem = NSMenuItem(title: "", action: #selector(openUpdate), keyEquivalent: "")
+    var updateURL: URL?
 
     var widgetController: WorkdayWidgetWindowController?
     var verticalWidgetController: VerticalWidgetWindowController?
@@ -124,6 +126,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         mainMenu.insertItem(remindersItem, at: 5)
         mainMenu.insertItem(.separator(), at: 6)
 
+        updateItem.target = self
+        updateItem.isHidden = true
+        mainMenu.insertItem(updateItem, at: 0)
+        checkForUpdate()
+
         if settings.data.showWidget {
             showWidget()
         }
@@ -167,6 +174,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         if yesterday != now {
             yesterday = now
             viewController.refreshAll(self)
+            checkForUpdate()
         }
 
         if viewController.update() == true {
@@ -288,6 +296,20 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         widgetController?.window?.setFrameOrigin(WorkdayWidgetWindowController.defaultOrigin(in: sf))
         verticalWidgetController?.window?.setFrameOrigin(
             VerticalWidgetWindowController.defaultOrigin(in: sf, height: CGFloat(settings.data.verticalWidgetHeight)))
+    }
+
+    // MARK: - Update check
+
+    func checkForUpdate() {
+        UpdateChecker().check { [weak self] version, url in
+            self?.updateURL = url
+            self?.updateItem.title = "Update available: \(version)"
+            self?.updateItem.isHidden = false
+        }
+    }
+
+    @objc func openUpdate() {
+        if let url = updateURL { NSWorkspace.shared.open(url) }
     }
 
     // MARK: - Workday Widget
