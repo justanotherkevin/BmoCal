@@ -416,10 +416,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
 
     @IBAction func openNextEventPreferencePanel(_ sender: Any?) {
-        if preferenceController == nil {
-            let mainStoryboard = NSStoryboard.init(name: "NextEventPreferences", bundle: nil)
-            preferenceController = mainStoryboard.instantiateController(withIdentifier: "Preference Panel") as? NSWindowController
-        }
+        if preferenceController == nil { preferenceController = SettingsWindowController() }
         preferenceController.showWindow(self)
         preferenceController.window?.makeKeyAndOrderFront(self)
         NSApp.activate(ignoringOtherApps: true)
