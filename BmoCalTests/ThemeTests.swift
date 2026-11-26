@@ -5,7 +5,7 @@ import Foundation
 private let checkedFiles = [
     "AppDelegate.swift", "NextEventViewController.swift", "WorkdayWidgetView.swift",
     "VerticalWidgetView.swift", "VerticalWidgetWindowController.swift",
-    "WorkdayWidgetWindowController.swift", "NextEventPreferencesViewController.swift",
+    "WorkdayWidgetWindowController.swift", "SettingsWindow.swift",
 ]
 private let banned = ["NSColor.white", "NSColor.black", "NSColor.lightGray", "NSColor.gray",
                       "NSFont(name:", "calibratedWhite", "calibratedRed"]
