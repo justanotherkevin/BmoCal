@@ -118,8 +118,8 @@ class WorkdayWidgetView: NSView {
             let evStart = decimalHour(sd), evEnd = decimalHour(ed)
             let cs = max(evStart, ws), ce = min(evEnd, we)
             guard ce > cs else { continue }
-            let base = event.calendar?.color ?? NSColor.systemBlue
-            let color = evEnd <= currentTime ? base.withAlphaComponent(0.35) : base
+            let base = Theme.eventColor(event.calendar?.color)
+            let color = evEnd <= currentTime ? base.withAlphaComponent(Theme.Alpha.past) : base
             ctx.saveGState()
             ctx.setStrokeColor(color.cgColor)
             ctx.setLineWidth(lineWidth)
@@ -148,7 +148,7 @@ class WorkdayWidgetView: NSView {
         // Now marker
         if currentTime >= ws && currentTime <= we {
             let a = timeToAngle(currentTime)
-            ctx.setStrokeColor(NSColor.systemRed.cgColor)
+            ctx.setStrokeColor(Theme.nowColor.cgColor)
             ctx.setLineWidth(2)
             ctx.setLineCap(.butt)
             ctx.move(to: CGPoint(x: cx + (innerR - 5) * cos(a), y: cy + (innerR - 5) * sin(a)))
@@ -161,13 +161,13 @@ class WorkdayWidgetView: NSView {
     private func drawCenterText(center: CGPoint, R: CGFloat, innerR: CGFloat, now: Date, currentTime: Double, ws: Double, we: Double) {
         let cx = center.x, cy = center.y
         let scale = R / 100
-        let mainFont = NSFont.monospacedDigitSystemFont(ofSize: 22 * scale, weight: .semibold)
-        let subFont = NSFont.monospacedDigitSystemFont(ofSize: 11, weight: .regular)
+        let mainFont = Theme.number(22 * scale, .semibold)
+        let subFont = Theme.number(11)
         let maxW = innerR * 1.5
 
         if currentTime < ws || currentTime >= we {
             let msg = currentTime < ws ? "Starts \(workStart):00" : "Done"
-            let font = NSFont.monospacedDigitSystemFont(ofSize: 18 * scale, weight: .semibold)
+            let font = Theme.number(18 * scale, .semibold)
             let h = (msg as NSString).size(withAttributes: [.font: font]).height
             drawCentered(msg, font: font, color: .labelColor, cx: cx, y: cy - h / 2)
             return

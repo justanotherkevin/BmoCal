@@ -416,7 +416,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         button.attributedTitle = NSAttributedString(
             string: status.text,
-            attributes: [.font: NSFont.monospacedDigitSystemFont(ofSize: NSFont.systemFontSize, weight: .regular)]
+            attributes: [.font: Theme.number(NSFont.systemFontSize)]
         )
     }
 
@@ -425,12 +425,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let img = NSImage(size: size, flipped: false) { _ in
             let rect = NSRect(x: 0, y: 0, width: 28, height: 6)
             let outline = NSBezierPath(roundedRect: rect.insetBy(dx: 0.5, dy: 0.5), xRadius: 3, yRadius: 3)
-            NSColor.black.setStroke()
+            NSColor.labelColor.setStroke()
             outline.lineWidth = 1
             outline.stroke()
             NSGraphicsContext.saveGraphicsState()
             outline.addClip()
-            NSColor.black.setFill()
+            NSColor.labelColor.setFill()
             NSRect(x: 0, y: 0, width: rect.width * CGFloat(fraction), height: rect.height).fill()
             NSGraphicsContext.restoreGraphicsState()
             return true
@@ -442,7 +442,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     private func urgentDotImage() -> NSImage {
         let img = NSImage(size: NSSize(width: 12, height: 8), flipped: false) { _ in
-            NSColor.controlAccentColor.setFill()
+            Theme.urgentColor.setFill()
             NSBezierPath(ovalIn: NSRect(x: 1, y: 1, width: 6, height: 6)).fill()
             return true
         }

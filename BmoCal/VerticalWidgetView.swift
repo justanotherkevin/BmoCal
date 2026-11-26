@@ -29,11 +29,11 @@ class VerticalWidgetView: NSView {
     private let pad: CGFloat = 12
     private let headerHeight: CGFloat = 16
     private let labelWidth: CGFloat = 32
-    private let blockRadius: CGFloat = 3
+    private let blockRadius = Theme.Radius.event
 
-    private var trackLeft: CGFloat { pad + labelWidth + 4 }
+    private var trackLeft: CGFloat { pad + labelWidth + Theme.Space.xs }
     private var trackWidth: CGFloat { bounds.width - trackLeft - pad }
-    private var trackTop: CGFloat { bounds.height - pad - headerHeight - 8 }
+    private var trackTop: CGFloat { bounds.height - pad - headerHeight - Theme.Space.s }
     private var trackBottom: CGFloat { pad }
     private var trackHeight: CGFloat { trackTop - trackBottom }
 
@@ -69,7 +69,7 @@ class VerticalWidgetView: NSView {
         let p = NSMutableParagraphStyle()
         p.alignment = align
         p.lineBreakMode = .byTruncatingTail
-        return [.font: NSFont.monospacedDigitSystemFont(ofSize: size, weight: weight),
+        return [.font: Theme.number(size, weight),
                 .foregroundColor: color, .paragraphStyle: p]
     }
 
@@ -109,7 +109,7 @@ class VerticalWidgetView: NSView {
                                             attributes: attrs(13, .semibold, .labelColor))
             let leftStr = NSAttributedString(string: "left", attributes: attrs(11, .regular, .secondaryLabelColor))
             remStr.draw(at: NSPoint(x: pad, y: hy))
-            leftStr.draw(at: NSPoint(x: pad + remStr.size().width + 4, y: hy))
+            leftStr.draw(at: NSPoint(x: pad + remStr.size().width + Theme.Space.xs, y: hy))
         }
     }
 
@@ -136,15 +136,15 @@ class VerticalWidgetView: NSView {
             let h = yTop - yBottom
             guard h > 1 else { continue }
 
-            let base = event.calendar?.color ?? NSColor.systemBlue
+            let base = Theme.eventColor(event.calendar?.color)
             let isPast = evEnd <= currentTime
             let rect = CGRect(x: trackLeft, y: yBottom, width: trackWidth, height: h)
 
             ctx.saveGState()
             ctx.addPath(CGPath(roundedRect: rect, cornerWidth: blockRadius, cornerHeight: blockRadius, transform: nil))
             ctx.clip()
-            let a: CGFloat = isPast ? 0.35 : 1
-            ctx.setFillColor(base.withAlphaComponent(0.25 * a).cgColor)
+            let a: CGFloat = isPast ? Theme.Alpha.past : 1
+            ctx.setFillColor(base.withAlphaComponent(Theme.Alpha.eventFill * a).cgColor)
             ctx.fill(rect)
             ctx.setFillColor(base.withAlphaComponent(a).cgColor)
             ctx.fill(CGRect(x: rect.minX, y: rect.minY, width: 3, height: h))
@@ -160,11 +160,11 @@ class VerticalWidgetView: NSView {
 
     // Now line + label
     private func drawNowLine(_ ctx: CGContext, now: Date, nowY: CGFloat) {
-        ctx.setFillColor(NSColor.systemRed.cgColor)
+        ctx.setFillColor(Theme.nowColor.cgColor)
         ctx.fill(CGRect(x: trackLeft, y: nowY - 0.75, width: trackWidth, height: 1.5))
         (VerticalWidgetView.clockFormatter.string(from: now) as NSString).draw(
             in: CGRect(x: pad, y: nowY - 6, width: labelWidth, height: 13),
-            withAttributes: attrs(10, .regular, .systemRed, align: .right))
+            withAttributes: attrs(10, .regular, Theme.nowColor, align: .right))
     }
 
     // MARK: - Dragging

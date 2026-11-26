@@ -7,7 +7,7 @@ struct MenuBarStatus { let image: MenuBarImage; let text: String }
 private func label(_ size: CGFloat, weight: NSFont.Weight = .regular, mono: Bool = false,
                    color: NSColor = .labelColor, align: NSTextAlignment = .left) -> NSTextField {
     let f = NSTextField(labelWithString: "")
-    f.font = mono ? .monospacedDigitSystemFont(ofSize: size, weight: weight) : .systemFont(ofSize: size, weight: weight)
+    f.font = mono ? Theme.number(size, weight) : Theme.text(size, weight)
     f.textColor = color
     f.alignment = align
     f.lineBreakMode = .byTruncatingTail
@@ -65,11 +65,11 @@ class DayStripView: NSView {
             for e in events {
                 guard let s = e.startDate, let end = e.endDate, end > workStart, s < workEnd else { continue }
                 let color = e.calendar?.color ?? .systemGray
-                color.withAlphaComponent(end < now ? 0.35 : 0.85).setFill()
+                color.withAlphaComponent(end < now ? Theme.Alpha.past : 0.85).setFill()
                 NSRect(x: x(s), y: 0, width: max(1, x(end) - x(s)), height: bounds.height).fill()
             }
             if now >= workStart && now < workEnd {
-                NSColor.systemRed.setFill()
+                Theme.nowColor.setFill()
                 NSRect(x: x(now) - 0.75, y: 0, width: 1.5, height: bounds.height).fill()
             }
             NSGraphicsContext.restoreGraphicsState()
@@ -106,8 +106,8 @@ class KSTableCellView: NSTableCellView {
         stack.translatesAutoresizingMaskIntoConstraints = false
         addSubview(stack)
         NSLayoutConstraint.activate([
-            stack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            stack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            stack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Theme.Space.l),
+            stack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Theme.Space.l),
             stack.centerYAnchor.constraint(equalTo: centerYAnchor),
             timeLabel.widthAnchor.constraint(equalToConstant: 64),
             bar.widthAnchor.constraint(equalToConstant: 3),
@@ -150,7 +150,7 @@ class KSTableCellView: NSTableCellView {
         timeLabel.textColor = textColor
         titleLabel.textColor = textColor
         bar.layer?.backgroundColor = (item.calendar?.color ?? .systemGray)
-            .withAlphaComponent(isPast ? 0.35 : 1).cgColor
+            .withAlphaComponent(isPast ? Theme.Alpha.past : 1).cgColor
 
         joinURL = url
         joinButton.isHidden = joinURL == nil
@@ -165,8 +165,8 @@ class GroupCellView: NSTableCellView {
         title.translatesAutoresizingMaskIntoConstraints = false
         addSubview(title)
         NSLayoutConstraint.activate([
-            title.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            title.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            title.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Theme.Space.l),
+            title.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Theme.Space.l),
             title.centerYAnchor.constraint(equalTo: centerYAnchor),
         ])
     }
@@ -239,7 +239,7 @@ class NextEventViewController: NSViewController {
         headerStack.orientation = .vertical
         headerStack.alignment = .leading
         headerStack.spacing = 4
-        headerStack.edgeInsets = NSEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
+        headerStack.edgeInsets = NSEdgeInsets(top: Theme.Space.m, left: Theme.Space.l, bottom: Theme.Space.m, right: Theme.Space.l)
         headerStack.translatesAutoresizingMaskIntoConstraints = false
     }
 
@@ -291,7 +291,7 @@ class NextEventViewController: NSViewController {
         menu.addItem(withTitle: "Help", action: #selector(openHelp(_:)), keyEquivalent: "").target = self
         menu.addItem(.separator())
         menu.addItem(withTitle: "Quit BmoCal", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "").target = NSApp
-        menu.popUp(positioning: nil, at: NSPoint(x: 0, y: sender.bounds.height + 4), in: sender)
+        menu.popUp(positioning: nil, at: NSPoint(x: 0, y: sender.bounds.height + Theme.Space.xs), in: sender)
     }
 
     @objc private func refreshFromMenu(_ sender: Any?) {
@@ -571,7 +571,7 @@ class NextEventViewController: NSViewController {
                 let now: Date = Date()
                 let itemDate:Date? = getDateFromEventItem(item)
                 let itemLocation: String = getLocationFromEventItem(item)
-                var color: NSColor = NSColor.white
+                var color: NSColor = .labelColor
                 if item.calendar != nil && item.calendar!.color != nil{
                     color = item.calendar!.color
                 }

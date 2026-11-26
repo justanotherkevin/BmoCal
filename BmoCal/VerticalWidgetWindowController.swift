@@ -36,7 +36,7 @@ class VerticalWidgetWindowController: NSWindowController {
         effect.material = .popover
         effect.blendingMode = .behindWindow
         effect.state = .active
-        let radius: CGFloat = 12
+        let radius = Theme.Radius.panel
         let side = radius * 2 + 1
         let mask = NSImage(size: NSSize(width: side, height: side), flipped: false) { r in
             NSBezierPath(roundedRect: r, xRadius: radius, yRadius: radius).fill()
