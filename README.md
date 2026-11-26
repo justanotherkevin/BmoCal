@@ -12,7 +12,12 @@ BmoCal is a macOS menu bar app that shows your workday progress and upcoming cal
 
 ## Demo
 
-<img src="demo.png" alt="BmoCal round workday widget and vertical timeline widget on the desktop" width="400">
+The round workday widget and the vertical timeline widget, in light and dark mode.
+
+| Light                                                                                              | Dark                                                                                             |
+| -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| <img src="docs/images/round-light.png" alt="Round workday widget in light mode" width="220">       | <img src="docs/images/round-dark.png" alt="Round workday widget in dark mode" width="220">       |
+| <img src="docs/images/vertical-light.png" alt="Vertical timeline widget in light mode" width="95"> | <img src="docs/images/vertical-dark.png" alt="Vertical timeline widget in dark mode" width="95"> |
 
 ## Building
 
