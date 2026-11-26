@@ -336,29 +336,27 @@ class TimeStringTools: NSObject {
         return retval
     }
 
-    func workdayProgressBar(startHour: Int, endHour: Int) -> String {
-        let now = Date()
-        let cal = Calendar.current
-        let h = cal.component(.hour, from: now)
-        let m = cal.component(.minute, from: now)
-        let s = cal.component(.second, from: now)
-        let totalSecs = Double((endHour - startHour) * 3600)
-        let elapsedSecs = Double((h - startHour) * 3600 + m * 60 + s)
-        let progress = max(0.0, min(1.0, elapsedSecs / totalSecs))
-        let total = 10
-        let filled = Int(progress * Double(total))
-        return "[" + String(repeating: "█", count: filled) + String(repeating: "░", count: total - filled) + "]"
+    func hourToday(_ hour: Int, now: Date) -> Date {
+        Calendar.current.date(bySettingHour: hour, minute: 0, second: 0, of: now) ?? now
     }
 
-    func workdayRemainingString(endHour: Int) -> String {
-        let now = Date()
-        var comps = Calendar.current.dateComponents([.year, .month, .day], from: now)
-        comps.hour = endHour; comps.minute = 0; comps.second = 0
-        guard let end = Calendar.current.date(from: comps) else { return "" }
-        let secs = max(0, end.timeIntervalSince(now))
-        let h = Int(secs) / 3600
-        let m = (Int(secs) % 3600) / 60
-        return h > 0 ? "\(h)h\(String(format: "%02d", m))m" : "\(m)m"
+    func workdayFraction(startHour: Int, endHour: Int, now: Date = Date()) -> Double {
+        let start = hourToday(startHour, now: now)
+        let total = hourToday(endHour, now: now).timeIntervalSince(start)
+        guard total > 0 else { return 0 }
+        return max(0, min(1, now.timeIntervalSince(start) / total))
+    }
+
+    func durationString(_ seconds: TimeInterval) -> String {
+        let secs = Int(max(0, seconds))
+        let h = secs / 3600
+        let m = (secs % 3600) / 60
+        if h > 0 { return String(format: "%dh %02dm", h, m) }
+        return m > 0 ? "\(m)m" : "now"
+    }
+
+    func workdayRemainingString(endHour: Int, now: Date = Date()) -> String {
+        durationString(hourToday(endHour, now: now).timeIntervalSince(now))
     }
 
     func getShortTimeString(_ startDate: Date, endDate: Date? = nil) -> String {

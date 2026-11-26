@@ -10,7 +10,7 @@ class VerticalWidgetWindowController: NSWindowController {
 
     var widgetView: VerticalWidgetView!
 
-    static let windowWidth: CGFloat = 64
+    static let windowWidth: CGFloat = 150
 
     init(floatOnTop: Bool, savedOrigin: CGPoint?, height: CGFloat) {
         let w = VerticalWidgetWindowController.windowWidth
@@ -26,20 +26,36 @@ class VerticalWidgetWindowController: NSWindowController {
         window.backgroundColor = .clear
         window.level = floatOnTop ? .floating : .normal
         window.collectionBehavior = [.canJoinAllSpaces, .stationary, .ignoresCycle]
-        window.hasShadow = false
+        window.hasShadow = true
         window.acceptsMouseMovedEvents = true
         window.isMovableByWindowBackground = false
 
         super.init(window: window)
 
+        let effect = NSVisualEffectView(frame: rect)
+        effect.material = .popover
+        effect.blendingMode = .behindWindow
+        effect.state = .active
+        let radius = Theme.Radius.panel
+        let side = radius * 2 + 1
+        let mask = NSImage(size: NSSize(width: side, height: side), flipped: false) { r in
+            NSBezierPath(roundedRect: r, xRadius: radius, yRadius: radius).fill()
+            return true
+        }
+        mask.capInsets = NSEdgeInsets(top: radius, left: radius, bottom: radius, right: radius)
+        mask.resizingMode = .stretch
+        effect.maskImage = mask
         widgetView = VerticalWidgetView(frame: rect)
-        window.contentView = widgetView
+        widgetView.autoresizingMask = [.width, .height]
+        effect.addSubview(widgetView)
+        window.contentView = effect
 
         if let origin = savedOrigin {
             window.setFrameOrigin(origin)
         } else if let screen = NSScreen.main {
             window.setFrameOrigin(Self.defaultOrigin(in: screen.visibleFrame, height: height))
         }
+        window.invalidateShadow()
     }
 
     // Left edge, below the round widget's default spot

@@ -12,11 +12,6 @@ class VerticalWidgetView: NSView {
     var workStart: Int = 9
     var workEnd: Int = 18
 
-    private let vPad: CGFloat = 12
-    private let trackWidth: CGFloat = 28
-    private let pillCorner: CGFloat = 5
-    private let bgCorner: CGFloat = 16
-
     private var initialMouseLocation: NSPoint?
 
     override init(frame: NSRect) {
@@ -31,9 +26,15 @@ class VerticalWidgetView: NSView {
 
     // MARK: - Geometry
 
-    private var trackLeft: CGFloat { (bounds.width - trackWidth) / 2 }
-    private var trackTop: CGFloat { bounds.height - vPad }
-    private var trackBottom: CGFloat { vPad }
+    private let pad: CGFloat = 12
+    private let headerHeight: CGFloat = 16
+    private let labelWidth: CGFloat = 32
+    private let blockRadius = Theme.Radius.event
+
+    private var trackLeft: CGFloat { pad + labelWidth + Theme.Space.xs }
+    private var trackWidth: CGFloat { bounds.width - trackLeft - pad }
+    private var trackTop: CGFloat { bounds.height - pad - headerHeight - Theme.Space.s }
+    private var trackBottom: CGFloat { pad }
     private var trackHeight: CGFloat { trackTop - trackBottom }
 
     // Maps decimal hour to Y in NSView coordinates (Y-up: workday start → high Y, end → low Y)
@@ -42,87 +43,128 @@ class VerticalWidgetView: NSView {
         return trackTop - CGFloat(frac) * trackHeight
     }
 
+    private func decimalHour(_ d: Date) -> Double {
+        let c = Calendar.current.dateComponents([.hour, .minute, .second], from: d)
+        return Double(c.hour!) + Double(c.minute!) / 60 + Double(c.second!) / 3600
+    }
+
+    private static let clockFormatter: DateFormatter = {
+        let f = DateFormatter()
+        f.dateFormat = "h:mm"
+        return f
+    }()
+
     // MARK: - Drawing
 
+    override func viewDidChangeEffectiveAppearance() {
+        super.viewDidChangeEffectiveAppearance()
+        needsDisplay = true
+    }
+
     override func draw(_ dirtyRect: NSRect) {
+        effectiveAppearance.performAsCurrentDrawingAppearance { self.drawContent() }
+    }
+
+    private func attrs(_ size: CGFloat, _ weight: NSFont.Weight, _ color: NSColor, align: NSTextAlignment = .left) -> [NSAttributedString.Key: Any] {
+        let p = NSMutableParagraphStyle()
+        p.alignment = align
+        p.lineBreakMode = .byTruncatingTail
+        return [.font: Theme.number(size, weight),
+                .foregroundColor: color, .paragraphStyle: p]
+    }
+
+    private func drawContent() {
         guard let ctx = NSGraphicsContext.current?.cgContext else { return }
 
-        let cal = Calendar.current
-        let hms = cal.dateComponents([.hour, .minute, .second], from: Date())
-        let currentTime = Double(hms.hour!) + Double(hms.minute!) / 60 + Double(hms.second!) / 3600
+        let now = Date()
+        let currentTime = decimalHour(now)
+        let ws = Double(workStart), we = Double(workEnd)
 
-        // ── Background pill ──────────────────────────────────────────────────
-        let bgRect = bounds.insetBy(dx: 5, dy: 5)
-        let bgPath = CGPath(roundedRect: bgRect, cornerWidth: bgCorner, cornerHeight: bgCorner, transform: nil)
-        ctx.saveGState()
-        ctx.setShadow(offset: CGSize(width: 0, height: -1), blur: 10,
-                      color: NSColor.black.withAlphaComponent(0.20).cgColor)
-        ctx.addPath(bgPath)
-        ctx.setFillColor(NSColor.white.withAlphaComponent(0.96).cgColor)
-        ctx.fillPath()
-        ctx.restoreGState()
+        drawHeader(currentTime: currentTime, ws: ws, we: we)
 
-        // ── Track background ─────────────────────────────────────────────────
+        // Track
         let trackRect = CGRect(x: trackLeft, y: trackBottom, width: trackWidth, height: trackHeight)
-        let trackPath = CGPath(roundedRect: trackRect,
-                               cornerWidth: trackWidth / 2, cornerHeight: trackWidth / 2,
-                               transform: nil)
-        ctx.saveGState()
-        ctx.addPath(trackPath)
-        ctx.setFillColor(NSColor.systemBlue.withAlphaComponent(0.07).cgColor)
+        ctx.addPath(CGPath(roundedRect: trackRect, cornerWidth: blockRadius, cornerHeight: blockRadius, transform: nil))
+        ctx.setFillColor(NSColor.separatorColor.cgColor)
         ctx.fillPath()
-        ctx.restoreGState()
 
-        // ── Event pills ──────────────────────────────────────────────────────
+        let nowVisible = currentTime >= ws && currentTime <= we
+        let nowY = timeToY(currentTime)
+
+        drawHourLabels(nowVisible: nowVisible, nowY: nowY)
+        drawEventBlocks(ctx, currentTime: currentTime, ws: ws, we: we)
+        if nowVisible { drawNowLine(ctx, now: now, nowY: nowY) }
+    }
+
+    // Header: remaining "4:32" + "left"
+    private func drawHeader(currentTime: Double, ws: Double, we: Double) {
+        let hy = bounds.height - pad - headerHeight
+        if currentTime < ws || currentTime >= we {
+            let msg = currentTime < ws ? "Starts \(workStart):00" : "Done"
+            NSAttributedString(string: msg, attributes: attrs(13, .semibold, .labelColor))
+                .draw(at: NSPoint(x: pad, y: hy))
+        } else {
+            let remMins = Int((we - currentTime) * 60)
+            let remStr = NSAttributedString(string: String(format: "%d:%02d", remMins / 60, remMins % 60),
+                                            attributes: attrs(13, .semibold, .labelColor))
+            let leftStr = NSAttributedString(string: "left", attributes: attrs(11, .regular, .secondaryLabelColor))
+            remStr.draw(at: NSPoint(x: pad, y: hy))
+            leftStr.draw(at: NSPoint(x: pad + remStr.size().width + Theme.Space.xs, y: hy))
+        }
+    }
+
+    // Hour labels every 2 hours
+    private func drawHourLabels(nowVisible: Bool, nowY: CGFloat) {
+        let labelAttrs = attrs(10, .regular, .tertiaryLabelColor, align: .right)
+        for h in stride(from: workStart, through: workEnd, by: 2) {
+            let y = timeToY(Double(h))
+            if nowVisible && abs(y - nowY) < 12 { continue }
+            let hh = h % 12 == 0 ? 12 : h % 12
+            ("\(hh)" as NSString).draw(in: CGRect(x: pad, y: y - 6, width: labelWidth, height: 13),
+                                       withAttributes: labelAttrs)
+        }
+    }
+
+    private func drawEventBlocks(_ ctx: CGContext, currentTime: Double, ws: Double, we: Double) {
         for event in todayEvents {
-            guard let startDate = event.startDate, let endDate = event.endDate else { continue }
-            let sComps = cal.dateComponents([.hour, .minute], from: startDate)
-            let eComps = cal.dateComponents([.hour, .minute], from: endDate)
-            let evStart = Double(sComps.hour!) + Double(sComps.minute!) / 60
-            let evEnd   = Double(eComps.hour!) + Double(eComps.minute!) / 60
+            guard let sd = event.startDate, let ed = event.endDate else { continue }
+            let evStart = decimalHour(sd), evEnd = decimalHour(ed)
+            let cs = max(evStart, ws), ce = min(evEnd, we)
+            guard ce > cs else { continue }
 
-            let clampedStart = max(evStart, Double(workStart))
-            let clampedEnd   = min(evEnd,   Double(workEnd))
-            guard clampedEnd > clampedStart else { continue }
+            let yTop = timeToY(cs), yBottom = timeToY(ce)
+            let h = yTop - yBottom
+            guard h > 1 else { continue }
 
-            // yTop > yBottom in NSView Y-up coordinates (earlier time = higher Y)
-            let yTop    = timeToY(clampedStart)
-            let yBottom = timeToY(clampedEnd)
-            let pillH   = yTop - yBottom
-            guard pillH > 1 else { continue }
-
+            let base = Theme.eventColor(event.calendar?.color)
             let isPast = evEnd <= currentTime
-            let alpha: CGFloat = isPast ? 0.35 : 0.85
-            let color = (event.calendar?.color ?? NSColor.systemBlue).withAlphaComponent(alpha)
-
-            let pillRect = CGRect(x: trackLeft, y: yBottom, width: trackWidth, height: pillH)
-            let pillPath = CGPath(roundedRect: pillRect,
-                                  cornerWidth: pillCorner, cornerHeight: pillCorner,
-                                  transform: nil)
-            ctx.saveGState()
-            ctx.addPath(pillPath)
-            ctx.setFillColor(color.cgColor)
-            ctx.fillPath()
-            ctx.restoreGState()
-        }
-
-        // ── Now pointer (red dot + horizontal line to track) ─────────────────
-        if currentTime >= Double(workStart) && currentTime <= Double(workEnd) {
-            let nowY = timeToY(currentTime)
-            let dotR: CGFloat = 5
-            let dotCenterX = trackLeft - dotR - 4
+            let rect = CGRect(x: trackLeft, y: yBottom, width: trackWidth, height: h)
 
             ctx.saveGState()
-            ctx.setFillColor(NSColor.systemRed.cgColor)
-            ctx.fillEllipse(in: CGRect(x: dotCenterX - dotR, y: nowY - dotR,
-                                       width: dotR * 2, height: dotR * 2))
-            ctx.setStrokeColor(NSColor.systemRed.cgColor)
-            ctx.setLineWidth(1.5)
-            ctx.move(to: CGPoint(x: dotCenterX + dotR, y: nowY))
-            ctx.addLine(to: CGPoint(x: trackLeft, y: nowY))
-            ctx.strokePath()
+            ctx.addPath(CGPath(roundedRect: rect, cornerWidth: blockRadius, cornerHeight: blockRadius, transform: nil))
+            ctx.clip()
+            let a: CGFloat = isPast ? Theme.Alpha.past : 1
+            ctx.setFillColor(base.withAlphaComponent(Theme.Alpha.eventFill * a).cgColor)
+            ctx.fill(rect)
+            ctx.setFillColor(base.withAlphaComponent(a).cgColor)
+            ctx.fill(CGRect(x: rect.minX, y: rect.minY, width: 3, height: h))
             ctx.restoreGState()
+
+            if h >= 18 {
+                ((event.title ?? "") as NSString).draw(
+                    in: CGRect(x: rect.minX + 7, y: yTop - 15, width: rect.width - 11, height: 13),
+                    withAttributes: attrs(10, .regular, NSColor.labelColor.withAlphaComponent(a)))
+            }
         }
+    }
+
+    // Now line + label
+    private func drawNowLine(_ ctx: CGContext, now: Date, nowY: CGFloat) {
+        ctx.setFillColor(Theme.nowColor.cgColor)
+        ctx.fill(CGRect(x: trackLeft, y: nowY - 0.75, width: trackWidth, height: 1.5))
+        (VerticalWidgetView.clockFormatter.string(from: now) as NSString).draw(
+            in: CGRect(x: pad, y: nowY - 6, width: labelWidth, height: 13),
+            withAttributes: attrs(10, .regular, Theme.nowColor, align: .right))
     }
 
     // MARK: - Dragging

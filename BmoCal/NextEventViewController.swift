@@ -1,6 +1,9 @@
 import Cocoa
 import EventKit
 
+enum MenuBarImage { case appIcon, capsule(fraction: Double), urgentDot, done }
+struct MenuBarStatus { let image: MenuBarImage; let text: String }
+
 class KSTableCellView: NSTableCellView {
 
     @IBOutlet weak var eventTitle: NSTextField!
@@ -19,7 +22,6 @@ class NextEventViewController: NSViewController {
     @IBOutlet weak var tableView: NSTableView!
     var calendarItems: [EKCalendarItem] = []
     var settings: Settings!
-    var shouldGlow: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -141,72 +143,48 @@ class NextEventViewController: NSViewController {
         return -1
     }
 
-    func getNextEventStatus() -> String {
+    private func eventLabel(_ item: EKCalendarItem, secs: TimeInterval) -> String {
+        var title = item.title ?? "Event"
+        if title.count > 16 { title = String(title.prefix(16)) + "…" }
+        return "\(title) \(TimeStringTools().durationString(secs))"
+    }
+
+    func getMenuBarStatus(now: Date = Date()) -> MenuBarStatus {
+        let tools = TimeStringTools()
         let startHour = settings.data.workdayStartHour
         let endHour = settings.data.workdayEndHour
-        let now = Date()
         let cal = Calendar.current
-        let currentHour = cal.component(.hour, from: now)
-        let tools = TimeStringTools()
+        let hour = cal.component(.hour, from: now)
 
-        // Before workday
-        if currentHour < startHour {
-            var comps = cal.dateComponents([.year, .month, .day], from: now)
-            comps.hour = startHour; comps.minute = 0; comps.second = 0
-            let startTime = cal.date(from: comps)!
-            let secs = max(0, startTime.timeIntervalSince(now))
-            let h = Int(secs) / 3600
-            let m = (Int(secs) % 3600) / 60
-            return h > 0 ? "Work in \(h)h\(m)m" : "Work in \(m)m"
-        }
-
-        // After workday
-        if currentHour >= endHour {
-            let n = getNextEvent()
-            if n >= 0 {
-                let item = calendarItems[n]
-                if let itemDate = getDateFromEventItem(item) {
-                    let secs = itemDate.timeIntervalSince(now)
-                    if secs > 0 {
-                        let h = Int(secs) / 3600
-                        let m = (Int(secs) % 3600) / 60
-                        var title = item.title ?? "Event"
-                        if title.count > 12 { title = String(title.prefix(12)) + "…" }
-                        let countdown = h > 0 ? "\(h)h\(m)m" : (m > 0 ? "\(m)m" : "now")
-                        return "Done · \(title) \(countdown)"
-                    }
-                }
-            }
-            return "Workday done"
-        }
-
-        // During workday: [█████░░░░░] 4h32m · Next Event 12m
-        let bar = tools.workdayProgressBar(startHour: startHour, endHour: endHour)
-        let remaining = tools.workdayRemainingString(endHour: endHour)
-        var status = "\(bar) \(remaining)"
-
+        var label: String?
+        var eventSecs = TimeInterval.infinity
         let n = getNextEvent()
-        if n >= 0 {
-            let item = calendarItems[n]
-            if let itemDate = getDateFromEventItem(item) {
-                let secs = itemDate.timeIntervalSince(now)
-                if secs > 0 {
-                    if settings.data.useFlash && !shouldGlow && secs <= 900 {
-                        shouldGlow = true
-                    }
-                    let h = Int(secs) / 3600
-                    let m = (Int(secs) % 3600) / 60
-                    var title = item.title ?? "Event"
-                    if title.count > 12 { title = String(title.prefix(12)) + "…" }
-                    let countdown = h > 0 ? "\(h)h\(m)m" : (m > 0 ? "\(m)m" : "now")
-                    status += " · \(title) \(countdown)"
-                }
-            }
-        } else {
-            shouldGlow = false
+        if n >= 0, let date = getDateFromEventItem(calendarItems[n]) {
+            eventSecs = date.timeIntervalSince(now)
+            if eventSecs > 0 && eventSecs <= 3600 { label = eventLabel(calendarItems[n], secs: eventSecs) }
         }
 
-        return status
+        if let label = label, eventSecs <= 300 {
+            return MenuBarStatus(image: .urgentDot, text: label)
+        }
+
+        if hour < startHour {
+            let start = cal.date(bySettingHour: startHour, minute: 0, second: 0, of: now) ?? now
+            let secs = start.timeIntervalSince(now)
+            return MenuBarStatus(image: .appIcon, text: secs < 60 ? "starting" : "in " + tools.durationString(secs))
+        }
+
+        if hour >= endHour {
+            if let label = label { return MenuBarStatus(image: .appIcon, text: label) }
+            return MenuBarStatus(image: .done, text: "")
+        }
+
+        var text = tools.workdayRemainingString(endHour: endHour, now: now)
+        if let label = label { text += "   " + label }
+        return MenuBarStatus(
+            image: .capsule(fraction: tools.workdayFraction(startHour: startHour, endHour: endHour, now: now)),
+            text: text
+        )
     }
 
     @IBAction func openHelp(_ sender: Any?) {
@@ -294,20 +272,19 @@ class NextEventViewController: NSViewController {
     func notify() {
         var notification: NSUserNotification?
 
-        if settings.data.useSystemAlert || settings.data.useBlockingAlert {
+        if settings.data.useSystemAlert || settings.data.useBlockingAlert || settings.data.useSound {
 
             for item in calendarItems {
 
                 let now: Date = Date()
                 let itemDate:Date? = getDateFromEventItem(item)
                 let itemLocation: String = getLocationFromEventItem(item)
-                var color: NSColor = NSColor.white
+                var color: NSColor = .labelColor
                 if item.calendar != nil && item.calendar!.color != nil{
                     color = item.calendar!.color
                 }
 
                 guard let itemDate = itemDate, !item.title.isEmpty, itemDate >= now else {
-                    shouldGlow = false
                     continue
                 }
 
@@ -339,7 +316,6 @@ class NextEventViewController: NSViewController {
                                 self.alert(title: "Time to leave for \(item.title ?? "Next Event")", date: itemDate, location: itemLocation, color: color)
                             }
 
-                            shouldGlow = true
                         }
                     }
                 }
@@ -369,7 +345,6 @@ class NextEventViewController: NSViewController {
                         self.alert(title: item.title, date: itemDate, location: itemLocation, color: color)
                     }
 
-                    shouldGlow = false
                     self.refreshAll(self)
                 }
 
@@ -385,7 +360,6 @@ class NextEventViewController: NSViewController {
     }
 
     @IBAction func refreshAll(_ sender: Any?) {
-        shouldGlow = false
         if settings == nil {
             let appDelegate = NSApp.delegate as? AppDelegate
             settings = appDelegate?.settings
@@ -461,12 +435,12 @@ extension NextEventViewController: NSTableViewDataSource, NSTableViewDelegate {
         let allDay = isAllDay(copyCalendarItems[row])
 
         if itemDate == nil || itemDate! < now {
-            result.eventTitle.textColor = NSColor.lightGray
-            result.eventLocation.textColor = NSColor.lightGray
-            result.eventDate.textColor = NSColor.lightGray
-            result.eventTime.textColor = NSColor.lightGray
-            result.leadTime.textColor = NSColor.lightGray
-            result.leadTimeUnit.textColor = NSColor.lightGray
+            result.eventTitle.textColor = NSColor.secondaryLabelColor
+            result.eventLocation.textColor = NSColor.secondaryLabelColor
+            result.eventDate.textColor = NSColor.secondaryLabelColor
+            result.eventTime.textColor = NSColor.secondaryLabelColor
+            result.leadTime.textColor = NSColor.secondaryLabelColor
+            result.leadTimeUnit.textColor = NSColor.secondaryLabelColor
         } else {
             result.eventTitle.textColor = result.calendarColor.textColor
             result.eventLocation.textColor = result.calendarColor.textColor
@@ -515,7 +489,7 @@ extension NextEventViewController: NSTableViewDataSource, NSTableViewDelegate {
         if copyCalendarItems[row].calendar != nil {
             result.calendarColor.backgroundColor = copyCalendarItems[row].calendar.color
         } else {
-            result.calendarColor.backgroundColor = NSColor.white
+            result.calendarColor.backgroundColor = .labelColor
         }
 
         return result;

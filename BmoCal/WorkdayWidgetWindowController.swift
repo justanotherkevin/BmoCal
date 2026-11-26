@@ -10,7 +10,6 @@ class WorkdayWidgetWindowController: NSWindowController {
 
     var widgetView: WorkdayWidgetView!
 
-    // 170px widget + 14px padding each side for hour labels = 198 → 200px
     static let windowSize: CGFloat = 200
 
     init(floatOnTop: Bool, savedOrigin: CGPoint?) {
@@ -27,14 +26,24 @@ class WorkdayWidgetWindowController: NSWindowController {
         window.backgroundColor = .clear
         window.level = floatOnTop ? .floating : .normal
         window.collectionBehavior = [.canJoinAllSpaces, .stationary, .ignoresCycle]
-        window.hasShadow = false
+        window.hasShadow = true
         window.acceptsMouseMovedEvents = true
         window.isMovableByWindowBackground = false
 
         super.init(window: window)
 
+        let effect = NSVisualEffectView(frame: rect)
+        effect.material = .popover
+        effect.blendingMode = .behindWindow
+        effect.state = .active
+        effect.maskImage = NSImage(size: rect.size, flipped: false) { r in
+            NSBezierPath(ovalIn: r).fill()
+            return true
+        }
         widgetView = WorkdayWidgetView(frame: rect)
-        window.contentView = widgetView
+        widgetView.autoresizingMask = [.width, .height]
+        effect.addSubview(widgetView)
+        window.contentView = effect
 
         // Restore saved position or default to top-left corner
         if let origin = savedOrigin {
@@ -42,6 +51,7 @@ class WorkdayWidgetWindowController: NSWindowController {
         } else if let screen = NSScreen.main {
             window.setFrameOrigin(Self.defaultOrigin(in: screen.visibleFrame))
         }
+        window.invalidateShadow()
     }
 
     // Top-left corner of the given visible frame
