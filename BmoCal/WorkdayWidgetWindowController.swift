@@ -45,25 +45,18 @@ class WorkdayWidgetWindowController: NSWindowController {
         effect.addSubview(widgetView)
         window.contentView = effect
 
-        // Restore saved position or default to top-right corner
-        if let origin = savedOrigin,
-           let ok = Self.clamped(NSRect(origin: origin, size: rect.size)) {
-            window.setFrameOrigin(ok)
+        // Restore saved position or default to top-left corner
+        if let origin = savedOrigin {
+            window.setFrameOrigin(origin)
         } else if let screen = NSScreen.main {
-            let sf = screen.visibleFrame
-            window.setFrameOrigin(NSPoint(
-                x: sf.maxX - size - 20,
-                y: sf.maxY - size - 20
-            ))
+            window.setFrameOrigin(Self.defaultOrigin(in: screen.visibleFrame))
         }
         window.invalidateShadow()
     }
 
-    // Keep the frame fully inside the screen it overlaps; nil if it overlaps none.
-    private static func clamped(_ f: NSRect) -> NSPoint? {
-        guard let vf = NSScreen.screens.map({ $0.visibleFrame }).first(where: { $0.intersects(f) }) else { return nil }
-        return NSPoint(x: min(max(f.minX, vf.minX), vf.maxX - f.width),
-                       y: min(max(f.minY, vf.minY), vf.maxY - f.height))
+    // Top-left corner of the given visible frame
+    static func defaultOrigin(in sf: NSRect) -> NSPoint {
+        NSPoint(x: sf.minX + 20, y: sf.maxY - windowSize - 20)
     }
 
     required init?(coder: NSCoder) {
@@ -86,4 +79,12 @@ class WorkdayWidgetWindowController: NSWindowController {
     func setFloating(_ floating: Bool) {
         window?.level = floating ? .floating : .normal
     }
+}
+
+/// Returns the saved origin only if the window's center would land on one of the screens.
+/// (-1, -1) means unset. Negative coordinates are valid (monitors left of / below the main screen).
+func validSavedOrigin(x: Double, y: Double, size: CGSize, screens: [NSRect]) -> CGPoint? {
+    if x == -1 && y == -1 { return nil }
+    let center = CGPoint(x: x + size.width / 2, y: y + size.height / 2)
+    return screens.contains { $0.contains(center) } ? CGPoint(x: x, y: y) : nil
 }

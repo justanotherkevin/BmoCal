@@ -10,7 +10,7 @@
         <scene sceneID="rVt-Ca-cLF">
             <objects>
                 <windowController storyboardIdentifier="Preference Panel" id="Nxt-w3-3ZU" sceneMemberID="viewController">
-                    <window key="window" identifier="Preference Panel" title="BmoCal preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="JLN-KY-Ikg" customClass="NSPanel">
+                    <window key="window" identifier="Preference Panel" title="BmoCal Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="JLN-KY-Ikg" customClass="NSPanel">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="425" y="461" width="480" height="340"/>
@@ -95,34 +95,6 @@
 <action selector="hourChanged:" target="wA8-j3-h1G" id="Z41-ab-042"/>
 </connections>
 </popUpButton>
-</subviews>
-</view>
-</tabViewItem>
-<tabViewItem label="Menu Bar" identifier="menubar" id="Z55-ab-056">
-<view key="view" id="Z57-ab-058">
-<rect key="frame" x="10" y="33" width="428" height="262"/>
-<autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-<subviews>
-<textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z47-ab-048">
-<rect key="frame" x="16" y="236" width="140" height="16"/>
-<autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-<textFieldCell key="cell" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Icon" id="Z49-ab-050">
-<font key="font" metaFont="system"/>
-<color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-<color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-</textFieldCell>
-</textField>
-<button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z05-ab-006">
-<rect key="frame" x="168" y="234" width="250" height="20"/>
-<autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-<buttonCell key="cell" type="check" title="Use alternate icon" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="Z51-ab-052">
-<behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-<font key="font" metaFont="system"/>
-</buttonCell>
-<connections>
-<action selector="updateSettings:" target="wA8-j3-h1G" id="Z53-ab-054"/>
-</connections>
-</button>
 </subviews>
 </view>
 </tabViewItem>
@@ -385,7 +357,6 @@
                         </subviews>
                     </view>
                     <connections>
-<outlet property="alternateIcon" destination="Z05-ab-006" id="Z55-ab-156"/>
 <outlet property="alertStyle" destination="Z07-ab-008" id="Z57-ab-158"/>
 <outlet property="earlyWarning" destination="Z09-ab-010" id="Z59-ab-160"/>
 <outlet property="endHour" destination="Z03-ab-004" id="Z61-ab-162"/>

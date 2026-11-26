@@ -4,7 +4,6 @@ import EventKit
 
 class NextEventPreferencesViewController: NSViewController {
 
-    @IBOutlet weak var alternateIcon: NSButton!
     @IBOutlet weak var alertStyle: NSPopUpButton!
     @IBOutlet weak var earlyWarning: NSPopUpButton!
     @IBOutlet weak var travelTime: NSButton!
@@ -49,7 +48,6 @@ class NextEventPreferencesViewController: NSViewController {
     func refresh() {
         allCalendars = CalendarTools().getAllCalendars() + CalendarTools().getAllReminderLists()
 
-        alternateIcon.state = getState(value: settings.data.useAltIcon)
         let d = settings.data
         alertStyle.selectItem(withTag: d.useBlockingAlert ? 2 : d.useSystemAlert ? 1 : d.useSound ? 3 : 0)
         earlyWarning.selectItem(withTitle: String(settings.data.earlyWarning))
@@ -92,7 +90,6 @@ class NextEventPreferencesViewController: NSViewController {
     }
 
     @IBAction func updateSettings(_ sender: Any) {
-        settings.data.useAltIcon = getState(value: alternateIcon.state)
         settings.data.earlyWarning = Int((earlyWarning.selectedItem?.title)!)!
         settings.data.notifyTravelTime = getState(value: travelTime.state)
         if numberEvents.selectedItem?.title == "Today only" {

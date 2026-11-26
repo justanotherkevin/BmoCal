@@ -8,12 +8,21 @@ BmoCal is a macOS menu bar app that shows your workday progress and upcoming cal
 - Flash menu bar icon on 15-minute warning for upcoming events
 - Blocking and system notification alerts
 - Supports multiple calendars and reminder lists
+- Optional desktop widgets, a round workday clock and a vertical timeline bar, that you can drag anywhere and reset from the menu bar
+
+## Demo
+
+<img src="demo.png" alt="BmoCal round workday widget and vertical timeline widget on the desktop" width="400">
 
 ## Building
 
 Open `BmoCal.xcodeproj` in Xcode and build (⌘B) or run (⌘R).
 
 Requires macOS and Xcode — no external dependencies or package manager.
+
+## Credits
+
+BmoCal is inspired by NextEvent, a macOS menu bar app made by Mazookie.
 
 ## License
 

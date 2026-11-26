@@ -1,7 +1,7 @@
 import Cocoa
 
 
-class MZAboutBoxViewController: NSViewController {
+class AboutPanelViewController: NSViewController {
 
     @IBOutlet weak var appTitle: NSTextField!
     @IBOutlet weak var appVersion: NSTextField!
@@ -16,7 +16,6 @@ class MZAboutBoxViewController: NSViewController {
     @IBOutlet weak var helpButton: NSButton!
 
     var isHelpVisible: Bool!
-    var macId: String?
     var text: String?
 
     override func viewDidLoad() {
@@ -81,11 +80,6 @@ class MZAboutBoxViewController: NSViewController {
         self.view.window?.center()
     }
 
-    @IBAction func reviewApp(_ sender: Any?) {
-        let url = NSURL(string: "macappstore://itunes.apple.com/app/\(self.macId ?? "mazookie")?mt=12")! as URL
-        NSWorkspace.shared.open(url)
-    }
-
     @IBAction func visitWebsite(_ sender: Any?) {
         NSWorkspace.shared.open(NSURL(string: "https://github.com/kevinhu/BmoCal")! as URL)
     }
@@ -100,20 +94,16 @@ class MZAboutBoxViewController: NSViewController {
         self.toggleHelp(nil)
     }
 
-    func setMacId(newMacId: String) {
-        macId = newMacId
-    }
-
 }
 
-extension MZAboutBoxViewController {
-    static func freshController() -> MZAboutBoxViewController {
-        let storyboard = NSStoryboard(name: "MZAboutBox", bundle: nil)
-        let identifier = "MZ AboutBox Controller"
+extension AboutPanelViewController {
+    static func freshController() -> AboutPanelViewController {
+        let storyboard = NSStoryboard(name: "AboutPanel", bundle: nil)
+        let identifier = "AboutPanelViewController"
 
         guard let viewcontroller = storyboard.instantiateController(withIdentifier: identifier)
-            as? MZAboutBoxViewController else {
-            fatalError("Why cant i find MZ AboutBox Controller? - Check MZAboutBox.storyboard")
+            as? AboutPanelViewController else {
+            fatalError("Why cant i find AboutPanelViewController? - Check AboutPanel.storyboard")
         }
         return viewcontroller
     }

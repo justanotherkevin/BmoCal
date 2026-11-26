@@ -50,24 +50,18 @@ class VerticalWidgetWindowController: NSWindowController {
         effect.addSubview(widgetView)
         window.contentView = effect
 
-        if let origin = savedOrigin,
-           let ok = Self.clamped(NSRect(origin: origin, size: rect.size)) {
-            window.setFrameOrigin(ok)
+        if let origin = savedOrigin {
+            window.setFrameOrigin(origin)
         } else if let screen = NSScreen.main {
-            let sf = screen.visibleFrame
-            window.setFrameOrigin(NSPoint(
-                x: sf.maxX - w - 20,
-                y: sf.midY - height / 2
-            ))
+            window.setFrameOrigin(Self.defaultOrigin(in: screen.visibleFrame, height: height))
         }
         window.invalidateShadow()
     }
 
-    // Keep the frame fully inside the screen it overlaps; nil if it overlaps none.
-    private static func clamped(_ f: NSRect) -> NSPoint? {
-        guard let vf = NSScreen.screens.map({ $0.visibleFrame }).first(where: { $0.intersects(f) }) else { return nil }
-        return NSPoint(x: min(max(f.minX, vf.minX), vf.maxX - f.width),
-                       y: min(max(f.minY, vf.minY), vf.maxY - f.height))
+    // Left edge, below the round widget's default spot
+    static func defaultOrigin(in sf: NSRect, height: CGFloat) -> NSPoint {
+        let below = sf.maxY - 20 - WorkdayWidgetWindowController.windowSize - 20 - height
+        return NSPoint(x: sf.minX + 20, y: max(below, sf.minY + 20))
     }
 
     required init?(coder: NSCoder) {

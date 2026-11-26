@@ -1,7 +1,7 @@
 import Cocoa
 
 
-class MZAlertBoxWindowController: NSWindowController {
+class EventNotificationAlertWindowController: NSWindowController {
     override func windowDidLoad() {
         super.windowDidLoad()
         //self.window?.toggleFullScreen(nil)
@@ -9,7 +9,7 @@ class MZAlertBoxWindowController: NSWindowController {
 }
 
 
-class MZAlertBoxViewController: NSViewController {
+class EventNotificationAlertViewController: NSViewController {
 
     var eventTitleString: String = ""
     var eventDate: Date? = nil
@@ -102,13 +102,13 @@ class MZAlertBoxViewController: NSViewController {
     }
 }
 
-extension MZAlertBoxViewController {
-    static func freshController() -> MZAlertBoxViewController {
-        let storyboard = NSStoryboard(name: "MZAlertBox", bundle: nil)
-        let identifier = "MZ Alert Controller"
+extension EventNotificationAlertViewController {
+    static func freshController() -> EventNotificationAlertViewController {
+        let storyboard = NSStoryboard(name: "EventNotificationAlert", bundle: nil)
+        let identifier = "EventNotificationAlertViewController"
 
-        guard let viewcontroller = storyboard.instantiateController(withIdentifier: identifier) as? MZAlertBoxViewController else {
-            fatalError("Why cant i find MZ MZAlertBox Controller? - Check MZAlertBox.storyboard")
+        guard let viewcontroller = storyboard.instantiateController(withIdentifier: identifier) as? EventNotificationAlertViewController else {
+            fatalError("Why cant i find EventNotificationAlertViewController? - Check EventNotificationAlert.storyboard")
         }
         return viewcontroller
     }

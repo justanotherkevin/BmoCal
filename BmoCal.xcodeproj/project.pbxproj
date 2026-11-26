@@ -10,12 +10,12 @@
 		02A2507830E60896AE8C0D01 /* DateExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4C4CAB1C23185A3CCDDC1A /* DateExtensionsTests.swift */; };
 		131C870E203C9B6200312F69 /* TimeStringTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131C870D203C9B6200312F69 /* TimeStringTools.swift */; };
 		1322039C2027A38E00B1291C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1322039B2027A38E00B1291C /* Settings.swift */; };
-		132BB42C23B171750016A468 /* MZAlertBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132BB42A23B171750016A468 /* MZAlertBoxViewController.swift */; };
-		132BB42D23B171750016A468 /* MZAlertBox.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 132BB42B23B171750016A468 /* MZAlertBox.storyboard */; };
+		132BB42C23B171750016A468 /* EventNotificationAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132BB42A23B171750016A468 /* EventNotificationAlert.swift */; };
+		132BB42D23B171750016A468 /* EventNotificationAlert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 132BB42B23B171750016A468 /* EventNotificationAlert.storyboard */; };
 		133906D325BE3F4A00FB3B39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 133906D225BE3F4A00FB3B39 /* Main.storyboard */; };
 		137B1D54202C0503002C9BCD /* CalendarTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137B1D53202C0503002C9BCD /* CalendarTools.swift */; };
-		137B1D59202FF7F3002C9BCD /* MZAboutBox.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 137B1D58202FF7F3002C9BCD /* MZAboutBox.storyboard */; };
-		137B1D5B202FFE7C002C9BCD /* MZAboutBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137B1D5A202FFE7C002C9BCD /* MZAboutBoxViewController.swift */; };
+		137B1D59202FF7F3002C9BCD /* AboutPanel.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 137B1D58202FF7F3002C9BCD /* AboutPanel.storyboard */; };
+		137B1D5B202FFE7C002C9BCD /* AboutPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137B1D5A202FFE7C002C9BCD /* AboutPanelViewController.swift */; };
 		137B1D5D20300B7A002C9BCD /* help.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 137B1D5C20300B7A002C9BCD /* help.rtfd */; };
 		1388199521569346003483C5 /* acknowledgments.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1388199421569346003483C5 /* acknowledgments.txt */; };
 		139B32D6201E8A9A007A5909 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B32D5201E8A9A007A5909 /* AppDelegate.swift */; };
@@ -28,10 +28,10 @@
 		5C1A0000000000000000A001 /* ThemeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1A0000000000000000A002 /* ThemeTests.swift */; };
 		3693BF1B1C996AA921E4BCBF /* SmokeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6FFAD1F38270426402D647 /* SmokeTest.swift */; };
 		4C1897905A5E9154EDDC5210 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4360118BFBAE85CE9E04BAA2 /* Foundation.framework */; };
-		F53F5A52497E749F03195106 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBE8F2034967B0ECBB1C15E /* DateExtensions.swift */; };
 		AABB00000000000000000001 /* VerticalWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB00000000000000000002 /* VerticalWidgetView.swift */; };
 		AABB0000000000000000A001 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB0000000000000000A002 /* Theme.swift */; };
 		AABB00000000000000000003 /* VerticalWidgetWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB00000000000000000004 /* VerticalWidgetWindowController.swift */; };
+		F53F5A52497E749F03195106 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBE8F2034967B0ECBB1C15E /* DateExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,12 +60,12 @@
 		131C870D203C9B6200312F69 /* TimeStringTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStringTools.swift; sourceTree = "<group>"; };
 		132203972021806F00B1291C /* NextEvent-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NextEvent-Bridging-Header.h"; sourceTree = "<group>"; };
 		1322039B2027A38E00B1291C /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		132BB42A23B171750016A468 /* MZAlertBoxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MZAlertBoxViewController.swift; sourceTree = "<group>"; };
-		132BB42B23B171750016A468 /* MZAlertBox.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MZAlertBox.storyboard; sourceTree = "<group>"; };
+		132BB42A23B171750016A468 /* EventNotificationAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventNotificationAlert.swift; sourceTree = "<group>"; };
+		132BB42B23B171750016A468 /* EventNotificationAlert.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EventNotificationAlert.storyboard; sourceTree = "<group>"; };
 		133906D225BE3F4A00FB3B39 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		137B1D53202C0503002C9BCD /* CalendarTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTools.swift; sourceTree = "<group>"; };
-		137B1D58202FF7F3002C9BCD /* MZAboutBox.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MZAboutBox.storyboard; sourceTree = "<group>"; };
-		137B1D5A202FFE7C002C9BCD /* MZAboutBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MZAboutBoxViewController.swift; sourceTree = "<group>"; };
+		137B1D58202FF7F3002C9BCD /* AboutPanel.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AboutPanel.storyboard; sourceTree = "<group>"; };
+		137B1D5A202FFE7C002C9BCD /* AboutPanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPanelViewController.swift; sourceTree = "<group>"; };
 		137B1D5C20300B7A002C9BCD /* help.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = help.rtfd; sourceTree = "<group>"; };
 		1388199421569346003483C5 /* acknowledgments.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = acknowledgments.txt; sourceTree = "<group>"; };
 		139B32D2201E8A9A007A5909 /* BmoCal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BmoCal.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,24 +83,14 @@
 		A0BA3ED37E70B0B96754975F /* SettingsTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SettingsTests.swift; path = BmoCalTests/SettingsTests.swift; sourceTree = "<group>"; };
 		5C1A00000000000000000002 /* TimeStringToolsTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TimeStringToolsTests.swift; path = BmoCalTests/TimeStringToolsTests.swift; sourceTree = "<group>"; };
 		5C1A0000000000000000A002 /* ThemeTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ThemeTests.swift; path = BmoCalTests/ThemeTests.swift; sourceTree = "<group>"; };
-		B124608442DA899AA37C38ED /* BmoCalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BmoCalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AABB00000000000000000002 /* VerticalWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalWidgetView.swift; sourceTree = "<group>"; };
 		AABB0000000000000000A002 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		AABB00000000000000000004 /* VerticalWidgetWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalWidgetWindowController.swift; sourceTree = "<group>"; };
+		B124608442DA899AA37C38ED /* BmoCalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BmoCalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		01F51A3C2FB52A580060CE34 /* widget */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
-			explicitFileTypes = {
-			};
-			explicitFolders = (
-			);
-			path = widget;
-			sourceTree = "<group>";
-		};
+		01F51A3C2FB52A580060CE34 /* widget */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = widget; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,8 +140,8 @@
 			isa = PBXGroup;
 			children = (
 				01F51A3C2FB52A580060CE34 /* widget */,
-				137B1D5A202FFE7C002C9BCD /* MZAboutBoxViewController.swift */,
-				137B1D58202FF7F3002C9BCD /* MZAboutBox.storyboard */,
+				137B1D5A202FFE7C002C9BCD /* AboutPanelViewController.swift */,
+				137B1D58202FF7F3002C9BCD /* AboutPanel.storyboard */,
 				139B32D5201E8A9A007A5909 /* AppDelegate.swift */,
 				137B1D53202C0503002C9BCD /* CalendarTools.swift */,
 				139B3301201EA9FE007A5909 /* NextEventViewController.swift */,
@@ -166,8 +156,8 @@
 				139B32DF201E8A9A007A5909 /* NextEvent.entitlements */,
 				137B1D5C20300B7A002C9BCD /* help.rtfd */,
 				1388199421569346003483C5 /* acknowledgments.txt */,
-				132BB42B23B171750016A468 /* MZAlertBox.storyboard */,
-				132BB42A23B171750016A468 /* MZAlertBoxViewController.swift */,
+				132BB42B23B171750016A468 /* EventNotificationAlert.storyboard */,
+				132BB42A23B171750016A468 /* EventNotificationAlert.swift */,
 				AABB00000000000000000002 /* VerticalWidgetView.swift */,
 				AABB0000000000000000A002 /* Theme.swift */,
 				AABB00000000000000000004 /* VerticalWidgetWindowController.swift */,
@@ -276,11 +266,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				133906D325BE3F4A00FB3B39 /* Main.storyboard in Resources */,
-				132BB42D23B171750016A468 /* MZAlertBox.storyboard in Resources */,
+				132BB42D23B171750016A468 /* EventNotificationAlert.storyboard in Resources */,
 				137B1D5D20300B7A002C9BCD /* help.rtfd in Resources */,
 				139B32DA201E8A9A007A5909 /* Assets.xcassets in Resources */,
 				1388199521569346003483C5 /* acknowledgments.txt in Resources */,
-				137B1D59202FF7F3002C9BCD /* MZAboutBox.storyboard in Resources */,
+				137B1D59202FF7F3002C9BCD /* AboutPanel.storyboard in Resources */,
 				13C21D8A20332B8C00821F7C /* NextEventPreferences.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,9 +292,9 @@
 				1322039C2027A38E00B1291C /* Settings.swift in Sources */,
 				139B32D6201E8A9A007A5909 /* AppDelegate.swift in Sources */,
 				13C21D8820332B5A00821F7C /* NextEventPreferencesViewController.swift in Sources */,
-				137B1D5B202FFE7C002C9BCD /* MZAboutBoxViewController.swift in Sources */,
+				137B1D5B202FFE7C002C9BCD /* AboutPanelViewController.swift in Sources */,
 				137B1D54202C0503002C9BCD /* CalendarTools.swift in Sources */,
-				132BB42C23B171750016A468 /* MZAlertBoxViewController.swift in Sources */,
+				132BB42C23B171750016A468 /* EventNotificationAlert.swift in Sources */,
 				139B3302201EA9FE007A5909 /* NextEventViewController.swift in Sources */,
 				131C870E203C9B6200312F69 /* TimeStringTools.swift in Sources */,
 				F53F5A52497E749F03195106 /* DateExtensions.swift in Sources */,
@@ -469,21 +459,22 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = BmoCal/NextEvent.entitlements;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 30;
 				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = ZFAVFY86NH;
 				INFOPLIST_FILE = BmoCal/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BmoCal;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 2.2.4;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Mazookie.NextEvent;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Bmocal.Workday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -495,21 +486,22 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = BmoCal/NextEvent.entitlements;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 30;
 				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = ZFAVFY86NH;
 				INFOPLIST_FILE = BmoCal/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BmoCal;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 2.2.4;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Mazookie.NextEvent;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Bmocal.Workday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -519,16 +511,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BmoCal.app/Contents/MacOS/BmoCal";
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = G7Y6J5C2S2;
+				DEVELOPMENT_TEAM = ZFAVFY86NH;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@loader_path/../../../../MacOS",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Mazookie.NextEvent.BmoCalTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Bmocal.Workday.BmoCalTests;
 				PRODUCT_NAME = BmoCalTests;
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BmoCal.app/Contents/MacOS/BmoCal";
@@ -539,16 +531,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BmoCal.app/Contents/MacOS/BmoCal";
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = G7Y6J5C2S2;
+				DEVELOPMENT_TEAM = ZFAVFY86NH;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@loader_path/../../../../MacOS",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Mazookie.NextEvent.BmoCalTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Bmocal.Workday.BmoCalTests;
 				PRODUCT_NAME = BmoCalTests;
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BmoCal.app/Contents/MacOS/BmoCal";
