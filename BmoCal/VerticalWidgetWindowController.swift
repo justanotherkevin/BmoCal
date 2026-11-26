@@ -10,7 +10,7 @@ class VerticalWidgetWindowController: NSWindowController {
 
     var widgetView: VerticalWidgetView!
 
-    static let windowWidth: CGFloat = 64
+    static let windowWidth: CGFloat = 150
 
     init(floatOnTop: Bool, savedOrigin: CGPoint?, height: CGFloat) {
         let w = VerticalWidgetWindowController.windowWidth
@@ -26,17 +26,33 @@ class VerticalWidgetWindowController: NSWindowController {
         window.backgroundColor = .clear
         window.level = floatOnTop ? .floating : .normal
         window.collectionBehavior = [.canJoinAllSpaces, .stationary, .ignoresCycle]
-        window.hasShadow = false
+        window.hasShadow = true
         window.acceptsMouseMovedEvents = true
         window.isMovableByWindowBackground = false
 
         super.init(window: window)
 
+        let effect = NSVisualEffectView(frame: rect)
+        effect.material = .popover
+        effect.blendingMode = .behindWindow
+        effect.state = .active
+        let radius: CGFloat = 12
+        let side = radius * 2 + 1
+        let mask = NSImage(size: NSSize(width: side, height: side), flipped: false) { r in
+            NSBezierPath(roundedRect: r, xRadius: radius, yRadius: radius).fill()
+            return true
+        }
+        mask.capInsets = NSEdgeInsets(top: radius, left: radius, bottom: radius, right: radius)
+        mask.resizingMode = .stretch
+        effect.maskImage = mask
         widgetView = VerticalWidgetView(frame: rect)
-        window.contentView = widgetView
+        widgetView.autoresizingMask = [.width, .height]
+        effect.addSubview(widgetView)
+        window.contentView = effect
 
-        if let origin = savedOrigin {
-            window.setFrameOrigin(origin)
+        if let origin = savedOrigin,
+           let ok = Self.clamped(NSRect(origin: origin, size: rect.size)) {
+            window.setFrameOrigin(ok)
         } else if let screen = NSScreen.main {
             let sf = screen.visibleFrame
             window.setFrameOrigin(NSPoint(
@@ -44,6 +60,14 @@ class VerticalWidgetWindowController: NSWindowController {
                 y: sf.midY - height / 2
             ))
         }
+        window.invalidateShadow()
+    }
+
+    // Keep the frame fully inside the screen it overlaps; nil if it overlaps none.
+    private static func clamped(_ f: NSRect) -> NSPoint? {
+        guard let vf = NSScreen.screens.map({ $0.visibleFrame }).first(where: { $0.intersects(f) }) else { return nil }
+        return NSPoint(x: min(max(f.minX, vf.minX), vf.maxX - f.width),
+                       y: min(max(f.minY, vf.minY), vf.maxY - f.height))
     }
 
     required init?(coder: NSCoder) {

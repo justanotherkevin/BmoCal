@@ -38,8 +38,6 @@ struct AppDependencies {
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    let GLOW_INTERVAL   = 0.1
-
     @IBOutlet weak var mainMenu: NSMenu!
 
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.variableLength)
@@ -53,14 +51,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var viewController: NextEventViewController!
 
     var icon: NSImage!
-    var glowIcon: NSImage!
-    var isGlowing: Bool = false
     var yesterday: Date?
-
-    var glowTimer: Timer!
-    var imageTrans: CGFloat!
-    var glowSpeed: CGFloat = 0.05
-    var fadeOut: Bool = false
 
     var widgetController: WorkdayWidgetWindowController?
     var verticalWidgetController: VerticalWidgetWindowController?
@@ -144,22 +135,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func setIcons() {
-        if settings.data.useAltIcon {
-            icon = NSImage(named:"mazookie_mb")!
-            if settings.data.useFlashBlue {
-                glowIcon = NSImage(named:"mazookie_mb_blue")!
-            } else {
-                glowIcon = NSImage(named:"mazookie_mb_orange")!
-            }
-        } else {
-            icon = NSImage(named:"next_event_mb")!
-
-            if settings.data.useFlashBlue {
-                glowIcon = NSImage(named:"next_event_mb_blue")!
-            } else {
-                glowIcon = NSImage(named:"next_event_mb_orange")!
-            }
-        }
+        icon = NSImage(named: settings.data.useAltIcon ? "mazookie_mb" : "next_event_mb")!
     }
 
     func getMidnight(date: Date) -> Date {
@@ -179,26 +155,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         if viewController.update() == true {
             self.setIcons()
-            statusItem.button?.image = icon
         }
-        statusItem.button?.attributedTitle = NSAttributedString(
-            string: viewController.getNextEventStatus(),
-            attributes: [NSAttributedString.Key.font:  NSFont(name: "Helvetica Neue", size: 13)!]
-        )
-        if viewController.shouldGlow {
-            if !isGlowing {
-                self.startGlow()
-            }
-        } else if isGlowing {
-            self.stopGlow()
-        }
+        renderStatus(viewController.getMenuBarStatus())
 
         widgetController?.tick()
         verticalWidgetController?.tick()
     }
 
     @objc func onClickStatusItem(sender: NSButton) {
-        let event = NSApp.currentEvent!
+        guard let event = NSApp.currentEvent else { togglePopover(self); return }
 
         if event.type == NSEvent.EventType.leftMouseUp {
             // Left button click
@@ -424,65 +389,66 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
-    func combineImages(base: NSImage, overlay: NSImage, fraction: CGFloat) -> NSImage {
+    // MARK: - Menu bar rendering
 
-        let aImage: NSImage = NSImage(size: base.size)
-        aImage.lockFocus()
+    private var lastStatusKey = ""
 
-        base.draw(in: CGRect(origin: CGPoint.zero, size: base.size))
-        overlay.draw(
-            in: CGRect(origin: CGPoint.zero, size: overlay.size),
-            from: CGRect(origin: CGPoint.zero, size: overlay.size),
-            operation: NSCompositingOperation.overlay,
-            fraction: fraction
+    private func renderStatus(_ status: MenuBarStatus) {
+        guard let button = statusItem.button else { return }
+        let imageKey: String
+        switch status.image {
+        case .capsule(let f): imageKey = "capsule\(Int((f * 28).rounded()))"
+        case .appIcon: imageKey = "appIcon"
+        case .urgentDot: imageKey = "urgentDot"
+        case .done: imageKey = "done"
+        }
+        let key = imageKey + "|" + status.text
+        if key == lastStatusKey { return }
+        lastStatusKey = key
+        switch status.image {
+        case .appIcon: button.image = icon
+        case .capsule(let fraction): button.image = capsuleImage(fraction: fraction)
+        case .urgentDot: button.image = urgentDotImage()
+        case .done:
+            let img = NSImage(systemSymbolName: "checkmark.circle", accessibilityDescription: "Workday done")
+            img?.isTemplate = true
+            button.image = img
+        }
+        button.attributedTitle = NSAttributedString(
+            string: status.text,
+            attributes: [.font: NSFont.monospacedDigitSystemFont(ofSize: NSFont.systemFontSize, weight: .regular)]
         )
-
-        aImage.unlockFocus()
-        return aImage
     }
 
-    func startGlow() {
-        if glowTimer == nil {
-            isGlowing = true
-            // Set up our timer to periodically call the glow: method.
-            glowTimer = Timer.scheduledTimer(
-                timeInterval: GLOW_INTERVAL,
-                target: self,
-                selector: #selector(glow(_:)),
-                userInfo: nil,
-                repeats: true
-            )
-            RunLoop.current.add(glowTimer, forMode: RunLoop.Mode.common)
-            fadeOut = false
-            imageTrans = 1.0
+    private func capsuleImage(fraction: Double) -> NSImage {
+        let size = NSSize(width: 32, height: 6) // 4 pt transparent trailing gap before the title
+        let img = NSImage(size: size, flipped: false) { _ in
+            let rect = NSRect(x: 0, y: 0, width: 28, height: 6)
+            let outline = NSBezierPath(roundedRect: rect.insetBy(dx: 0.5, dy: 0.5), xRadius: 3, yRadius: 3)
+            NSColor.black.setStroke()
+            outline.lineWidth = 1
+            outline.stroke()
+            NSGraphicsContext.saveGraphicsState()
+            outline.addClip()
+            NSColor.black.setFill()
+            NSRect(x: 0, y: 0, width: rect.width * CGFloat(fraction), height: rect.height).fill()
+            NSGraphicsContext.restoreGraphicsState()
+            return true
         }
+        img.isTemplate = true
+        img.accessibilityDescription = "Workday \(Int((fraction * 100).rounded())) percent"
+        return img
     }
 
-    func stopGlow() {
-        // kill timer
-        if glowTimer != nil {
-            isGlowing = false
-            glowTimer.invalidate()
-            glowTimer = nil
-            statusItem.button?.image = icon
+    private func urgentDotImage() -> NSImage {
+        let img = NSImage(size: NSSize(width: 12, height: 8), flipped: false) { _ in
+            NSColor.controlAccentColor.setFill()
+            NSBezierPath(ovalIn: NSRect(x: 1, y: 1, width: 6, height: 6)).fill()
+            return true
         }
-    }
-
-    @objc func glow(_ sender: Any?) {
-        if fadeOut && imageTrans >= glowSpeed {
-            // If window is still partially opaque, reduce its opacity.
-            imageTrans = imageTrans - glowSpeed
-        }
-        else if !fadeOut && (imageTrans < (1.0 - glowSpeed)) {
-            // If window is still partially opaque, increase its opacity.
-            imageTrans = imageTrans + glowSpeed
-        }
-        else {
-            fadeOut = !fadeOut
-        }
-
-        // redraw icon
-        statusItem.button?.image = self.combineImages(base: icon, overlay: glowIcon, fraction: imageTrans)
+        img.isTemplate = false
+        img.accessibilityDescription = "Event starting soon"
+        return img
     }
 
 }

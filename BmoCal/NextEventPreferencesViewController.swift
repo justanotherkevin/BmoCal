@@ -4,21 +4,15 @@ import EventKit
 
 class NextEventPreferencesViewController: NSViewController {
 
-    @IBOutlet weak var flash: NSButton!
-    @IBOutlet weak var flashBlue: NSButton!
     @IBOutlet weak var alternateIcon: NSButton!
-    @IBOutlet weak var systemAlert: NSButton!
-    @IBOutlet weak var blockingAlert: NSButton!
+    @IBOutlet weak var alertStyle: NSPopUpButton!
     @IBOutlet weak var earlyWarning: NSPopUpButton!
     @IBOutlet weak var travelTime: NSButton!
-    @IBOutlet weak var playChime: NSButton!
-    @IBOutlet weak var showSeconds: NSButton!
-    @IBOutlet weak var leadingZeros: NSButton!
-    @IBOutlet weak var useFuzzyTime: NSButton!
-    @IBOutlet weak var showTitle: NSButton!
-    @IBOutlet weak var useTitleLimit: NSButton!
-    @IBOutlet weak var showTime: NSButton!
     @IBOutlet weak var numberEvents: NSPopUpButton!
+    @IBOutlet weak var startHour: NSPopUpButton!
+    @IBOutlet weak var endHour: NSPopUpButton!
+    @IBOutlet weak var showRoundWidget: NSButton!
+    @IBOutlet weak var showVerticalWidget: NSButton!
 
     @IBOutlet weak var tableView: NSTableView!
 
@@ -35,6 +29,17 @@ class NextEventPreferencesViewController: NSViewController {
 
         self.tableView.delegate = self
         self.tableView.dataSource = self
+
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        formatter.dateStyle = .none
+        let hours = (0..<24).map { h -> String in
+            formatter.string(from: Calendar.current.date(bySettingHour: h, minute: 0, second: 0, of: Date())!)
+        }
+        for popup in [startHour!, endHour!] {
+            popup.removeAllItems()
+            popup.addItems(withTitles: hours)
+        }
     }
 
     override func viewDidAppear() {
@@ -44,20 +49,15 @@ class NextEventPreferencesViewController: NSViewController {
     func refresh() {
         allCalendars = CalendarTools().getAllCalendars() + CalendarTools().getAllReminderLists()
 
-        flash.state = getState(value: settings.data.useFlash)
-        flashBlue.state = getState(value: settings.data.useFlashBlue)
         alternateIcon.state = getState(value: settings.data.useAltIcon)
-        systemAlert.state = getState(value: settings.data.useSystemAlert)
-        blockingAlert.state = getState(value: settings.data.useBlockingAlert)
+        let d = settings.data
+        alertStyle.selectItem(withTag: d.useBlockingAlert ? 2 : d.useSystemAlert ? 1 : d.useSound ? 3 : 0)
         earlyWarning.selectItem(withTitle: String(settings.data.earlyWarning))
         travelTime.state = getState(value: settings.data.notifyTravelTime)
-        playChime.state = getState(value: settings.data.useSound)
-        showSeconds.state = getState(value: settings.data.showSeconds)
-        leadingZeros.state = getState(value: settings.data.leadingZeros)
-        useFuzzyTime.state = getState(value: settings.data.useFuzzyTime)
-        showTitle.state = getState(value: settings.data.showTitle)
-        useTitleLimit.state = getState(value: settings.data.useTitleLimit)
-        showTime.state = getState(value: settings.data.showTime)
+        startHour.selectItem(at: min(max(settings.data.workdayStartHour, 0), 23))
+        endHour.selectItem(at: min(max(settings.data.workdayEndHour, 0), 23))
+        showRoundWidget.state = getState(value: settings.data.showWidget)
+        showVerticalWidget.state = getState(value: settings.data.showVerticalWidget)
         if settings.data.showNumber == 0 {
             numberEvents.selectItem(withTitle: "Today only")
         } else if settings.data.showNumber == -1 {
@@ -73,14 +73,7 @@ class NextEventPreferencesViewController: NSViewController {
     }
 
     func enableButtons() {
-        // enable buttons
-        // time
-        useFuzzyTime.isEnabled = settings.data.showTime
-
-        // title
-        useTitleLimit.isEnabled = settings.data.showTitle
-
-        // blocking alert then pick the time
+        // early warning only applies to the full screen alert
         earlyWarning.isEnabled = settings.data.useBlockingAlert
     }
 
@@ -99,20 +92,9 @@ class NextEventPreferencesViewController: NSViewController {
     }
 
     @IBAction func updateSettings(_ sender: Any) {
-        settings.data.useFlash = getState(value: flash.state)
-        settings.data.useFlashBlue = getState(value: flashBlue.state)
         settings.data.useAltIcon = getState(value: alternateIcon.state)
-        settings.data.useSystemAlert = getState(value: systemAlert.state)
-        settings.data.useBlockingAlert = getState(value: blockingAlert.state)
         settings.data.earlyWarning = Int((earlyWarning.selectedItem?.title)!)!
         settings.data.notifyTravelTime = getState(value: travelTime.state)
-        settings.data.useSound = getState(value: playChime.state)
-        settings.data.showSeconds = getState(value: showSeconds.state)
-        settings.data.leadingZeros = getState(value: leadingZeros.state)
-        settings.data.useFuzzyTime = getState(value: useFuzzyTime.state)
-        settings.data.showTitle = getState(value: showTitle.state)
-        settings.data.useTitleLimit = getState(value: useTitleLimit.state)
-        settings.data.showTime = getState(value: showTime.state)
         if numberEvents.selectedItem?.title == "Today only" {
             settings.data.showNumber = 0
         } else if numberEvents.selectedItem?.title == "24 Hours" {
@@ -126,6 +108,42 @@ class NextEventPreferencesViewController: NSViewController {
 
         settings.needsDisplay = true
         settings.archive()
+    }
+
+    @IBAction func alertStyleChanged(_ sender: Any) {
+        let tag = alertStyle.selectedTag()
+        settings.data.useSystemAlert = tag == 1
+        settings.data.useBlockingAlert = tag == 2
+        settings.data.useSound = tag == 3
+        enableButtons()
+        settings.needsDisplay = true
+        settings.archive()
+    }
+
+    @IBAction func hourChanged(_ sender: Any) {
+        if endHour.indexOfSelectedItem <= startHour.indexOfSelectedItem {
+            NSSound.beep()
+            startHour.selectItem(at: settings.data.workdayStartHour)
+            endHour.selectItem(at: settings.data.workdayEndHour)
+            return
+        }
+        settings.data.workdayStartHour = startHour.indexOfSelectedItem
+        settings.data.workdayEndHour = endHour.indexOfSelectedItem
+        settings.needsDisplay = true
+        settings.archive()
+        (NSApp.delegate as? AppDelegate)?.refreshAll(nil)
+    }
+
+    @IBAction func toggleRoundWidget(_ sender: Any) {
+        let on = (sender as? NSButton)?.state == .on
+        let app = NSApp.delegate as? AppDelegate
+        if on { app?.showWidget() } else { app?.hideWidget() }
+    }
+
+    @IBAction func toggleVerticalWidget(_ sender: Any) {
+        let on = (sender as? NSButton)?.state == .on
+        let app = NSApp.delegate as? AppDelegate
+        if on { app?.showVerticalWidget() } else { app?.hideVerticalWidget() }
     }
 
     @IBAction func buttonClicked(_ sender: Any) {
