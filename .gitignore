@@ -29,7 +29,7 @@ xcuserdata
 *.xcuserstate
 
 # Graphify
-graphify-out/cache/
+graphify-out/
 
 # AI agent
 .deepseek

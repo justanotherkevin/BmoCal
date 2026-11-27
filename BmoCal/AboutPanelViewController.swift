@@ -81,7 +81,7 @@ class AboutPanelViewController: NSViewController {
     }
 
     @IBAction func visitWebsite(_ sender: Any?) {
-        NSWorkspace.shared.open(NSURL(string: "https://github.com/kevinhu/BmoCal")! as URL)
+        NSWorkspace.shared.open(NSURL(string: "https://github.com/justanotherkevin/BmoCal-menu-bar-calendar")! as URL)
     }
 
     func forceHelp(force: Bool) {
