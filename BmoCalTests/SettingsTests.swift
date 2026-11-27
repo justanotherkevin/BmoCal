@@ -17,9 +17,15 @@ func settingsDataDefaultValues() {
     #expect(data.calendarNames == [])
 }
 
+private func tempSettingsURL() -> URL {
+    FileManager.default.temporaryDirectory.appendingPathComponent("BmoCal-test-\(UUID().uuidString).cfg")
+}
+
 @Test("Settings reset() returns to default values")
 func settingsReset() {
-    let settings = Settings()
+    let url = tempSettingsURL()
+    defer { try? FileManager.default.removeItem(at: url) }
+    let settings = Settings(archiveURL: url)
 
     // Modify some values
     settings.data.workdayStartHour = 8
@@ -37,7 +43,9 @@ func settingsReset() {
 
 @Test("Settings archive stores and unarchive restores modified values")
 func settingsArchiveUnarchive() {
-    let settings1 = Settings()
+    let url = tempSettingsURL()
+    defer { try? FileManager.default.removeItem(at: url) }
+    let settings1 = Settings(archiveURL: url)
 
     // Modify values
     settings1.data.workdayStartHour = 7
@@ -48,7 +56,7 @@ func settingsArchiveUnarchive() {
     settings1.archive()
 
     // Create new instance and unarchive
-    let settings2 = Settings()
+    let settings2 = Settings(archiveURL: url)
 
     // Verify values were restored from disk
     #expect(settings2.data.workdayStartHour == 7)
