@@ -60,3 +60,49 @@ func dayHeader() {
     #expect(tools.dayHeader(for: now.addingTimeInterval(86400), now: now) == "Tomorrow (Fri, 13 Feb):")
     #expect(tools.dayHeader(for: now.addingTimeInterval(3 * 86400), now: now) == "Sun, 15 Feb:")
 }
+
+// MARK: - wasCrossed
+
+private let t0 = Date(timeIntervalSinceReferenceDate: 1_000_000)
+
+@Test("wasCrossed fires on an exact hit of now")
+func wasCrossedExactHit() {
+    #expect(t0.wasCrossed(since: t0.addingTimeInterval(-1), now: t0))
+}
+
+@Test("wasCrossed still fires when a tick was skipped")
+func wasCrossedSkippedTick() {
+    let target = t0.addingTimeInterval(-2)
+    #expect(target.wasCrossed(since: t0.addingTimeInterval(-3), now: t0))
+}
+
+@Test("wasCrossed does not fire for a target before the window")
+func wasCrossedBeforeWindow() {
+    #expect(!t0.addingTimeInterval(-5).wasCrossed(since: t0.addingTimeInterval(-1), now: t0))
+}
+
+@Test("wasCrossed does not fire for a future target")
+func wasCrossedFuture() {
+    #expect(!t0.addingTimeInterval(1).wasCrossed(since: t0.addingTimeInterval(-1), now: t0))
+}
+
+@Test("wasCrossed caps catch up after a long gap")
+func wasCrossedLongGap() {
+    let previous = t0.addingTimeInterval(-600)
+    #expect(!t0.addingTimeInterval(-120).wasCrossed(since: previous, now: t0))
+    #expect(t0.addingTimeInterval(-30).wasCrossed(since: previous, now: t0))
+}
+
+@Test("early warning fires exactly once across 1 second ticks", arguments: [1, 3, 5])
+func earlyWarningFiresOnce(minutes: Int) {
+    let start = t0.addingTimeInterval(3600)
+    let target = start.addingTimeInterval(-TimeInterval(minutes * 60))
+    var fires = 0
+    var previous = target.addingTimeInterval(-30.5)
+    for i in -30...30 {
+        let now = target.addingTimeInterval(Double(i) + 0.3)
+        if target.wasCrossed(since: previous, now: now) { fires += 1 }
+        previous = now
+    }
+    #expect(fires == 1)
+}

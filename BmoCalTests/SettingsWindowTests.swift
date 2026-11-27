@@ -11,6 +11,10 @@ struct SettingsWindowTests {
         #expect([d.useSystemAlert, d.useBlockingAlert, d.useSound].filter { $0 }.count == (style == .none ? 0 : 1))
     }
 
+    @Test func earlyWarningChoices() {
+        #expect(AlertStyle.earlyWarningChoices == [0, 1, 3, 5])
+    }
+
     @Test func priority() {
         var d = BmoCal.Settings.Data()
         d.useSound = true

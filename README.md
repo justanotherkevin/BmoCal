@@ -33,8 +33,8 @@ The round workday clock and the vertical timeline bar, two desktop calendar widg
 | Workday progress bar       | See the time left in your day, right in the menu bar.                                                               |
 | Next meeting countdown     | Count down to your next calendar event or reminder.                                                                 |
 | Workday hours              | Set your own start and end hours.                                                                                   |
-| Meeting reminder           | The menu bar icon flashes at the 15 minute warning.                                                                 |
-| Two alert styles           | Pick a blocking alert or a system notification.                                                                     |
+| Meeting reminder           | A dot appears in the menu bar 5 minutes before your next meeting.                                                   |
+| Alert styles               | Pick a full screen alert, a banner, or a chime. The full screen alert stays on screen until you close it and can show up to 5 minutes early. |
 | Many calendars             | Use multiple calendars and reminder lists.                                                                          |
 | Desktop calendar widgets   | Add a round workday clock or a vertical timeline bar. Drag them anywhere and reset them from the menu bar.          |
 | Update check               | The app checks GitHub releases once a day and shows an update menu item when a newer version is out.                |

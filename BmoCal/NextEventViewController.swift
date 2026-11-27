@@ -269,14 +269,18 @@ class NextEventViewController: NSViewController {
 
     }
 
+    private var lastNotifyCheck: Date?
+
     func notify() {
         var notification: NSUserNotification?
+        let now = Date()
+        let previous = lastNotifyCheck ?? now.addingTimeInterval(-1)
+        defer { lastNotifyCheck = now }
 
         if settings.data.useSystemAlert || settings.data.useBlockingAlert || settings.data.useSound {
 
             for item in calendarItems {
 
-                let now: Date = Date()
                 let itemDate:Date? = getDateFromEventItem(item)
                 let itemLocation: String = getLocationFromEventItem(item)
                 var color: NSColor = .labelColor
@@ -284,7 +288,7 @@ class NextEventViewController: NSViewController {
                     color = item.calendar!.color
                 }
 
-                guard let itemDate = itemDate, !item.title.isEmpty, itemDate >= now else {
+                guard let itemDate = itemDate, !item.title.isEmpty, itemDate > previous else {
                     continue
                 }
 
@@ -293,8 +297,7 @@ class NextEventViewController: NSViewController {
                     let travelTime = getTravelTimeFromEventItem(item)
 
                     if travelTime > 0 {
-                        let tt = ceil((itemDate.addingTimeInterval(0-travelTime)).timeIntervalSinceReferenceDate)
-                        if ceil(now.timeIntervalSinceReferenceDate) == tt {
+                        if itemDate.addingTimeInterval(0-travelTime).wasCrossed(since: previous, now: now) {
                             if settings.data.useSystemAlert {
                                 notification = NSUserNotification()
                                 notification?.title = "Time to leave for \(item.title ?? "Next Event")"
@@ -322,7 +325,7 @@ class NextEventViewController: NSViewController {
 
                 // notify event
                 //print("\(ceil(now.timeIntervalSinceReferenceDate)) == \(ceil(itemDate.timeIntervalSinceReferenceDate)), \(item.title ?? "No title")")
-                if ceil(now.timeIntervalSinceReferenceDate) == ceil(itemDate.timeIntervalSinceReferenceDate) {
+                if itemDate.wasCrossed(since: previous, now: now) {
 
                     if settings.data.useSystemAlert {
                         notification = NSUserNotification()
@@ -350,8 +353,7 @@ class NextEventViewController: NSViewController {
 
                 // notify early warning
                 if settings.data.earlyWarning > 0 && settings.data.useBlockingAlert {
-                    let tt = ceil((itemDate.addingTimeInterval(0-TimeInterval(settings.data.earlyWarning*60) )).timeIntervalSinceReferenceDate)
-                    if ceil(now.timeIntervalSinceReferenceDate) == tt {
+                    if itemDate.addingTimeInterval(0-TimeInterval(settings.data.earlyWarning*60)).wasCrossed(since: previous, now: now) {
                         self.alert(title: item.title, date: itemDate, location: itemLocation, color: color, playSound: settings.data.useSound)
                     }
                 }

@@ -2,6 +2,12 @@ import Foundation
 
 extension Date {
 
+    /// True when `self` falls in the window since the last check. Catch up is capped so a long sleep does not fire stale alerts.
+    func wasCrossed(since previous: Date, now: Date, maxCatchUp: TimeInterval = 60) -> Bool {
+        let from = max(previous, now.addingTimeInterval(-maxCatchUp))
+        return self > from && self <= now
+    }
+
     // MARK: - Timezone conversion
 
     /// Convert UTC (or GMT) to local time
