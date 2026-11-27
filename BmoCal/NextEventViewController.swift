@@ -225,48 +225,10 @@ class NextEventViewController: NSViewController {
 
     func alert(title: String, date: Date, location: String, color: NSColor, playSound: Bool = false) {
         DispatchQueue.main.async {
-
-            var alertBoxWindow: EventNotificationAlertWindowController!
-            var alertBoxView: EventNotificationAlertViewController!
-
-            let mainStoryboard = NSStoryboard.init(name: "EventNotificationAlert", bundle: nil)
-
-            alertBoxWindow = mainStoryboard.instantiateController(
-                withIdentifier: "EventNotificationAlertWindowController"
-            ) as? EventNotificationAlertWindowController
-
-            alertBoxView = mainStoryboard.instantiateController(
-                withIdentifier: "EventNotificationAlertViewController"
-            ) as? EventNotificationAlertViewController
-
-            alertBoxWindow!.contentViewController = alertBoxView
-
-            alertBoxView!.eventTitleString = title
-            alertBoxView!.eventDate = date
-            alertBoxView!.playSound = playSound
-            alertBoxView!.eventDateTextField.stringValue = "\(date.description(with: .current))"
-            let fixLocation = location.replacingOccurrences(
-                of: "\n",
-                with: ", ",
-                options: .regularExpression
-            )
-            alertBoxView!.eventLocationButton.title = fixLocation
-            if (URL(string: fixLocation) == nil) {
-                alertBoxView!.eventLocationButton.isEnabled = false
-                if let cell = alertBoxView!.eventLocationButton.cell as? NSButtonCell {
-                    cell.imageDimsWhenDisabled = false
-                }
-            }
-            alertBoxView!.calendarColorTextField.backgroundColor = color
-
-            alertBoxWindow!.window?.collectionBehavior = .moveToActiveSpace
-            alertBoxWindow!.window?.makeKeyAndOrderFront(self)
-            alertBoxWindow!.window?.collectionBehavior = .canJoinAllSpaces
-            alertBoxWindow!.showWindow(self)
-
-            NSApp.activate(ignoringOtherApps: true)
+            EventAlertWindowController.show(
+                design: AlertDesign(rawValue: self.settings.data.alertDesign) ?? .ring,
+                title: title, start: date, location: location, color: color, playSound: playSound)
         }
-
     }
 
     private var lastNotifyCheck: Date?

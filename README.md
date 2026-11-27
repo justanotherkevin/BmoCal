@@ -34,12 +34,22 @@ The round workday clock and the vertical timeline bar, two desktop calendar widg
 | Next meeting countdown     | Count down to your next calendar event or reminder.                                                                 |
 | Workday hours              | Set your own start and end hours.                                                                                   |
 | Meeting reminder           | A dot appears in the menu bar 5 minutes before your next meeting.                                                   |
-| Alert styles               | Pick full screen, banner, or chime. Full screen stays until you close it and can show up to 5 minutes early.        |
+| Alert styles               | Pick full screen, banner, or chime. Full screen stays until you close it, in a Ring, Card, or Edge design.          |
 | Many calendars             | Use multiple calendars and reminder lists.                                                                          |
 | Desktop calendar widgets   | Add a round workday clock or a vertical timeline bar. Drag them anywhere and reset them from the menu bar.          |
 | Update check               | The app checks GitHub releases once a day and shows an update menu item when a newer version is out.                |
 
 BmoCal works with any calendar account added to macOS Calendar, such as iCloud, Google, and Exchange or Outlook. It is a native Swift app built with AppKit, SwiftUI, and EventKit. It has no external dependencies.
+
+## Full screen meeting alert
+
+The full screen alert covers your screen before a meeting starts and stays until you close it, so you can't miss the meeting. It counts down to the start time, and if the event has a meeting link, you can press Return to join or Esc to close.
+
+To turn it on, open Preferences, go to the Notifications tab, and set Alert style to Full screen. Then pick when the alert shows (0, 1, 3, or 5 minutes early) and pick one of three designs. The Preview button shows the design you picked.
+
+| Ring | Card | Edge |
+| ---- | ---- | ---- |
+| <img src="docs/images/alert-ring.png" alt="BmoCal full screen meeting alert, Ring design, with a countdown ring in the calendar color" width="260"> | <img src="docs/images/alert-card.png" alt="BmoCal full screen meeting alert, Card design, with a centered card over a dimmed screen" width="260"> | <img src="docs/images/alert-edge.png" alt="BmoCal full screen meeting alert, Edge design, with a large countdown and a progress bar along the top" width="260"> |
 
 ## Install
 

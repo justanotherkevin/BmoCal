@@ -36,6 +36,7 @@ class Settings: NSObject, SettingsProviding {
         var verticalWidgetX: Double = -1
         var verticalWidgetY: Double = -1
         var verticalWidgetHeight: Double = 400
+        var alertDesign: Int = 0
 
         // Missing keys fall back to the defaults above, so adding a field never wipes saved settings.
         // New fields MUST be added here too.
@@ -69,6 +70,7 @@ class Settings: NSObject, SettingsProviding {
             verticalWidgetX = try c.decodeIfPresent(type(of: d.verticalWidgetX), forKey: .verticalWidgetX) ?? d.verticalWidgetX
             verticalWidgetY = try c.decodeIfPresent(type(of: d.verticalWidgetY), forKey: .verticalWidgetY) ?? d.verticalWidgetY
             verticalWidgetHeight = try c.decodeIfPresent(type(of: d.verticalWidgetHeight), forKey: .verticalWidgetHeight) ?? d.verticalWidgetHeight
+            alertDesign = try c.decodeIfPresent(type(of: d.alertDesign), forKey: .alertDesign) ?? d.alertDesign
         }
     }
 
@@ -131,6 +133,7 @@ class Settings: NSObject, SettingsProviding {
         data.widgetFloatsOnTop = true
         data.widgetX = -1
         data.widgetY = -1
+        data.alertDesign = 0
         self.archive()
     }
 }

@@ -4,6 +4,18 @@ import SwiftUI
 
 // MARK: - Pure logic
 
+enum AlertDesign: Int, CaseIterable {
+    case ring, card, edge
+
+    var title: String {
+        switch self {
+        case .ring: return "Ring"
+        case .card: return "Card"
+        case .edge: return "Edge"
+        }
+    }
+}
+
 enum AlertStyle: Int, CaseIterable {
     case none, banner, fullScreen, chime
 
@@ -207,6 +219,17 @@ struct NotificationsSettingsView: View {
                     Picker("Early warning", selection: Binding(
                         get: { store.data.earlyWarning }, set: { v in store.update { $0.earlyWarning = v } })) {
                         ForEach(AlertStyle.earlyWarningChoices, id: \.self) { Text(String($0)).tag($0) }
+                    }
+                    Picker("Alert design", selection: Binding(
+                        get: { AlertDesign(rawValue: store.data.alertDesign) ?? .ring },
+                        set: { v in store.update { $0.alertDesign = v.rawValue } })) {
+                        ForEach(AlertDesign.allCases, id: \.self) { Text($0.title).tag($0) }
+                    }
+                    Button("Preview") {
+                        EventAlertWindowController.show(
+                            design: AlertDesign(rawValue: store.data.alertDesign) ?? .ring,
+                            title: "Preview meeting", start: Date().addingTimeInterval(180),
+                            location: "https://meet.google.com/abc-defg-hij", color: .systemOrange, playSound: false)
                     }
                 }
                 Toggle("Warn when it's time to leave", isOn: Binding(
