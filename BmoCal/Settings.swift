@@ -79,9 +79,23 @@ class Settings: NSObject, SettingsProviding {
     var data: Data = Data()
     var needsDisplay: Bool = true
 
-    override init() {
+    let archiveURL: URL
+
+    init(archiveURL: URL = Settings.defaultArchiveURL()) {
+        self.archiveURL = archiveURL
         super.init()
         unarchive()
+    }
+
+    override convenience init() {
+        self.init(archiveURL: Settings.defaultArchiveURL())
+    }
+
+    static func defaultArchiveURL() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return URL(
+            fileURLWithPath: paths[0].path + "/"
+                + (Bundle.main.infoDictionary!["CFBundleName"] as! String) + ".cfg")
     }
 
     func unarchive() {
@@ -98,12 +112,7 @@ class Settings: NSObject, SettingsProviding {
         try! jsonData.write(to: archivePath())
     }
 
-    func archivePath() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return URL(
-            fileURLWithPath: paths[0].path + "/"
-                + (Bundle.main.infoDictionary!["CFBundleName"] as! String) + ".cfg")
-    }
+    func archivePath() -> URL { archiveURL }
 
     func reset() {
         data.floatRight = false
