@@ -11,8 +11,6 @@ All fields live in `Settings.Data` (`Settings.swift`). Persisted as JSON to `~/D
 | `widgetFloatsOnTop` | Bool     | true    | Widget window level: `.floating` vs `.normal`      |
 | `widgetX`           | Double   | -1      | Saved widget X position (-1 = default top-right)   |
 | `widgetY`           | Double   | -1      | Saved widget Y position                            |
-| `useFlash`          | Bool     | true    | Legacy, unused                                     |
-| `useFlashBlue`      | Bool     | false   | Legacy, unused                                     |
 | `useSystemAlert`    | Bool     | false   | macOS notification center alerts                   |
 | `useBlockingAlert`  | Bool     | false   | Full screen alert style (stays until closed)       |
 | `earlyWarning`      | Int      | 1       | Minutes before the event to show the full screen alert (0, 1, 3 or 5) |

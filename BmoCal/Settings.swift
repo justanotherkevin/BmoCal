@@ -12,8 +12,6 @@ class Settings: NSObject, SettingsProviding {
     struct Data: Codable {
         // persistant
         var floatRight: Bool = false
-        var useFlashBlue: Bool = false
-        var useFlash: Bool = false
         var useSystemAlert: Bool = false
         var useBlockingAlert: Bool = false
         var earlyWarning: Int = 1
@@ -47,8 +45,6 @@ class Settings: NSObject, SettingsProviding {
             let c = try decoder.container(keyedBy: CodingKeys.self)
             let d = Data()
             floatRight = try c.decodeIfPresent(type(of: d.floatRight), forKey: .floatRight) ?? d.floatRight
-            useFlashBlue = try c.decodeIfPresent(type(of: d.useFlashBlue), forKey: .useFlashBlue) ?? d.useFlashBlue
-            useFlash = try c.decodeIfPresent(type(of: d.useFlash), forKey: .useFlash) ?? d.useFlash
             useSystemAlert = try c.decodeIfPresent(type(of: d.useSystemAlert), forKey: .useSystemAlert) ?? d.useSystemAlert
             useBlockingAlert = try c.decodeIfPresent(type(of: d.useBlockingAlert), forKey: .useBlockingAlert) ?? d.useBlockingAlert
             earlyWarning = try c.decodeIfPresent(type(of: d.earlyWarning), forKey: .earlyWarning) ?? d.earlyWarning
@@ -116,8 +112,6 @@ class Settings: NSObject, SettingsProviding {
 
     func reset() {
         data.floatRight = false
-        data.useFlashBlue = false
-        data.useFlash = true
         data.useSystemAlert = false
         data.useBlockingAlert = false
         data.earlyWarning = 1

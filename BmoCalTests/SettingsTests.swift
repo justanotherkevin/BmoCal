@@ -11,7 +11,6 @@ func settingsDataDefaultValues() {
     #expect(data.showWidget == false)
     #expect(data.widgetFloatsOnTop == true)
     #expect(data.showNumber == 10)
-    #expect(data.useFlash == false)
     #expect(data.showSeconds == false)
     #expect(data.useSound == false)
     #expect(data.calendarNames == [])
@@ -29,7 +28,6 @@ func settingsReset() {
 
     // Modify some values
     settings.data.workdayStartHour = 8
-    settings.data.useFlash = true
     settings.data.calendarNames = ["Calendar 1", "Calendar 2"]
 
     // Reset
@@ -37,7 +35,6 @@ func settingsReset() {
 
     // Verify defaults are restored
     #expect(settings.data.workdayStartHour == 9)
-    #expect(settings.data.useFlash == true)
     #expect(settings.data.calendarNames == [])
 }
 
@@ -96,10 +93,12 @@ func validSavedOriginCases() {
     #expect(validSavedOrigin(x: -1, y: -1, size: size, screens: [main]) == nil)
 }
 
-@Test("Old cfg JSON containing removed keys (useAltIcon) still decodes")
+@Test("Old cfg JSON containing removed keys (useAltIcon, useFlash, useFlashBlue) still decodes")
 func settingsDecodeIgnoresUnknownKeys() throws {
     var dict = try JSONSerialization.jsonObject(with: JSONEncoder().encode(Settings.Data())) as! [String: Any]
     dict["useAltIcon"] = true
+    dict["useFlash"] = true
+    dict["useFlashBlue"] = true
     dict["workdayStartHour"] = 7
     let json = try JSONSerialization.data(withJSONObject: dict)
     let data = try JSONDecoder().decode(Settings.Data.self, from: json)
