@@ -7,6 +7,8 @@ import SwiftUI
 enum AlertStyle: Int, CaseIterable {
     case none, banner, fullScreen, chime
 
+    static let earlyWarningChoices = [0, 1, 3, 5]
+
     /// Legacy bools can overlap in old config files: Full screen wins, then Banner, then Chime.
     init(_ d: BmoCal.Settings.Data) {
         self = d.useBlockingAlert ? .fullScreen : d.useSystemAlert ? .banner : d.useSound ? .chime : .none
@@ -204,7 +206,7 @@ struct NotificationsSettingsView: View {
                 if AlertStyle(store.data) == .fullScreen {
                     Picker("Early warning", selection: Binding(
                         get: { store.data.earlyWarning }, set: { v in store.update { $0.earlyWarning = v } })) {
-                        ForEach([0, 1, 3, 5], id: \.self) { Text(String($0)).tag($0) }
+                        ForEach(AlertStyle.earlyWarningChoices, id: \.self) { Text(String($0)).tag($0) }
                     }
                 }
                 Toggle("Warn when it's time to leave", isOn: Binding(

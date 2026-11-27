@@ -11,11 +11,11 @@ All fields live in `Settings.Data` (`Settings.swift`). Persisted as JSON to `~/D
 | `widgetFloatsOnTop` | Bool     | true    | Widget window level: `.floating` vs `.normal`      |
 | `widgetX`           | Double   | -1      | Saved widget X position (-1 = default top-right)   |
 | `widgetY`           | Double   | -1      | Saved widget Y position                            |
-| `useFlash`          | Bool     | true    | Flash icon when next event is ≤15 min away         |
-| `useFlashBlue`      | Bool     | false   | Blue glow (true) vs orange glow (false)            |
+| `useFlash`          | Bool     | true    | Legacy, unused                                     |
+| `useFlashBlue`      | Bool     | false   | Legacy, unused                                     |
 | `useSystemAlert`    | Bool     | false   | macOS notification center alerts                   |
-| `useBlockingAlert`  | Bool     | false   | Modal blocking alert window                        |
-| `earlyWarning`      | Int      | 1       | Minutes before event to show blocking alert        |
+| `useBlockingAlert`  | Bool     | false   | Full screen alert style (stays until closed)       |
+| `earlyWarning`      | Int      | 1       | Minutes before the event to show the full screen alert (0, 1, 3 or 5) |
 | `notifyTravelTime`  | Bool     | false   | Alert when travel time starts                      |
 | `useSound`          | Bool     | false   | Chime on notifications                             |
 | `showSeconds`       | Bool     | false   | Show seconds in countdown                          |
