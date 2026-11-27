@@ -129,3 +129,13 @@ func settingsRoundTrip() throws {
     #expect(decoded.widgetX == 123.5)
     #expect(decoded.showWidget == true)
 }
+
+@Test("JSON without alertDesign decodes to 0, and 2 survives a round trip")
+func settingsAlertDesign() throws {
+    let json = Foundation.Data(#"{"workdayStartHour":7}"#.utf8)
+    #expect(try JSONDecoder().decode(Settings.Data.self, from: json).alertDesign == 0)
+    var original = Settings.Data()
+    original.alertDesign = 2
+    let decoded = try JSONDecoder().decode(Settings.Data.self, from: JSONEncoder().encode(original))
+    #expect(decoded.alertDesign == 2)
+}
