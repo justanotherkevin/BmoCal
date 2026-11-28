@@ -1,34 +1,6 @@
 import Cocoa
 import EventKit
 
-struct StatusStringBuilder {
-    let settings: Settings.Data
-    let events: [EKCalendarItem]
-    let timeTools: TimeStringTools
-
-    func build(now: Date = Date()) -> (status: String, shouldGlow: Bool) {
-        let startHour = settings.workdayStartHour
-        let endHour = settings.workdayEndHour
-        let cal = Calendar.current
-        let currentHour = cal.component(.hour, from: now)
-
-        // Before workday
-        if currentHour < startHour {
-            var comps = cal.dateComponents([.year, .month, .day], from: now)
-            comps.hour = startHour; comps.minute = 0; comps.second = 0
-            let startTime = cal.date(from: comps)!
-            let secs = max(0, startTime.timeIntervalSince(now))
-            let h = Int(secs) / 3600
-            let m = (Int(secs) % 3600) / 60
-            let status = h > 0 ? "Work in \(h)h\(m)m" : "Work in \(m)m"
-            return (status, false)
-        }
-
-        // Minimal implementation - just return default for other states
-        return ("Workday in progress", false)
-    }
-}
-
 struct AppDependencies {
     let settings: SettingsProviding
     let eventStore: EventStoreProtocol
