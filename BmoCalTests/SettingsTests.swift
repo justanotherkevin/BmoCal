@@ -61,25 +61,25 @@ func settingsArchiveUnarchive() {
     #expect(settings2.data.calendarNames == ["Work", "Personal"])
 }
 
-@Test("StatusStringBuilder returns 'Work in Xh Ym' before workday")
-func statusStringBuilderBeforeWorkday() {
-    var settings = Settings.Data()
-    settings.workdayStartHour = 9
-    settings.workdayEndHour = 18
+@Test("getMenuBarStatus shows time until workday before it starts")
+@MainActor
+func menuBarStatusBeforeWorkday() {
+    let url = tempSettingsURL()
+    defer { try? FileManager.default.removeItem(at: url) }
+    let vc = NextEventViewController()
+    vc.settings = Settings(archiveURL: url)
+    vc.settings.data.workdayStartHour = 9
+    vc.settings.data.workdayEndHour = 18
 
-    // Create a time at 8:00 AM
-    let cal = Calendar.current
-    var comps = DateComponents()
-    comps.year = 2026; comps.month = 5; comps.day = 15
-    comps.hour = 8; comps.minute = 0; comps.second = 0
-    let time8am = cal.date(from: comps)!
+    func at(_ h: Int, _ m: Int, _ s: Int) -> Date {
+        Calendar.current.date(from: DateComponents(year: 2026, month: 5, day: 15, hour: h, minute: m, second: s))!
+    }
 
-    let builder = StatusStringBuilder(settings: settings, events: [], timeTools: TimeStringTools())
-    let (status, _) = builder.build(now: time8am)
+    let early = vc.getMenuBarStatus(now: at(7, 40, 0))
+    #expect(early.text == "in 1h 20m")
+    guard case .appIcon = early.image else { Issue.record("expected .appIcon"); return }
 
-    // Before 9am, should show "Work in Xh Ym" format
-    #expect(status.contains("Work in"))
-    #expect(status.contains("1h"))
+    #expect(vc.getMenuBarStatus(now: at(8, 59, 30)).text == "starting")
 }
 
 @Test("validSavedOrigin accepts on-screen and left-monitor origins, rejects off-screen and unset")
