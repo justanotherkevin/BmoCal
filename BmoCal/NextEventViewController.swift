@@ -2,7 +2,7 @@ import Cocoa
 import EventKit
 
 enum MenuBarImage { case appIcon, capsule(fraction: Double), urgentDot, done }
-struct MenuBarStatus { let image: MenuBarImage; let text: String }
+struct MenuBarStatus { let image: MenuBarImage; let text: String; let tooltip: String }
 
 class KSTableCellView: NSTableCellView {
 
@@ -149,6 +149,10 @@ class NextEventViewController: NSViewController {
         return "\(title) \(TimeStringTools().durationString(secs))"
     }
 
+    private func startsLine(_ item: EKCalendarItem, _ date: Date) -> String {
+        "\(item.title ?? "Event") starts at \(TimeStringTools().getShortTimeString(date))"
+    }
+
     func getMenuBarStatus(now: Date = Date()) -> MenuBarStatus {
         let tools = TimeStringTools()
         let startHour = settings.data.workdayStartHour
@@ -156,34 +160,42 @@ class NextEventViewController: NSViewController {
         let cal = Calendar.current
         let hour = cal.component(.hour, from: now)
 
-        var label: String?
+        var event: (label: String, line: String)?
         var eventSecs = TimeInterval.infinity
         let n = getNextEvent()
         if n >= 0, let date = getDateFromEventItem(calendarItems[n]) {
             eventSecs = date.timeIntervalSince(now)
-            if eventSecs > 0 && eventSecs <= 3600 { label = eventLabel(calendarItems[n], secs: eventSecs) }
+            if eventSecs > 0 && eventSecs <= 3600 {
+                event = (eventLabel(calendarItems[n], secs: eventSecs), startsLine(calendarItems[n], date))
+            }
         }
 
-        if let label = label, eventSecs <= 300 {
-            return MenuBarStatus(image: .urgentDot, text: label)
+        if let event, eventSecs <= 300 {
+            return MenuBarStatus(image: .urgentDot, text: event.label, tooltip: event.line)
         }
 
         if hour < startHour {
             let start = cal.date(bySettingHour: startHour, minute: 0, second: 0, of: now) ?? now
             let secs = start.timeIntervalSince(now)
-            return MenuBarStatus(image: .appIcon, text: secs < 60 ? "starting" : "in " + tools.durationString(secs))
+            return MenuBarStatus(image: .appIcon, text: secs < 60 ? "starting" : "in " + tools.durationString(secs),
+                                 tooltip: "Workday starts at \(tools.getShortTimeString(start))")
         }
 
         if hour >= endHour {
-            if let label = label { return MenuBarStatus(image: .appIcon, text: label) }
-            return MenuBarStatus(image: .done, text: "")
+            if let event { return MenuBarStatus(image: .appIcon, text: event.label, tooltip: "Workday is over. " + event.line) }
+            return MenuBarStatus(image: .done, text: "", tooltip: "Workday is over")
         }
 
-        var text = tools.workdayRemainingString(endHour: endHour, now: now)
-        if let label = label { text += "   " + label }
+        let remaining = tools.workdayRemainingString(endHour: endHour, now: now)
+        var text = remaining
+        if let event { text += "   " + event.label }
+        let end = cal.date(bySettingHour: endHour, minute: 0, second: 0, of: now) ?? now
+        var tooltip = "Workday ends at \(tools.getShortTimeString(end)), \(remaining) left"
+        if let event { tooltip += ". " + event.line }
         return MenuBarStatus(
             image: .capsule(fraction: tools.workdayFraction(startHour: startHour, endHour: endHour, now: now)),
-            text: text
+            text: text,
+            tooltip: tooltip
         )
     }
 
@@ -286,7 +298,6 @@ class NextEventViewController: NSViewController {
                 }
 
                 // notify event
-                //print("\(ceil(now.timeIntervalSinceReferenceDate)) == \(ceil(itemDate.timeIntervalSinceReferenceDate)), \(item.title ?? "No title")")
                 if itemDate.wasCrossed(since: previous, now: now) {
 
                     if settings.data.useSystemAlert {
@@ -448,7 +459,6 @@ extension NextEventViewController: NSTableViewDataSource, NSTableViewDelegate {
             (result.leadTime.stringValue, result.leadTimeUnit.stringValue) = getLeadTimeStrings(itemDate)
         }
 
-        //print(copyCalendarItems[row])
 
         if copyCalendarItems[row].calendar != nil {
             result.calendarColor.backgroundColor = copyCalendarItems[row].calendar.color
