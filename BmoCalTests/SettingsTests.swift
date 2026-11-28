@@ -77,9 +77,12 @@ func menuBarStatusBeforeWorkday() {
 
     let early = vc.getMenuBarStatus(now: at(7, 40, 0))
     #expect(early.text == "in 1h 20m")
+    #expect(early.tooltip == "Workday starts at 9:00 AM")
     guard case .appIcon = early.image else { Issue.record("expected .appIcon"); return }
 
     #expect(vc.getMenuBarStatus(now: at(8, 59, 30)).text == "starting")
+    #expect(vc.getMenuBarStatus(now: at(12, 0, 0)).tooltip == "Workday ends at 6:00 PM, 6h 00m left")
+    #expect(vc.getMenuBarStatus(now: at(19, 0, 0)).tooltip == "Workday is over")
 }
 
 @Test("validSavedOrigin accepts on-screen and left-monitor origins, rejects off-screen and unset")

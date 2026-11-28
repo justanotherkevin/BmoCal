@@ -483,9 +483,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         case .urgentDot: imageKey = "urgentDot"
         case .done: imageKey = "done"
         }
-        let key = imageKey + "|" + status.text
+        let key = imageKey + "|" + status.text + "|" + status.tooltip
         if key == lastStatusKey { return }
         lastStatusKey = key
+        button.toolTip = status.tooltip
         switch status.image {
         case .appIcon: button.image = icon
         case .capsule(let fraction): button.image = capsuleImage(fraction: fraction)
